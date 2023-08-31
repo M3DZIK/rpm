@@ -22,7 +22,7 @@
 
 Name:          intellij-idea-ultimate
 Version:       2023.2.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Capable and Ergonomic Java IDE
 License:       Apache-2.0
 URL:           https://www.jetbrains.com/%{appname}/
