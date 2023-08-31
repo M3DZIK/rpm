@@ -1,0 +1,24 @@
+name: Updater
+
+on:
+  schedule:
+  - cron: "0 2 * * *"
+
+  workflow_dispatch:
+
+jobs:
+  updater:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure GIT
+        run: |
+          git config --global user.email 'me@medzik.dev'
+          git config --global user.name 'M3DZIK'
+
+      - name: Run updater
+        run: ./scripts/updater.sh
+        env:
+          WEBHOOK: ${{ secrets.WEBHOOK }}
