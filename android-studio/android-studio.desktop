@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=Development;IDE;
+Exec=android-studio
+GenericName=Development environment for the Android platform
+Icon=android-studio
+Keywords=development;android;studio;java;
+Name=Android Studio
+StartupNotify=true
+StartupWMClass=jetbrains-studio
+Terminal=false
+Type=Application
