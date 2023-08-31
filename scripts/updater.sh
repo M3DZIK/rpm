@@ -26,6 +26,10 @@ for pkg in *; do
     echo "$pkg: current: $spec_version ($spec_build)"
 
     if [ "$spec_version $spec_build" != "$version $build" ]; then
+        spec_write_version $pkg/$pkg.spec $version
+        spec_write_global $pkg/$pkg.spec build_vers $build
+        spec_write_changelog $pkg/$pkg.spec $version "$spec_version ($spec_build)"
+
         git add .
         git commit -m "$pkg: Update to ${version}"
         git push
