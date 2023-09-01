@@ -19,9 +19,8 @@
       IntelliJ IDEA Community can be downloaded at no cost and is open for contributions by community members. The
       product is built on top of the IntelliJ Platform, which is fully open source.
     </p>
-    <p>NOTE: This wrapper is not verified by, affiliated with, or supported by JetBrains s.r.o.</p>
   </description>
-  <launchable type="desktop-id">com.jetbrains.IntelliJ-IDEA-Community.desktop</launchable>
+  <launchable type="desktop-id">intellij-idea-community.desktop</launchable>
   <screenshots>
     <screenshot type="default">
       <image>https://www.jetbrains.com/idea/img/screenshots/idea_overview_2.png</image>
