@@ -8,32 +8,86 @@ USER="M3DZIK <me@medzik.dev>"
 
 source "$SCRIPT_DIR/utils.sh"
 
-for pkg in *; do
-    if [[ ! -e "$pkg/.updater" ]]; then
-        continue
+update_package() {
+  local package="$1"
+  local spec_file="$package/$package.spec"
+
+  echo "Checking package: $package"
+
+  local spec_version;
+  local spec_build;
+  spec_version=$(spec_get_version "$spec_file")
+  spec_build=$(spec_get_global "$spec_file" build_ver)
+
+  eval "$(parse_config "$package")"
+
+  local latest_version;
+  local latest_build;
+  if [ "$TYPE" == "jetbrains" ]; then
+    eval "$(latest_jetbrains_version "$JETBRAINS_CODE")"
+  fi
+
+  if [[ -z "$latest_version" || "$latest_version" == "null" ]]; then
+    echo "[!] Failed to get latest version of $package"
+    return 1
+  fi
+
+  if [ -n "$spec_build" ]; then
+    if [[ -z "$latest_build" || "$latest_build" == "null" ]]; then
+      echo "[!] Failed to get latest build of $package"
+      return 1
     fi
+  fi
 
-    . "$pkg/.updater"
+  echo "Latest Version: $latest_version"
+  echo "Latest Build: $latest_build"
 
-    LATEST="$(curl -s 'https://data.services.jetbrains.com/products/releases?code='$CODE'&latest=true&type=release')"
-    version="$(printf "%s" "${LATEST}" | jq -r '.'$CODE'[0].version')"
-    build="$(printf "%s" "${LATEST}" | jq -r '.'$CODE'[0].build')"
+  if ! eval compare_version "$spec_version" "$latest_version"; then
+    return 0
+  fi
 
-    spec_version=$(spec_get_version $pkg/$pkg.spec)
-    spec_build=$(spec_get_global $pkg/$pkg.spec build_vers)
+  local changelog
+  if [ -z "$spec_build" ]; then
+    changelog="$latest_version"
+  else
+    changelog="$latest_version ($latest_build)"
+  fi
 
-    echo "$pkg: latest:  $version ($build)"
-    echo "$pkg: current: $spec_version ($spec_build)"
+  spec_write_version "$spec_file" "$latest_version"
+  if [ -z "$spec_build" ]; then
+    spec_write_global "$spec_file" build_ver "$build"
+  fi
+  spec_write_changelog "$spec_file" "$latest_version" "$changelog"
 
-    if [ "$spec_version $spec_build" != "$version $build" ]; then
-        spec_write_version $pkg/$pkg.spec $version
-        spec_write_global $pkg/$pkg.spec build_vers $build
-        spec_write_changelog $pkg/$pkg.spec $version "$spec_version ($spec_build)"
+  git add .
+  git commit -m "$package: Update to $latest_version"
+  git push
 
-        git add .
-        git commit -m "$pkg: Update to ${version}"
-        git push
+  if [ "$COPR" == "jetbrains" ]; then
+    curl -X POST "$WEBHOOK_JETBRAINS/$package"
+  fi
 
-        curl -X POST "$WEBHOOK/$pkg"
-    fi
+  echo "Committed"
+}
+
+latest_jetbrains_version() {
+  local latest_version;
+  local latest_build;
+
+  local code="$1"
+
+  json="$(curl -s 'https://data.services.jetbrains.com/products/releases?code='"$code"'&latest=true&type=release')"
+  version="$(printf "%s" "$json" | jq -r '.'"$code"'[0].version')"
+  build="$(printf "%s" "$json" | jq -r '.'"$code"'[0].build')"
+
+  echo "local latest_version=$version"
+  echo "local latest_build=$build"
+}
+
+for package in *; do
+  if [[ ! -e "$package/updater.conf" ]]; then
+    continue
+  fi
+
+  update_package "$package"
 done

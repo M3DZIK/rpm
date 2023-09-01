@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname idea
-%global build_vers 232.9559.62
+%global build_ver 232.9559.62
 %global idea_name idea-IC
 
 # disable debuginfo subpackage
@@ -54,7 +54,7 @@ BuildArch:     noarch
 This package contains documentation for IntelliJ IDEA Community
 
 %prep
-%setup -q -n %{idea_name}-%{build_vers}
+%setup -q -n %{idea_name}-%{build_ver}
 
 %build
 
@@ -107,8 +107,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
-* Thu Aug 31 2023 M3DZIK <me@medzik.dev> - 2023.2.1
-- Update to 2023.2.0 (232.9559.61)
-
 * Thu Aug 31 2023 M3DZIK <me@medzik.dev> - 2023.2.1
 - Initial release

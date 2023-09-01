@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname idea
-%global build_vers 232.9559.62
+%global build_ver 232.9559.61
 %global idea_name idea-IU
 
 # disable debuginfo subpackage
@@ -57,7 +57,7 @@ BuildArch:     noarch
 This package contains documentation for IntelliJ IDEA Ultimate
 
 %prep
-%setup -q -n %{idea_name}-%{build_vers}
+%setup -q -n %{idea_name}-%{build_ver}
 
 %build
 
