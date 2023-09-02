@@ -1,7 +1,5 @@
 # setting some global constants
-%global appname idea
-%global build_ver 232.9559.62
-%global idea_name idea-IU
+%global appname clion
 
 # disable debuginfo subpackage
 %global debug_package %{nil}
@@ -20,17 +18,17 @@
 %global __provides_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
-Name:          intellij-idea-ultimate
+Name:          clion
 Version:       2023.2.1
-Release:       2%{?dist}
-Summary:       Capable and Ergonomic Java IDE
+Release:       1%{?dist}
+Summary:       A cross-platform IDE for C and C++
 License:       Proprietary
 URL:           https://www.jetbrains.com/%{appname}/
 
-Source0:       https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
+Source0:       https://download.jetbrains.com/cpp/CLion-%{version}.tar.gz
 
-Source101:     intellij-idea-ultimate.desktop
-Source102:     intellij-idea-ultimate.metainfo.xml
+Source101:     %{name}.desktop
+Source102:     %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
@@ -42,22 +40,17 @@ Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
 
 %description
-IntelliJ IDEA Ultimate is a fully-fledged commercial IDE for the JVM platform. IntelliJ IDEA provides all the
-tools you need for productive enterprise, Web, and mobile development. IntelliJ IDEA supports Java, Groovy,
-Kotlin, Scala, Android, JavaScript, SQL and lots of other languages and frameworks. It offers instant and clever
-code completion, on-the-fly code analysis and reliable refactoring tools. Mission-critical tools such as
-integrated version controls systems and a wide variety of supported languages and frameworks are at hand — no
-plugin hustle included.
+CLion is designed for native cross-platform development in C and C++, as well as Kotlin/Native, Rust and Swift.
 
 %package doc
-Summary:       Documentation for IntelliJ IDEA Ultimate
+Summary:       Documentation for CLion
 BuildArch:     noarch
 
 %description doc
-This package contains documentation for IntelliJ IDEA Ultimate
+This package contains documentation for CLion
 
 %prep
-%setup -q -n %{idea_name}-%{build_ver}
+%setup -q -n %{name}-%{version}
 
 %build
 
@@ -111,5 +104,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
-* Thu Aug 31 2023 M3DZIK <me@medzik.dev> - 2023.2.1
+* Thu Sep 02 2023 M3DZIK <me@medzik.dev> - 2023.2.1
 - Initial release
