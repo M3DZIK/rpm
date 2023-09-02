@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=GoLand
+GenericName=Capable and Ergonomic Go IDE
+Exec=goland
+Terminal=false
+Icon=goland
+Type=Application
+Categories=Development;IDE;
+Keywords=development;goland;ide;golang;
+StartupWMClass=jetbrains-goland
