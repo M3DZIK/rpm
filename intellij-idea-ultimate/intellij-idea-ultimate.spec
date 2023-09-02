@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname idea
-%global build_ver 232.9559.61
+%global build_ver 232.9559.62
 %global idea_name idea-IU
 
 # disable debuginfo subpackage

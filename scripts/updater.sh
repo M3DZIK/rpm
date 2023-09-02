@@ -54,8 +54,8 @@ update_package() {
   fi
 
   spec_write_version "$spec_file" "$latest_version"
-  if [ -z "$spec_build" ]; then
-    spec_write_global "$spec_file" build_ver "$build"
+  if [ -n "$spec_build" ]; then
+    spec_write_global "$spec_file" build_ver "$latest_build"
   fi
   spec_write_changelog "$spec_file" "$latest_version" "$changelog"
 
