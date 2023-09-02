@@ -24,7 +24,7 @@ Name:          intellij-idea-ultimate
 Version:       2023.2.1
 Release:       2%{?dist}
 Summary:       Capable and Ergonomic Java IDE
-License:       Proprietary
+License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
 
 Source0:       https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
@@ -59,7 +59,12 @@ This package contains documentation for IntelliJ IDEA Ultimate
 %prep
 %setup -q -n %{idea_name}-%{build_ver}
 
-%build
+# Patching shebangs...
+%if 0%{?fedora}
+%py3_shebang_fix bin
+%else
+find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
+%endif
 
 %install
 # Installing application...

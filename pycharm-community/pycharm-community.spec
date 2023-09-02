@@ -52,7 +52,12 @@ This package contains documentation for PyCharm Community
 %prep
 %setup -q -n %{name}-%{version}
 
-%build
+# Patching shebangs...
+%if 0%{?fedora}
+%py3_shebang_fix bin
+%else
+find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
+%endif
 
 %install
 # Installing application...

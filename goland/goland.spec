@@ -20,9 +20,9 @@
 
 Name:          goland
 Version:       2023.2.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Capable and Ergonomic Go IDE
-License:       Apache-2.0
+License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
 
 Source0:       https://download.jetbrains.com/go/%{name}-%{version}.tar.gz
@@ -51,6 +51,13 @@ This package contains documentation for GoLand
 
 %prep
 %setup -q -n GoLand-%{version}
+
+# Patching shebangs...
+%if 0%{?fedora}
+%py3_shebang_fix bin
+%else
+find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
+%endif
 
 %install
 # Installing application...

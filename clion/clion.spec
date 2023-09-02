@@ -22,7 +22,7 @@ Name:          clion
 Version:       2023.2.1
 Release:       1%{?dist}
 Summary:       A cross-platform IDE for C and C++
-License:       Proprietary
+License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
 
 Source0:       https://download.jetbrains.com/cpp/CLion-%{version}.tar.gz
@@ -52,7 +52,12 @@ This package contains documentation for CLion
 %prep
 %setup -q -n %{name}-%{version}
 
-%build
+# Patching shebangs...
+%if 0%{?fedora}
+%py3_shebang_fix bin
+%else
+find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
+%endif
 
 %install
 # Installing application...
