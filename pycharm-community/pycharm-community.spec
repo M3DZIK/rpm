@@ -104,5 +104,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
-* Thu Sep 02 2023 M3DZIK <me@medzik.dev> - 2023.2.1
+* Sat Sep 02 2023 M3DZIK <me@medzik.dev> - 2023.2.1
 - Initial release
