@@ -5,7 +5,7 @@
 
 Name:          librepass
 Version:       1.0.0+alpha1
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       LibrePass Desktop Application
 License:       GPL-3.0
 URL:           https://librepass.medzik.dev
@@ -45,6 +45,7 @@ fi
 # Installing application...
 install -d %{buildroot}%{_javadir}/%{name}
 cp -arf ./usr/{bin,lib} %{buildroot}%{_javadir}/%{name}/
+sed -i 's;/usr/lib/librepass;%{_javadir}/%{name};' %{buildroot}%{_javadir}/%{name}/bin/librepass
 
 # Installing icons...
 install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
