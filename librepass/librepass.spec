@@ -1,5 +1,8 @@
 %global tag 1.0.0-alpha1
 
+# disable debuginfo subpackage
+%global debug_package %{nil}
+
 Name:          librepass
 Version:       1.0.0+alpha1
 Release:       1%{?dist}
