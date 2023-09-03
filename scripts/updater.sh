@@ -25,6 +25,8 @@ update_package() {
   local latest_build;
   if [ "$TYPE" == "jetbrains" ]; then
     eval "$(latest_jetbrains_version "$JETBRAINS_CODE")"
+  elif [ "$TYPE" == "custom" ]; then
+    latest_version=$("$package/$CUSTOM")
   fi
 
   if [[ -z "$latest_version" || "$latest_version" == "null" ]]; then
@@ -40,7 +42,9 @@ update_package() {
   fi
 
   echo "Latest Version: $latest_version"
-  echo "Latest Build: $latest_build"
+  if [ -n "$latest_build" ]; then
+    echo "Latest Build: $latest_build"
+  fi
 
   if ! eval compare_version "$spec_version" "$latest_version"; then
     return 0

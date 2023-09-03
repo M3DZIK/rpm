@@ -44,12 +44,14 @@ parse_config() {
     echo "local COPR=$COPR"
     echo "local TYPE=$TYPE"
     echo "local JETBRAINS_CODE=$JETBRAINS_CODE"
+    echo "local CUSTOM=$CUSTOM"
   )
   eval "$config"
 
   echo "local COPR=$COPR"
   echo "local TYPE=$TYPE"
   echo "local JETBRAINS_CODE=$JETBRAINS_CODE"
+  echo "local CUSTOM=$CUSTOM"
 }
 
 # Compare two versions, return 1 if they are the same or 0 if they are different
