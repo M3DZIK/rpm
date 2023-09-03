@@ -40,7 +40,12 @@ else
 fi
 
 # Installing application...
-cp -arf ./usr %{buildroot}
+install -d %{buildroot}%{_javadir}/%{name}
+cp -arf ./usr/{bin,lib} %{buildroot}%{_javadir}/%{name}/
+
+# Installing icons...
+install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
+install -m 0644 -p .%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 
 # Creating additional PNG icons on the fly...
 for size in 16 22 24 32 48 64 128 256; do
@@ -55,16 +60,23 @@ done
 install -d %{buildroot}%{_metainfodir}
 install -m 0644 -p %{SOURCE101} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 
+# Installing launcher...
+install -d %{buildroot}%{_bindir}
+ln -s %{_javadir}/%{name}/bin/%{name}.sh %{buildroot}%{_bindir}/%{name}
+
+# Installing desktop file...
+install -d %{buildroot}%{_datadir}/applications
+install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/applications/%{name}.desktop
+
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
 %license LICENSE
+%{_javadir}/%{name}
 %{_bindir}/%{name}
-%{_libdir}/%{name}/*
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
 %{_metainfodir}/%{name}.metainfo.xml
 
