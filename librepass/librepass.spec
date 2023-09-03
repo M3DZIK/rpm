@@ -5,7 +5,7 @@
 
 Name:          librepass
 Version:       1.0.0+alpha1
-Release:       2%{?dist}
+Release:       3%{?dist}
 Summary:       LibrePass Desktop Application
 License:       GPL-3.0
 URL:           https://librepass.medzik.dev
