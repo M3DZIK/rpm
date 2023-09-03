@@ -18,8 +18,8 @@
 %global __provides_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
-Name:          android-studio
-Version:       2022.3.1.19
+Name:          android-studio-beta
+Version:       2023.1.1.17
 Release:       1%{?dist}
 Summary:       Integrated development environment for Google's Android platform
 License:       Proprietary
@@ -27,8 +27,8 @@ URL:           https://developer.android.com/%{appname}/
 
 Source0:       https://dl.google.com/android/studio/ide-zips/%{version}/android-studio-%{version}-linux.tar.gz
 
-Source101:     android-studio.desktop
-Source102:     android-studio.metainfo.xml
+Source101:     %{name}.desktop
+Source102:     %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
@@ -46,11 +46,11 @@ features on top of its powerful code editor and developer tools
 to enhance the productivity of the Android application developers
 
 %package doc
-Summary:       Documentation for Android Studio
+Summary:       Documentation for Android Studio Beta
 BuildArch:     noarch
 
 %description doc
-This package contains documentation for Android Studio
+This package contains documentation for Android Studio Beta
 
 %prep
 %setup -q -n android-studio
@@ -111,5 +111,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
-* Thu Aug 31 2023 M3DZIK <me@medzik.dev> - 2022.3.1.19
+* Sun Sep 03 2023 M3DZIK <me@medzik.dev> - 2023.1.1.17
 - Initial release
