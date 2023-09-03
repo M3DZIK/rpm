@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>dev.medzik.librepass</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <name>LibrePass</name>
+  <summary>Take control of your passwords with LibrePass.</summary>
+  <description>
+    <p>
+      LibrePass is a free and open-source software that is a password manager that will help you take care of the
+      security of your passwords along with convenient access to them.
+    </p>
+    <p>
+      With LibrePass, convenience and security go hand in hand. Through LibrePass, your passwords are secure while you
+      have easy access to them.
+    </p>
+  </description>
+  <launchable type="desktop-id">librepass.desktop</launchable>
+  <url type="bugtracker">https://github.com/LibrePass/LibrePass-Desktop/issues</url>
+  <url type="help">https://librepass.medzik.dev/help</url>
+  <url type="homepage">https://librepass.medzik.dev</url>
+  <developer_name>LibrePass Team</developer_name>
+  <update_contact>librepass@medzik.dev</update_contact>
+  <content_rating type="oars-1.1"/>
+</component>
