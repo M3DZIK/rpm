@@ -44,8 +44,7 @@ fi
 
 # Installing application...
 install -d %{buildroot}%{_javadir}/%{name}
-cp -arf ./usr/{bin,lib} %{buildroot}%{_javadir}/%{name}/
-sed -i 's;/usr/lib/librepass;%{_javadir}/%{name};' %{buildroot}%{_javadir}/%{name}/bin/librepass
+cp -arf ./usr/lib/* %{buildroot}%{_javadir}/%{name}/
 
 # Installing icons...
 install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
@@ -66,7 +65,8 @@ install -m 0644 -p %{SOURCE101} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
-ln -s %{_javadir}/%{name}/bin/%{name} %{buildroot}%{_bindir}/%{name}
+cp -af ./usr/bin/librepass %{buildroot}%{_bindir}/%{name}
+sed -i 's;/usr/lib/librepass;%{_javadir}/%{name};' %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
