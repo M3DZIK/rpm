@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=Development;IDE;
+Exec=android-studio-canary
+GenericName=Development environment for the Android platform
+Icon=android-studio-canary
+Keywords=development;android;studio;java;
+Name=Android Studio Canary
+StartupNotify=true
+StartupWMClass=jetbrains-studio-canary
+Terminal=false
+Type=Application

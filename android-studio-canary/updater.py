@@ -12,7 +12,7 @@ html = html_bytes.decode("utf-8")
 
 versions = re.findall("android-studio-(.*)-linux.tar.gz*", html)
 
-# The beta version is smaller than canary version so take it.
-version = min(versions)
+# The canary version is bigger than beta version so take it.
+version = max(versions)
 
 print(version)
