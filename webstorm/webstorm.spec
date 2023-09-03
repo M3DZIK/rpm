@@ -21,7 +21,7 @@
 
 Name:          webstorm
 Version:       2023.2.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       The smartest JavaScript IDE
 License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/

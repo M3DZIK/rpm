@@ -7,4 +7,4 @@ Icon=webstorm
 Type=Application
 Categories=Development;IDE;
 Keywords=development;javascript;webstorm;
-StartupWMClass=webstorm
+StartupWMClass=jetbrains-webstorm
