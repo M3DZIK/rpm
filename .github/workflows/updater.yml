@@ -21,4 +21,4 @@ jobs:
       - name: Run updater
         run: ./scripts/updater.sh
         env:
-          WEBHOOK: ${{ secrets.WEBHOOK }}
+          WEBHOOK_JETBRAINS: ${{ secrets.WEBHOOK_JETBRAINS }}
