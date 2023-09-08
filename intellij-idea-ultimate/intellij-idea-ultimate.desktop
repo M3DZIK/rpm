@@ -1,11 +1,10 @@
 [Desktop Entry]
-Categories=Development;IDE;
-Exec=intellij-idea-ultimate
-GenericName=Capable and Ergonomic Java IDE
-Icon=intellij-idea-ultimate
-Keywords=development;idea;ide;intellij;java;
 Name=IntelliJ IDEA Ultimate
-StartupNotify=true
-StartupWMClass=jetbrains-idea
+GenericName=Capable and Ergonomic Java IDE
+Exec=intellij-idea-ultimate
 Terminal=false
+Icon=intellij-idea-ultimate
 Type=Application
+Categories=Development;IDE;
+Keywords=development;idea;ide;intellij;java;
+StartupWMClass=jetbrains-idea

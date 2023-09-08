@@ -36,6 +36,5 @@
       <image type="source">https://www.jetbrains.com/webstorm/img/screenshots/webstorm-main.png</image>
     </screenshot>
   </screenshots>
-  <update_contact>me@medzik.dev</update_contact>
   <content_rating type="oars-1.1"/>
 </component>

@@ -21,7 +21,7 @@
 Name:          android-studio-beta
 Version:       2023.1.1.19
 Release:       1%{?dist}
-Summary:       Integrated development environment for Google's Android platform
+Summary:       Integrated development environment for Google's Android platform - Beta Branch
 License:       Proprietary
 URL:           https://developer.android.com/%{appname}/
 

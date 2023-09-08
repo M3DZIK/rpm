@@ -1,11 +1,10 @@
 [Desktop Entry]
-Categories=Development;IDE;
-Exec=android-studio-beta
+Name=Android Studio (Beta branch)
 GenericName=Development environment for the Android platform
-Icon=android-studio-beta
 Keywords=development;android;studio;java;
-Name=Android Studio Beta
-StartupNotify=true
-StartupWMClass=jetbrains-studio-beta
-Terminal=false
+Categories=Development;IDE;
 Type=Application
+Exec=android-studio-beta
+Terminal=false
+Icon=android-studio-beta
+StartupWMClass=jetbrains-studio-beta

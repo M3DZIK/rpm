@@ -21,7 +21,7 @@
 Name:          android-studio-canary
 Version:       2023.2.1.3
 Release:       1%{?dist}
-Summary:       Integrated development environment for Google's Android platform
+Summary:       Integrated development environment for Google's Android platform - Canary branch
 License:       Proprietary
 URL:           https://developer.android.com/%{appname}/
 
