@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname idea
-%global build_ver 232.9559.62
+%global build_ver 232.9921.47
 %global idea_name idea-IC
 
 # disable debuginfo subpackage
@@ -21,8 +21,8 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          intellij-idea-community
-Version:       2023.2.1
-Release:       3%{?dist}
+Version:       2023.2.2
+Release:       1%{?dist}
 Summary:       Capable and Ergonomic Java IDE
 License:       Apache-2.0
 URL:           https://www.jetbrains.com/%{appname}/
@@ -112,5 +112,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Thu Sep 14 2023 M3DZIK <me@medzik.dev> - 2023.2.2
+- Update to 2023.2.2 (232.9921.47)
+
 * Thu Aug 31 2023 M3DZIK <me@medzik.dev> - 2023.2.1
 - Initial release
