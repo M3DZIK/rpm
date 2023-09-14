@@ -19,8 +19,8 @@
 %global __requires_exclude_from %{_javadir}/%{name}/bin/.*|%{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          clion
-Version:       2023.2.1
-Release:       2%{?dist}
+Version:       2023.2.2
+Release:       1%{?dist}
 Summary:       A cross-platform IDE for C and C++
 License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
@@ -109,5 +109,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Thu Sep 14 2023 M3DZIK <me@medzik.dev> - 2023.2.2
+- Update to 2023.2.2
+
 * Sat Sep 02 2023 M3DZIK <me@medzik.dev> - 2023.2.1
 - Initial release
