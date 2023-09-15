@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Rider
+GenericName=Fast & powerful, cross platform .NET IDE
+Exec=rider
+Terminal=false
+Icon=rider
+Type=Application
+Categories=Development;IDE;
+Keywords=development;dotnet;ide;
+StartupWMClass=jetbrains-rider
