@@ -51,7 +51,7 @@ BuildArch:     noarch
 This package contains documentation for RubyMine
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n RubyMine-%{version}
 
 # Patching shebangs...
 %if 0%{?fedora}
