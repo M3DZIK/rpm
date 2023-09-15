@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.jetbrains.RubyMine</id>
+  <metadata_license>CC-BY-SA</metadata_license>
+  <project_license>LicenseRef-proprietary</project_license>
+  <name>RubyMine</name>
+  <summary>Ruby and Rails IDE with the full stack of essential developer tools</summary>
+  <description>
+    <p>
+       RubyMine is an integrated development environment that helps you be more productive in every aspect of 
+       Ruby/Rails projects development – from writing and debugging code to testing and deploying a completed application.
+       This section will give you a brief overview of some of the most essential features available in RubyMine.
+    </p>
+
+    <p>
+      RubyMine is available for a free 30-day evaluation. Monthly and yearly subscription options are available for
+      companies and individual users.
+    </p>
+  </description>
+  <url type="bugtracker">https://youtrack.jetbrains.com/</url>
+  <url type="help">https://www.jetbrains.com/help/rubymine/</url>
+  <url type="homepage">http://www.jetbrains.com/rubymine/</url>
+  <launchable type="desktop-id">rubymine.desktop</launchable>
+  <developer_name>JetBrains s.r.o.</developer_name>
+  <screenshots>
+    <screenshot type="default">
+      <image type="source">https://www.jetbrains.com/ruby/img/screenshots/tools_integration@2x.png</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1"/>
+</component>

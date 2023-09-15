@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=RubyMine
+GenericName=Ruby and Rails IDE with the full stack of essential developer tools
+Exec=rubymine
+Terminal=false
+Icon=rubymine
+Type=Application
+Categories=Development;IDE;
+Keywords=development;ruby;ide;
+StartupWMClass=jetbrains-rubymine
