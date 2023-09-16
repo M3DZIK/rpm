@@ -48,7 +48,7 @@ BuildArch:     noarch
 This package contains documentation for PyCharm Community
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{appname}-%{version}
 
 # Patching shebangs...
 %if 0%{?fedora}
