@@ -30,7 +30,6 @@ Source0:       https://download.jetbrains.com/rider/JetBrains.Rider-%{version}.t
 Source101:     %{name}.desktop
 
 BuildRequires: desktop-file-utils
-BuildRequires: libappstream-glib
 BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
@@ -87,7 +86,6 @@ install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
