@@ -53,9 +53,9 @@ This package contains documentation for Rider
 
 # Patching shebangs...
 %if 0%{?fedora}
-%py3_shebang_fix bin
+%py3_shebang_fix plugins
 %else
-find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
+find plugins -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
 %endif
 
 %install
