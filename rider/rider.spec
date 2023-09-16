@@ -97,7 +97,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
 
 %files doc
-%doc help/
 %doc *.txt
 
 %changelog
