@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname webstorm
-%global build_ver 232.9559.58
+%global build_ver 232.9921.42
 
 # disable debuginfo subpackage
 %global debug_package %{nil}
@@ -20,8 +20,8 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          webstorm
-Version:       2023.2.1
-Release:       2%{?dist}
+Version:       2023.2.2
+Release:       1%{?dist}
 Summary:       The smartest JavaScript IDE
 License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
@@ -112,5 +112,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Sat Sep 16 2023 M3DZIK <me@medzik.dev> - 2023.2.2
+- Update to 2023.2.2 (232.9921.42)
+
 * Sun Sep 03 2023 M3DZIK <me@medzik.dev> - 2023.2.1
 - Initial release
