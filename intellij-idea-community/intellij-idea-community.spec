@@ -23,17 +23,15 @@
 Name:          intellij-idea-community
 Version:       2023.2.2
 Release:       1%{?dist}
-Summary:       Capable and Ergonomic Java IDE
+Summary:       Capable and Ergonomic Java IDE - Community Edition
 License:       Apache-2.0
 URL:           https://www.jetbrains.com/%{appname}/
 
 Source0:       https://download.jetbrains.com/idea/ideaIC-%{version}.tar.gz
 
 Source101:     intellij-idea-community.desktop
-Source102:     intellij-idea-community.metainfo.xml
 
 BuildRequires: desktop-file-utils
-BuildRequires: libappstream-glib
 BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
@@ -43,8 +41,7 @@ Requires:      javapackages-filesystem
 
 %description
 IntelliJ IDEA Community is a free and open-source edition of IntelliJ IDEA, the commercial Java IDE by JetBrains.
-IntelliJ IDEA Community provides all the tools you need for Java, Groovy, Kotlin, Scala, and Android. It offers
-instant and clever code completion, on-the-fly code analysis, and reliable refactoring tools.
+IntelliJ IDEA Community provides all the tools you need for Java, Groovy, Kotlin, Scala, and Android.
 
 %package doc
 Summary:       Documentation for IntelliJ IDEA Community
@@ -83,10 +80,6 @@ for size in 16 22 24 32 48 64 128 256; do
     touch -r bin/%{appname}.svg ${dest}/%{name}.png
 done
 
-# Installing metainfo...
-install -d %{buildroot}%{_metainfodir}
-install -m 0644 -p %{SOURCE102} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
-
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
 ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
@@ -96,7 +89,6 @@ install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
@@ -106,7 +98,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
-%{_metainfodir}/%{name}.metainfo.xml
 
 %files doc
 %doc *.txt

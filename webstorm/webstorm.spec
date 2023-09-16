@@ -29,10 +29,8 @@ URL:           https://www.jetbrains.com/%{appname}/
 Source0:       https://download.jetbrains.com/%{appname}/WebStorm-%{version}.tar.gz
 
 Source101:     %{name}.desktop
-Source102:     %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
-BuildRequires: libappstream-glib
 BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
@@ -41,9 +39,7 @@ Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
 
 %description
-Use the full power of the modern JavaScript ecosystem – WebStorm's got you covered! Enjoy the intelligent code
-completion, on-the-fly error detection, powerful navigation and refactoring for JavaScript, TypeScript, stylesheet
-languages, and all the most popular frameworks.
+WebStorm is an IDE for JavaScript and related technologies
 
 %package doc
 Summary:       Documentation for WebStorm
@@ -82,10 +78,6 @@ for size in 16 22 24 32 48 64 128 256; do
     touch -r bin/%{appname}.svg ${dest}/%{name}.png
 done
 
-# Installing metainfo...
-install -d %{buildroot}%{_metainfodir}
-install -m 0644 -p %{SOURCE102} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
-
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
 ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
@@ -105,7 +97,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
-%{_metainfodir}/%{name}.metainfo.xml
 
 %files doc
 %doc help/

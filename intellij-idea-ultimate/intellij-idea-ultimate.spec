@@ -23,17 +23,15 @@
 Name:          intellij-idea-ultimate
 Version:       2023.2.2
 Release:       1%{?dist}
-Summary:       Capable and Ergonomic Java IDE
+Summary:       Capable and Ergonomic Java IDE - Ultimate Edition
 License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
 
 Source0:       https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
 
 Source101:     intellij-idea-ultimate.desktop
-Source102:     intellij-idea-ultimate.metainfo.xml
 
 BuildRequires: desktop-file-utils
-BuildRequires: libappstream-glib
 BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
@@ -44,10 +42,7 @@ Requires:      javapackages-filesystem
 %description
 IntelliJ IDEA Ultimate is a fully-fledged commercial IDE for the JVM platform. IntelliJ IDEA provides all the
 tools you need for productive enterprise, Web, and mobile development. IntelliJ IDEA supports Java, Groovy,
-Kotlin, Scala, Android, JavaScript, SQL and lots of other languages and frameworks. It offers instant and clever
-code completion, on-the-fly code analysis and reliable refactoring tools. Mission-critical tools such as
-integrated version controls systems and a wide variety of supported languages and frameworks are at hand — no
-plugin hustle included.
+Kotlin, Scala, Android, JavaScript, SQL and lots of other languages and frameworks.
 
 %package doc
 Summary:       Documentation for IntelliJ IDEA Ultimate
@@ -86,10 +81,6 @@ for size in 16 22 24 32 48 64 128 256; do
     touch -r bin/%{appname}.svg ${dest}/%{name}.png
 done
 
-# Installing metainfo...
-install -d %{buildroot}%{_metainfodir}
-install -m 0644 -p %{SOURCE102} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
-
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
 ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
@@ -99,7 +90,6 @@ install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
@@ -109,7 +99,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
-%{_metainfodir}/%{name}.metainfo.xml
 
 %files doc
 %doc help/

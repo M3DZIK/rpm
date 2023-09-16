@@ -21,17 +21,15 @@
 Name:          pycharm-community
 Version:       2023.2.1
 Release:       1%{?dist}
-Summary:       Intelligent Python IDE
+Summary:       Intelligent Python IDE - Community Edition
 License:       Apache-2.0
 URL:           https://www.jetbrains.com/%{appname}/
 
 Source0:       https://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 
 Source101:     %{name}.desktop
-Source102:     %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
-BuildRequires: libappstream-glib
 BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
@@ -79,10 +77,6 @@ for size in 16 22 24 32 48 64 128 256; do
     touch -r bin/%{appname}.svg ${dest}/%{name}.png
 done
 
-# Installing metainfo...
-install -d %{buildroot}%{_metainfodir}
-install -m 0644 -p %{SOURCE102} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
-
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
 ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
@@ -92,7 +86,6 @@ install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
@@ -102,7 +95,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
-%{_metainfodir}/%{name}.metainfo.xml
 
 %files doc
 %doc help/

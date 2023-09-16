@@ -28,7 +28,6 @@ URL:           https://www.jetbrains.com/%{appname}/
 Source0:       https://download.jetbrains.com/rider/JetBrains.Rider-%{version}.tar.gz
 
 Source101:     %{name}.desktop
-Source102:     %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
@@ -40,9 +39,7 @@ Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
 
 %description
-Rider supports .NET Framework, the new cross-platform .NET Core, and Mono based projects. 
-This lets you develop a wide range of applications including .NET desktop applications, 
-services and libraries, Unity games, Xamarin apps, ASP.NET, and ASP.NET Core web applications.
+Rider supports .NET Framework, the new cross-platform .NET Core, and Mono based projects.
 
 %package doc
 Summary:       Documentation for Rider
@@ -81,10 +78,6 @@ for size in 16 22 24 32 48 64 128 256; do
     touch -r bin/%{appname}.svg ${dest}/%{name}.png
 done
 
-# Installing metainfo...
-install -d %{buildroot}%{_metainfodir}
-install -m 0644 -p %{SOURCE102} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
-
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
 ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
@@ -104,7 +97,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
-%{_metainfodir}/%{name}.metainfo.xml
 
 %files doc
 %doc help/
