@@ -52,7 +52,7 @@ BuildArch:     noarch
 This package contains documentation for Rider
 
 %prep
-%setup -q -n 'JetBrains Rider--%{version}
+%setup -q -n 'JetBrains Rider-%{version}'
 
 # Patching shebangs...
 %if 0%{?fedora}
