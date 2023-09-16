@@ -18,11 +18,11 @@
 %global __provides_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
-Name:          pycharm-community
+Name:          pycharm-professional
 Version:       2023.2.1
-Release:       2%{?dist}
-Summary:       Intelligent Python IDE - Community
-License:       Apache-2.0
+Release:       1%{?dist}
+Summary:       Intelligent Python IDE - Professional
+License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
 
 Source0:       https://download.jetbrains.com/python/%{name}-%{version}.tar.gz

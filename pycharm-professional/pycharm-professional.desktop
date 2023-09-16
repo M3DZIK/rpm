@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=PyCharm Community
+Name=PyCharm Professional
 GenericName=The intelligent Python IDE
-Exec=pycharm-community
+Exec=pycharm-professional
 Terminal=false
-Icon=pycharm-community
+Icon=pycharm-professional
 Type=Application
 Categories=Development;IDE;
 Keywords=development;pycharm;ide;python;
