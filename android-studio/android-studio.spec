@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          android-studio
-Version:       2022.3.1.19
+Version:       2022.3.1.20
 Release:       1%{?dist}
 Summary:       Integrated development environment for Google's Android platform
 License:       Proprietary
@@ -103,5 +103,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Fri Sep 29 2023 M3DZIK <me@medzik.dev> - 2022.3.1.20
+- Update to 2022.3.1.20
+
 * Thu Aug 31 2023 M3DZIK <me@medzik.dev> - 2022.3.1.19
 - Initial release
