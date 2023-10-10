@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/bin/.*|%{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          rubymine
-Version:       2023.2.2
+Version:       2023.2.3
 Release:       1%{?dist}
 Summary:       Ruby and Rails IDE with the full stack of essential developer tools
 License:       Commercial
@@ -101,5 +101,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Tue Oct 10 2023 M3DZIK <me@medzik.dev> - 2023.2.3
+- Update to 2023.2.3
+
 * Fri Sep 15 2023 M3DZIK <me@medzik.dev> - 2023.2.2
 - Initial release
