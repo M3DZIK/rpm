@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          pycharm-community
-Version:       2023.2.2
+Version:       2023.2.3
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE - Community
 License:       Apache-2.0
@@ -101,6 +101,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Sun Oct 15 2023 M3DZIK <me@medzik.dev> - 2023.2.3
+- Update to 2023.2.3
+
 * Wed Oct 04 2023 M3DZIK <me@medzik.dev> - 2023.2.2
 - Update to 2023.2.2
 
