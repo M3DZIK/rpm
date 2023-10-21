@@ -52,9 +52,9 @@ This package contains documentation for PyCharm Community
 
 # Patching shebangs...
 %if 0%{?fedora}
-%py3_shebang_fix bin
+%py3_shebang_fix bin plugins
 %else
-find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
+find bin plugins -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
 %endif
 
 %install
