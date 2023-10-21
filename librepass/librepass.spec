@@ -1,11 +1,11 @@
-%global tag 1.0.0-alpha1
+%global tag 1.0.0-alpha2
 
 # disable debuginfo subpackage
 %global debug_package %{nil}
 
 Name:          librepass
-Version:       1.0.0+alpha1
-Release:       4%{?dist}
+Version:       1.0.0+alpha2
+Release:       1%{?dist}
 Summary:       LibrePass Desktop Application
 License:       GPLv3
 URL:           https://librepass.medzik.dev
@@ -85,5 +85,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_metainfodir}/%{name}.metainfo.xml
 
 %changelog
+* Sun Oct 22 2023 M3DZIK <me@medzik.dev> - 1.0.0+alpha2
+- Update to v1.0.0-alpha2
+
 * Sun Sep 03 2023 M3DZIK <me@medzik.dev> - 1.0.0+alpha1
 - Initial release
