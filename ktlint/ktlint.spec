@@ -23,6 +23,7 @@ An anti-bikeshedding Kotlin linter with built-in formatter
 ./gradlew --no-configuration-cache --no-scan --no-daemon --console plain -Pktlint.publication.signing.enable=false shadowJarExecutable
 
 %install
+install -d %{buildroot}%{_bindir}
 cp -af ./ktlint-cli/build/run/ktlint %{buildroot}%{_bindir}/%{name}
 
 %files
