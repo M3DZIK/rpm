@@ -13,7 +13,7 @@ BuildRequires: cargo
 Find out what takes most of the space in your executable.
 
 %prep
-%setup -q -n {name}-%{version}
+%setup -q -n %{name}-%{version}
 
 %build
 cargo build --release

@@ -14,7 +14,7 @@ BuildRequires: libgit2-devel
 Cargo subcommand for displaying when dependencies are out of date.
 
 %prep
-%setup -q -n {name}-%{version}
+%setup -q -n %{name}-%{version}
 
 %build
 cargo build --release
