@@ -1,5 +1,5 @@
 Name:          cargo-outdated
-Version:       0.18.3
+Version:       0.13.1
 Release:       1%{?dist}
 Summary:       Cargo subcommand for displaying when dependencies are out of date
 License:       MIT
@@ -28,5 +28,5 @@ cp -af -p ./target/release/%{name} %{buildroot}%{_bindir}
 %{_bindir}/%{name}
 
 %changelog
-* Sun Oct 29 2023 M3DZIK <me@medzik.dev> - 0.18.3
+* Sun Oct 29 2023 M3DZIK <me@medzik.dev> - 0.13.1
 - Initial release
