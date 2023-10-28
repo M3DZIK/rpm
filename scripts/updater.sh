@@ -158,7 +158,7 @@ latest_git_version() {
   hash=$(git rev-parse HEAD)
   cd "$current_dir"
 
-  echo "local latest_version=$version"
+  echo "local latest_version=${version/v/}"
   echo "local latest_hash=$hash"
 }
 

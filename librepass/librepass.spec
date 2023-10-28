@@ -4,7 +4,7 @@
 %global git_commit fb4f7376d073a1dfbe35e2d4fbbf6c8aed001c22
 
 Name:          librepass
-Version:       v1.0.0.alpha1.r32.gfb4f737
+Version:       1.0.0.alpha1.r32.gfb4f737
 Release:       1%{?dist}
 Summary:       LibrePass Desktop Application
 License:       GPLv3
@@ -84,8 +84,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_metainfodir}/%{name}.metainfo.xml
 
 %changelog
-* Sat Oct 28 2023 M3DZIK <me@medzik.dev> - v1.0.0.alpha1.r32.gfb4f737
-- Update to v1.0.0.alpha1.r32.gfb4f737
+* Sat Oct 28 2023 M3DZIK <me@medzik.dev> - 1.0.0.alpha1.r32.gfb4f737
+- Update to 1.0.0.alpha1.r32.gfb4f737
 
 * Sun Oct 22 2023 M3DZIK <me@medzik.dev> - 1.0.0+alpha2
 - Update to v1.0.0-alpha2
