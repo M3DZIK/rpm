@@ -1,11 +1,11 @@
 Name:          cargo-audit
-Version:       0.12.2
+Version:       0.18.3
 Release:       1%{?dist}
 Summary:       Audit Cargo.lock for crates with security vulnerabilities
 License:       Apache-2.0 OR MIT
 URL:           https://crates.io/crates/%{name}
 
-Source0:       https://github.com/killercup/cargo-edit/archive/cargo-audit/v%{version}.tar.gz
+Source0:       https://github.com/rustsec/rustsec/archive/cargo-audit/v%{version}.tar.gz
 
 BuildRequires: cargo
 
