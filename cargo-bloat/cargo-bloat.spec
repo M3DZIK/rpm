@@ -1,3 +1,6 @@
+# disable debuginfo subpackage
+%global debug_package %{nil}
+
 Name:          cargo-bloat
 Version:       0.9.3
 Release:       1%{?dist}
