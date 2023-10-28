@@ -3,9 +3,11 @@
 
 Name:          ktlint
 Version:       1.0.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       An anti-bikeshedding Kotlin linter with built-in formatter
-License:       MIT
+License:       MIT	
+BuildArch:     noarch
+ExclusiveArch: %{java_arches} noarch
 
 Source0:       https://github.com/pinterest/ktlint/archive/%{version}.tar.gz
 
