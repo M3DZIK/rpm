@@ -18,6 +18,8 @@ update_package() {
   local spec_build;
   spec_version=$(spec_get_version "$spec_file")
   spec_build=$(spec_get_global "$spec_file" build_ver)
+  spec_commit=$(spec_get_global "$spec_file" git_commit)
+  spec_pypi_version=$(spec_get_global "$spec_file" pypi_version)
 
   eval "$(parse_config "$package")"
 
@@ -25,6 +27,12 @@ update_package() {
   local latest_build;
   if [ "$TYPE" == "jetbrains" ]; then
     eval "$(latest_jetbrains_version "$JETBRAINS_CODE")"
+  elif [ "$TYPE" == "github" ]; then
+    eval "$(latest_github_version "$GITHUB_REPO")"
+  elif [ "$TYPE" == "git" ]; then
+    eval "$(latest_git_version "$GIT_REPO")"
+  elif [ "$TYPE" == "pypi" ]; then
+    eval "$(latest_pypi_version "$PYPI_NAME")"
   elif [ "$TYPE" == "custom" ]; then
     latest_version=$("$package/$CUSTOM")
   fi
@@ -41,13 +49,30 @@ update_package() {
     fi
   fi
 
+  if [ -n "$spec_commit" ]; then
+    if [[ -z "$latest_hash" || "$latest_hash" == "null" ]]; then
+      echo "[!] Failed to get latest build of $package"
+      return 1
+    fi
+  fi
+
   echo "Latest Version: $latest_version"
   if [ -n "$latest_build" ]; then
     echo "Latest Build: $latest_build"
   fi
 
-  if ! eval compare_version "$spec_version" "$latest_version"; then
-    return 0
+  if [ -n "$spec_pypi_version" ]; then
+    spec_version="$spec_pypi_version"
+  fi
+
+  if [ "$TYPE" == "git" ]; then
+    if [ "$spec_version" == "$latest_version" ] ; then
+      return 0
+    fi
+  else
+    if ! eval compare_version "$spec_version" "$latest_version"; then
+      return 0
+    fi
   fi
 
   local changelog
@@ -57,9 +82,16 @@ update_package() {
     changelog="$latest_version ($latest_build)"
   fi
 
-  spec_write_version "$spec_file" "$latest_version"
+  if [ -n "$spec_pypi_version" ]; then
+    spec_write_global "$spec_file" pypi_version "$latest_version"
+  else
+    spec_write_version "$spec_file" "$latest_version"
+  fi
   if [ -n "$spec_build" ]; then
     spec_write_global "$spec_file" build_ver "$latest_build"
+  fi
+  if [ -n "$spec_commit" ]; then
+    spec_write_global "$spec_file" git_commit "$latest_hash"
   fi
   spec_write_changelog "$spec_file" "$latest_version" "$changelog"
 
@@ -69,14 +101,21 @@ update_package() {
 
   if [ "$COPR" == "jetbrains" ]; then
     curl -X POST "$WEBHOOK_JETBRAINS/$package"
+  elif [ "$COPR" == "librepass" ]; then
+    curl -X POST "$WEBHOOK_LIBREPASS/$package"
+  elif [ "$COPR" == "ktlint" ]; then
+    curl -X POST "$WEBHOOK_KTLINT/$package"
+  elif [ "$COPR" == "mtkclient" ]; then
+    curl -X POST "$WEBHOOK_MTKCLIENT/$package"
   fi
 
   echo "Committed"
 }
 
 latest_jetbrains_version() {
-  local latest_version;
-  local latest_build;
+  local json;
+  local version;
+  local build;
 
   local code="$1"
 
@@ -88,10 +127,67 @@ latest_jetbrains_version() {
   echo "local latest_build=$build"
 }
 
-for package in *; do
-  if [[ ! -e "$package/updater.conf" ]]; then
-    continue
-  fi
+latest_github_version() {
+  local json;
+  local tag;
+  local version;
 
-  update_package "$package"
-done
+  local repo="$1"
+
+  json="$(curl -s 'https://api.github.com/repos/'"$repo"'/releases/latest')"
+  tag="$(printf "%s" "$json" | jq -r '.tag_name')"
+  version="${tag/v/}"
+
+  echo "local latest_version=$version"
+}
+
+latest_git_version() {
+  local current_dir;
+  local tmp_dir;
+  local version;
+
+  local repo="$1"
+
+  current_dir="$(pwd)"
+  tmp_dir="$(mktemp -d)"
+
+  git clone "$repo" "$tmp_dir"
+
+  cd "$tmp_dir"
+  version="$(git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g')"
+  hash=$(git rev-parse HEAD)
+  cd "$current_dir"
+
+  echo "local latest_version=$version"
+  echo "local latest_hash=$hash"
+}
+
+latest_pypi_version() {
+  local json;
+  local version;
+
+  local pkg="$1"
+
+  json="$(curl -s 'https://pypi.org/pypi/'"$pkg"'/json')"
+  version="$(printf "%s" "$json" | jq -r '.info.version')"
+
+  echo "local latest_version=$version"
+}
+
+if [ -n "$1" ]; then
+  for package in "$@"; do
+    if [[ ! -e "$package/updater.conf" ]]; then
+      continue
+    fi
+
+    update_package "$package"
+  done
+else
+  for package in *; do
+    if [[ ! -e "$package/updater.conf" ]]; then
+      continue
+    fi
+
+    update_package "$package"
+  done
+fi

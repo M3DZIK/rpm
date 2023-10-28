@@ -44,6 +44,9 @@ parse_config() {
     echo "local COPR=$COPR"
     echo "local TYPE=$TYPE"
     echo "local JETBRAINS_CODE=$JETBRAINS_CODE"
+    echo "local GITHUB_REPO=$GITHUB_REPO"
+    echo "local GIT_REPO=$GIT_REPO"
+    echo "local PYPI_NAME=$PYPI_NAME"
     echo "local CUSTOM=$CUSTOM"
   )
   eval "$config"
@@ -51,6 +54,9 @@ parse_config() {
   echo "local COPR=$COPR"
   echo "local TYPE=$TYPE"
   echo "local JETBRAINS_CODE=$JETBRAINS_CODE"
+  echo "local GITHUB_REPO=$GITHUB_REPO"
+  echo "local GIT_REPO=$GIT_REPO"
+  echo "local PYPI_NAME=$PYPI_NAME"
   echo "local CUSTOM=$CUSTOM"
 }
 
