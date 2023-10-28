@@ -9,7 +9,7 @@ License:       MIT
 
 Source0:       https://github.com/pinterest/ktlint/archive/%{version}.tar.gz
 
-BuildRequires: jdk-11
+BuildRequires: java-11-openjdk-devel
 
 Requires:      jre >= 11
 
