@@ -26,7 +26,6 @@ Unofficial MTK reverse engineering and flash tool
 
 %prep
 %setup -q -n mtkclient-%{git_commit}
-%setup -q -n mtkclient-main
 %patch0 -p1
 %patch1 -p1
 
