@@ -8,6 +8,7 @@ URL:           https://crates.io/crates/%{name}
 Source0:       https://github.com/kbknapp/cargo-outdated/archive/v%{version}.tar.gz
 
 BuildRequires: cargo
+BuildRequires: libgit2-devel
 
 %description
 Cargo subcommand for displaying when dependencies are out of date.
