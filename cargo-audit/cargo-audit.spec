@@ -24,7 +24,7 @@ install -d %{buildroot}%{_bindir}
 cp -af -p ./target/release/%{name} %{buildroot}%{_bindir}
 
 %files
-%license LICENSE
+%license cargo-audit/LICENSE-APACHE cargo-audit/LICENSE-MIT
 %{_bindir}/%{name}
 
 %changelog
