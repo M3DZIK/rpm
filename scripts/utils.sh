@@ -47,6 +47,7 @@ parse_config() {
     echo "local GITHUB_REPO=$GITHUB_REPO"
     echo "local GIT_REPO=$GIT_REPO"
     echo "local PYPI_NAME=$PYPI_NAME"
+    echo "local CRATE_NAME=$CRATE_NAME"
     echo "local CUSTOM=$CUSTOM"
   )
   eval "$config"
@@ -57,6 +58,7 @@ parse_config() {
   echo "local GITHUB_REPO=$GITHUB_REPO"
   echo "local GIT_REPO=$GIT_REPO"
   echo "local PYPI_NAME=$PYPI_NAME"
+  echo "local CRATE_NAME=$CRATE_NAME"
   echo "local CUSTOM=$CUSTOM"
 }
 

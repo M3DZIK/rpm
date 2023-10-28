@@ -33,6 +33,8 @@ update_package() {
     eval "$(latest_git_version "$GIT_REPO")"
   elif [ "$TYPE" == "pypi" ]; then
     eval "$(latest_pypi_version "$PYPI_NAME")"
+  elif [ "$TYPE" == "crate" ]; then
+    eval "$(latest_crate_version "$CRATE_NAME")"
   elif [ "$TYPE" == "custom" ]; then
     latest_version=$("$package/$CUSTOM")
   fi
@@ -170,6 +172,18 @@ latest_pypi_version() {
 
   json="$(curl -s 'https://pypi.org/pypi/'"$pkg"'/json')"
   version="$(printf "%s" "$json" | jq -r '.info.version')"
+
+  echo "local latest_version=$version"
+}
+
+latest_crate_version() {
+  local json;
+  local version;
+
+  local pkg="$1"
+
+  json="$(curl -s 'https://crates.io/api/v1/crates/'"$pkg"'')"
+  version="$(printf "%s" "$json" | jq -r '.versions[0].num')"
 
   echo "local latest_version=$version"
 }
