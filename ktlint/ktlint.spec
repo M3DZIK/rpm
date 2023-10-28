@@ -7,7 +7,7 @@ Release:       1%{?dist}
 Summary:       An anti-bikeshedding Kotlin linter with built-in formatter
 License:       MIT
 
-Source0:       https://github.com/pinterest/ktlint/archive/v%{tag}.tar.gz
+Source0:       https://github.com/pinterest/ktlint/archive/%{version}.tar.gz
 
 Requires:      jre >= 11
 
@@ -15,7 +15,7 @@ Requires:      jre >= 11
 An anti-bikeshedding Kotlin linter with built-in formatter
 
 %prep
-%setup -q -n ktlint-%{tag}
+%setup -q -n ktlint-%{version}
 
 %build
 ./gradlew --no-configuration-cache --no-scan --no-daemon --console plain -Pktlint.publication.signing.enable=false shadowJarExecutable
