@@ -13,7 +13,7 @@ BuildRequires: cargo
 Audit Cargo.lock for crates with security vulnerabilities
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n rustsec-cargo-audit-v%{version}
 
 %build
 cargo build --release --features fix

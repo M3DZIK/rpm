@@ -109,6 +109,8 @@ update_package() {
     curl -X POST "$WEBHOOK_KTLINT/$package"
   elif [ "$COPR" == "mtkclient" ]; then
     curl -X POST "$WEBHOOK_MTKCLIENT/$package"
+  elif [ "$COPR" == "cargo-subcommands" ]; then
+    curl -X POST "$WEBHOOK_CARGO_SUBCOMMANDS/$package"
   fi
 
   echo "Committed"
@@ -183,7 +185,7 @@ latest_crate_version() {
   local pkg="$1"
 
   json="$(curl -s 'https://crates.io/api/v1/crates/'"$pkg"'')"
-  version="$(printf "%s" "$json" | jq -r '.versions[0].num')"
+  version="$(printf "%s" "$json" | jq -r '.crate.max_stable_version')"
 
   echo "local latest_version=$version"
 }
