@@ -1,22 +1,22 @@
-Name:          cargo-audit
+Name:          cargo-outdated
 Version:       0.18.3
 Release:       1%{?dist}
-Summary:       Audit Cargo.lock for crates with security vulnerabilities
-License:       Apache-2.0 OR MIT
+Summary:       Cargo subcommand for displaying when dependencies are out of date
+License:       MIT
 URL:           https://crates.io/crates/%{name}
 
-Source0:       https://github.com/rustsec/rustsec/archive/cargo-audit/v%{version}.tar.gz
+Source0:       https://github.com/kbknapp/cargo-outdated/archive/v%{version}.tar.gz
 
 BuildRequires: cargo
 
 %description
-Audit Cargo.lock for crates with security vulnerabilities
+Cargo subcommand for displaying when dependencies are out of date.
 
 %prep
-%setup -q -n rustsec-cargo-audit-v%{version}
+%setup -q -n {name}-%{version}
 
 %build
-cargo build --release --features fix
+cargo build --release
 
 %install
 install -d %{buildroot}%{_bindir}
