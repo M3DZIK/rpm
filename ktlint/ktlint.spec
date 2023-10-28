@@ -9,6 +9,8 @@ License:       MIT
 
 Source0:       https://github.com/pinterest/ktlint/archive/%{version}.tar.gz
 
+BuildRequires: jdk >= 20
+
 Requires:      jre >= 11
 
 %description
