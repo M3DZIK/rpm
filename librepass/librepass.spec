@@ -1,16 +1,16 @@
-%global tag 1.0.0-alpha2
-
 # disable debuginfo subpackage
 %global debug_package %{nil}
 
+%global git_commit fb4f7376d073a1dfbe35e2d4fbbf6c8aed001c22
+
 Name:          librepass
-Version:       1.0.0+alpha2
+Version:       v1.0.0.alpha1.r32.gfb4f737
 Release:       1%{?dist}
 Summary:       LibrePass Desktop Application
 License:       GPLv3
 URL:           https://librepass.medzik.dev
 
-Source0:       https://github.com/LibrePass/LibrePass-Desktop/archive/v%{tag}.tar.gz
+Source0:       https://github.com/LibrePass/LibrePass-Desktop/archive/%{git_commit}.tar.gz
 
 Source101:     %{name}.metainfo.xml
 
@@ -27,10 +27,9 @@ Requires:      jre-17
 Official LibrePass Desktop Application
 
 %prep
-%setup -q -n LibrePass-Desktop-%{tag}
+%setup -q -n LibrePass-Desktop-%{git_commit}
 
 %build
-# Build and package
 mvn package -P rpm
 
 %install
@@ -85,6 +84,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_metainfodir}/%{name}.metainfo.xml
 
 %changelog
+* Sat Oct 28 2023 M3DZIK <me@medzik.dev> - v1.0.0.alpha1.r32.gfb4f737
+- Update to v1.0.0.alpha1.r32.gfb4f737
+
 * Sun Oct 22 2023 M3DZIK <me@medzik.dev> - 1.0.0+alpha2
 - Update to v1.0.0-alpha2
 
