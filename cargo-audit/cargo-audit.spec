@@ -8,6 +8,7 @@ URL:           https://crates.io/crates/%{name}
 Source0:       https://github.com/rustsec/rustsec/archive/cargo-audit/v%{version}.tar.gz
 
 BuildRequires: cargo
+BuildRequires: openssl-devel
 
 %description
 Audit Cargo.lock for crates with security vulnerabilities
