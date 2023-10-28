@@ -1,6 +1,6 @@
 Name:          cargo-edit
 Version:       0.12.2
-Release:       2%{?dist}
+Release:       3%{?dist}
 Summary:       Cargo commands for modifying dependencies in a `Cargo.toml` file
 License:       Apache-2.0 OR MIT
 URL:           https://crates.io/crates/%{name}
