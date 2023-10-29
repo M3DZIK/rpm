@@ -29,6 +29,8 @@ update_package() {
     eval "$(latest_jetbrains_version "$JETBRAINS_CODE")"
   elif [ "$TYPE" == "github" ]; then
     eval "$(latest_github_version "$GITHUB_REPO")"
+  elif [ "$TYPE" == "github-tag" ]; then
+    eval "$(latest_github_tag_version "$GITHUB_REPO")"
   elif [ "$TYPE" == "git" ]; then
     eval "$(latest_git_version "$GIT_REPO")"
   elif [ "$TYPE" == "pypi" ]; then
@@ -140,6 +142,20 @@ latest_github_version() {
 
   json="$(curl -s 'https://api.github.com/repos/'"$repo"'/releases/latest')"
   tag="$(printf "%s" "$json" | jq -r '.tag_name')"
+  version="${tag/v/}"
+
+  echo "local latest_version=$version"
+}
+
+latest_github_tag_version() {
+  local json;
+  local tag;
+  local version;
+
+  local repo="$1"
+
+  json="$(curl -s 'https://api.github.com/repos/'"$repo"'/tags')"
+  tag="$(printf "%s" "$json" | jq -r '[.[]][0].name')"
   version="${tag/v/}"
 
   echo "local latest_version=$version"
