@@ -1,6 +1,9 @@
+# disable debuginfo subpackage
+%global debug_package %{nil}
+
 Name:          cargo-edit
 Version:       0.12.2
-Release:       3%{?dist}
+Release:       1%{?dist}
 Summary:       Cargo commands for modifying dependencies in a `Cargo.toml` file
 License:       Apache-2.0 OR MIT
 URL:           https://crates.io/crates/%{name}

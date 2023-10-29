@@ -1,3 +1,6 @@
+# disable debuginfo subpackage
+%global debug_package %{nil}
+
 Name:          cargo-outdated
 Version:       0.13.1
 Release:       1%{?dist}

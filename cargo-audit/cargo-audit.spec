@@ -1,3 +1,6 @@
+# disable debuginfo subpackage
+%global debug_package %{nil}
+
 Name:          cargo-audit
 Version:       0.18.3
 Release:       1%{?dist}
