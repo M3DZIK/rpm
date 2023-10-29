@@ -13,9 +13,15 @@ Source0:       https://github.com/rust-lang/rustup/archive/%{version}.tar.gz
 BuildRequires: cargo
 BuildRequires: openssl-devel
 
-Requires: curl
-Requires: xz
-Requires: zstd
+Requires:       curl
+Requires:       xz
+Requires:       zstd
+
+Provides:       rust
+Provides:       cargo
+Provides:       clippy
+Provides:       rust-analyzer
+Provides:       rustfmt
 
 %description
 The Rust toolchain installer
