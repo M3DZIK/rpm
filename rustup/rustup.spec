@@ -11,6 +11,7 @@ URL:           https://github.com/rust-lang/rustup
 Source0:       https://github.com/rust-lang/rustup/archive/%{version}.tar.gz
 
 BuildRequires: cargo
+BuildRequires: openssl-devel
 
 Requires: curl
 Requires: xz
