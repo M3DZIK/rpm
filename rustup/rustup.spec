@@ -30,14 +30,14 @@ The Rust toolchain installer
 %setup -q -n %{name}-%{version}
 
 %build
-cargo build --release --features no-self-update
+cargo build --release --features no-self-update --bin rustup-init
 
 %install
 install -d %{buildroot}%{_bindir}
-cp -af -p ./target/release/%{name} %{buildroot}%{_bindir}
+install -Dm755 ./target/release/rustup-init %{buildroot}%{_bindir}/rustup
 
 for link in "cargo rustc rustdoc rust-gdb rust-lldb rustfmt cargo-fmt cargo-clippy clippy-driver cargo-miri"; do
-  ln -s /usr/bin/rustup "%{buildroot}%{_bindir}/${link}"
+  ln -s /usr/bin/rustup %{buildroot}%{_bindir}/${link}
 done
 
 # Generate completion files
