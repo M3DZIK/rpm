@@ -36,7 +36,7 @@ cargo build --release --features no-self-update --bin rustup-init
 install -d %{buildroot}%{_bindir}
 install -Dm755 ./target/release/rustup-init %{buildroot}%{_bindir}/rustup
 
-for link in "cargo rustc rustdoc rust-gdb rust-lldb rustfmt cargo-fmt cargo-clippy clippy-driver cargo-miri"; do
+for link in cargo rustc rustdoc rust-gdb rust-lldb rustfmt cargo-fmt cargo-clippy clippy-driver cargo-miri; do
   ln -s /usr/bin/rustup %{buildroot}%{_bindir}/${link}
 done
 
