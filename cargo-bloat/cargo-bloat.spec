@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:          cargo-bloat
-Version:       0.9.3
+Version:       0.11.1
 Release:       1%{?dist}
 Summary:       Find out what takes most of the space in your executable.
 License:       MIT
@@ -30,5 +30,8 @@ cp -af -p ./target/release/%{name} %{buildroot}%{_bindir}
 %{_bindir}/%{name}
 
 %changelog
+* Sun Oct 29 2023 M3DZIK <me@medzik.dev> - 0.11.1
+- Update to 0.11.1
+
 * Sun Oct 29 2023 M3DZIK <me@medzik.dev> - 0.9.3
 - Initial release
