@@ -4,7 +4,7 @@
 %global git_commit 296bdbac8983ce047774438116da87d841a95ebc
 
 Name:          librepass
-Epoch: 1
+Epoch:         1
 Version:       1.0.0.alpha1.r40.g296bdba
 Release:       1%{?dist}
 Summary:       LibrePass Desktop Application

@@ -15,8 +15,12 @@ update_package() {
   echo "Checking package: $package"
 
   local spec_version;
+  local spec_epoch;
   local spec_build;
+  local spec_commit;
+  local spec_pypi_version;
   spec_version=$(spec_get_version "$spec_file")
+  spec_epoch=$(spec_get_epoch "$spec_file")
   spec_build=$(spec_get_global "$spec_file" build_ver)
   spec_commit=$(spec_get_global "$spec_file" git_commit)
   spec_pypi_version=$(spec_get_global "$spec_file" pypi_version)
@@ -97,7 +101,13 @@ update_package() {
   if [ -n "$spec_commit" ]; then
     spec_write_global "$spec_file" git_commit "$latest_hash"
   fi
-  spec_write_changelog "$spec_file" "$latest_version" "$changelog"
+
+  full_version_latest="$latest_version-1"
+  if [ -n "$spec_epoch" ]; then
+    full_version_latest="$spec_epoch:$full_version_latest"
+  fi
+
+  spec_write_changelog "$spec_file" "$full_version_latest" "$changelog"
 
   git add .
   git commit -m "$package: Update to $latest_version"

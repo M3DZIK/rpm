@@ -8,6 +8,14 @@ spec_get_version() {
   echo "$version"
 }
 
+# Get epoch from spec file
+# example: epoch=$(spec_get_epoch test.spec)
+spec_get_epoch() {
+  local epoch;
+  epoch="$(cat $1 | grep Epoch: | awk '{print $2}')"
+  echo "$epoch"
+}
+
 # Get value of global variable from spec file
 # example: value=$(spec_get_global test.spec build_vers)
 spec_get_global() {
