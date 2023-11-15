@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          pycharm-professional
-Version:       2023.2.4
+Version:       2023.2.5
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE - Professional
 License:       Commercial
@@ -101,6 +101,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Wed Nov 15 2023 M3DZIK <me@medzik.dev> - 2023.2.5-1
+- Update to 2023.2.5
+
 * Tue Nov 07 2023 M3DZIK <me@medzik.dev> - 2023.2.4
 - Update to 2023.2.4
 
