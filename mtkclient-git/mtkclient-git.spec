@@ -1,10 +1,10 @@
 # disable debuginfo subpackage
 %global debug_package %{nil}
 
-%global git_commit d1ca2d6554d346a9cb6d9581b8299e1b3ce70344
+%global git_commit a9f222320a5ac70df326d8ea853fef2e705d8f7a
 
 Name:          mtkclient-git
-Version:       1.63.r39.gd1ca2d6
+Version:       1.63.r42.ga9f2223
 Release:       1%{?dist}
 Summary:       MTK reverse engineering and flash tool
 URL:           https://github.com/bkerler/mtkclient
@@ -41,5 +41,8 @@ python3 -m installer --destdir="%{buildroot}" dist/*.whl
 %{python3_sitelib}/*
 
 %changelog
+* Sat Dec 02 2023 M3DZIK <me@medzik.dev> - 1.63.r42.ga9f2223-1
+- Update to 1.63.r42.ga9f2223
+
 * Sat Oct 28 2023 M3DZIK <me@medzik.dev> - 1.63.r39.gd1ca2d6
 - Initial release
