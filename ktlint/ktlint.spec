@@ -2,8 +2,8 @@
 %global debug_package %{nil}
 
 Name:          ktlint
-Version:       1.0.1
-Release:       2%{?dist}
+Version:       1.1.0
+Release:       1%{?dist}
 Summary:       An anti-bikeshedding Kotlin linter with built-in formatter
 License:       MIT
 BuildArch:     noarch
@@ -33,5 +33,8 @@ cp -af ./ktlint-cli/build/run/ktlint %{buildroot}%{_bindir}/%{name}
 %{_bindir}/%{name}
 
 %changelog
+* Wed Dec 20 2023 M3DZIK <me@medzik.dev> - 1.1.0-1
+- Update to 1.1.0
+
 * Sat Oct 28 2023 M3DZIK <me@medzik.dev> - 1.0.1
 - Initial release
