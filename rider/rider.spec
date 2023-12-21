@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/bin/.*|%{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          rider
-Version:       2023.3.1
+Version:       2023.3.2
 Release:       1%{?dist}
 Summary:       Fast & powerful, cross platform .NET IDE
 License:       Commercial
@@ -100,6 +100,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Thu Dec 21 2023 M3DZIK <me@medzik.dev> - 2023.3.2-1
+- Update to 2023.3.2
+
 * Wed Dec 13 2023 M3DZIK <me@medzik.dev> - 2023.3.1-1
 - Update to 2023.3.1
 
