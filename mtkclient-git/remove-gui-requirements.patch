@@ -22,15 +22,3 @@ index bff165c..13a568d 100644
 -pyside6 >= 6.4.0.1
  mock >= 4.0.3
  pyserial >= 3.5
-diff --git a/setup.py b/setup.py
-index 1ab2d68..fc25f2c 100755
---- a/setup.py
-+++ b/setup.py
-@@ -23,7 +23,6 @@ setup(
-     'pyserial',
-     'pycryptodome',
-     'pycryptodomex',
--    'PySide6',
-     'mock'
-     ],
-     author='B. Kerler',
