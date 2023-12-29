@@ -34,6 +34,7 @@ Unofficial MTK reverse engineering and flash tool
 
 %install
 %pyproject_install
+%pyproject_save_files '*' +auto
 
 %files -f %{pyproject_files}
 %license LICENSE
