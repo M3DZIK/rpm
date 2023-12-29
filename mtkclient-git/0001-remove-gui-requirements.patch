@@ -1,5 +1,5 @@
 diff --git a/pyproject.toml b/pyproject.toml
-index 37d4e7c..8b34455 100644
+index 751e032..1471d7e 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -17,8 +17,6 @@ dependencies = [
@@ -10,3 +10,4 @@ index 37d4e7c..8b34455 100644
 -    "pyside6",
      "mock"
  ]
+ classifiers = [
