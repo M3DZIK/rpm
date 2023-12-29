@@ -1,19 +1,16 @@
 # disable debuginfo subpackage
 %global debug_package %{nil}
 
-%global git_commit 2f4eb9846be0c72f0955753e862aaec774ad439c
-
-Name:          mtkclient-git
-Version:       1.63.r46.g2f4eb98
+Name:          mtkclient
+Version:       1.63
 Release:       2%{?dist}
 Summary:       MTK reverse engineering and flash tool
 URL:           https://github.com/bkerler/mtkclient
 License:       GPLv3
 BuildArch:     noarch
 
-Source0:       https://github.com/bkerler/mtkclient/archive/%{git_commit}.tar.gz
-Patch0:        0000-remove-data-files.patch
-Patch1:        0001-remove-gui-requirements.patch
+Source0:       https://github.com/bkerler/mtkclient/archive/%{version}.tar.gz
+Patch0:        remove-requirements.patch
 
 BuildRequires: python3-devel
 BuildRequires: pyproject-rpm-macros
@@ -25,9 +22,8 @@ Unofficial MTK reverse engineering and flash tool
 %pyproject_buildrequires
 
 %prep
-%setup -q -n mtkclient-%{git_commit}
-%patch0 -p1
-%patch1 -p1
+%setup -q -n mtkclient-%{version}
+%patch 0 -p1
 
 %build
 %pyproject_wheel
@@ -38,7 +34,6 @@ Unofficial MTK reverse engineering and flash tool
 
 %files -f %{pyproject_files}
 %license LICENSE
-%{_bindir}/*
 
 %changelog
 * Thu Dec 21 2023 M3DZIK <me@medzik.dev> - 1.63.r46.g2f4eb98-1

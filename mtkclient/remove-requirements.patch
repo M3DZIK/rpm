@@ -1,0 +1,44 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 9a0199a..78be0fd 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -5,9 +5,6 @@ requires = [
+     "pyusb",
+     "pycryptodome",
+     "colorama",
+-    "usb",
+-    "shiboken6", 
+-    "pyside6",
+     "mock"
+ ]
+ build-backend = "setuptools.build_meta"
+diff --git a/requirements.txt b/requirements.txt
+index 4e111b5..13a568d 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -3,8 +3,5 @@ pyusb >= 1.2.1
+ pycryptodome >= 3.15.0
+ pycryptodomex
+ colorama >= 0.4.4
+-usb >= 0.0.83.dev0
+-shiboken6 >= 6.4.0.1
+-pyside6 >= 6.4.0.1
+ mock >= 4.0.3
+ pyserial >= 3.5
+diff --git a/setup.py b/setup.py
+index 1ed20a4..5495e81 100755
+--- a/setup.py
++++ b/setup.py
+@@ -21,12 +21,10 @@ setup(
+     license='GPLv3 License',
+     install_requires=[
+     'colorama',
+-    'usb',
+     'pyusb',
+     'pyserial',
+     'pycryptodome',
+     'pycryptodomex',
+-    'PySide6',
+     'mock'
+     ],
+     author='B. Kerler',
