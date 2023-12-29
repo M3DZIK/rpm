@@ -5,7 +5,7 @@
 
 Name:          mtkclient-git
 Version:       1.63.r46.g2f4eb98
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       MTK reverse engineering and flash tool
 URL:           https://github.com/bkerler/mtkclient
 License:       GPLv3
@@ -16,13 +16,13 @@ Patch0:        0000-remove-data-files.patch
 Patch1:        0001-remove-gui-requirements.patch
 
 BuildRequires: python3-devel
-BuildRequires: python3-build
-BuildRequires: python3-installer
-BuildRequires: python3-setuptools
-BuildRequires: python3-wheel
+BuildRequires: pyproject-rpm-macros
 
 %description
 Unofficial MTK reverse engineering and flash tool
+
+%generate_buildrequires
+%pyproject_buildrequires
 
 %prep
 %setup -q -n mtkclient-%{git_commit}
@@ -30,15 +30,14 @@ Unofficial MTK reverse engineering and flash tool
 %patch1 -p1
 
 %build
-python3 -m build --wheel --no-isolation
+%pyproject_wheel
 
 %install
-python3 -m installer --destdir="%{buildroot}" dist/*.whl
+%pyproject_install
 
-%files
+%files -f %{pyproject_files}
 %license LICENSE
 %{_bindir}/*
-%{python3_sitelib}/*
 
 %changelog
 * Thu Dec 21 2023 M3DZIK <me@medzik.dev> - 1.63.r46.g2f4eb98-1
