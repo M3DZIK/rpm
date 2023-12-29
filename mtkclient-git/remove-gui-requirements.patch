@@ -1,8 +1,8 @@
 diff --git a/pyproject.toml b/pyproject.toml
-index 6d06e5f..8b64b79 100644
+index 37d4e7c..8b34455 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -12,7 +12,5 @@ dependencies = [
+@@ -19,8 +19,6 @@ dependencies = [
      "pyusb",
      "pycryptodome",
      "colorama",
@@ -10,15 +10,3 @@ index 6d06e5f..8b64b79 100644
 -    "pyside6",
      "mock"
  ]
-diff --git a/requirements.txt b/requirements.txt
-index bff165c..13a568d 100644
---- a/requirements.txt
-+++ b/requirements.txt
-@@ -3,7 +3,5 @@ pyusb >= 1.2.1
- pycryptodome >= 3.15.0
- pycryptodomex
- colorama >= 0.4.4
--shiboken6 >= 6.4.0.1
--pyside6 >= 6.4.0.1
- mock >= 4.0.3
- pyserial >= 3.5
