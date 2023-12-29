@@ -12,8 +12,8 @@ License:       GPLv3
 BuildArch:     noarch
 
 Source0:       https://github.com/bkerler/mtkclient/archive/%{git_commit}.tar.gz
-Patch0:        remove-data-files.patch
-Patch1:        remove-gui-requirements.patch
+Patch0:        0000-remove-data-files.patch
+Patch1:        0001-remove-gui-requirements.patch
 
 BuildRequires: python3-devel
 BuildRequires: python3-build

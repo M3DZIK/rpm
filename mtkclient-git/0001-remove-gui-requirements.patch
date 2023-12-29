@@ -2,7 +2,7 @@ diff --git a/pyproject.toml b/pyproject.toml
 index 37d4e7c..8b34455 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -19,8 +19,6 @@ dependencies = [
+@@ -17,8 +17,6 @@ dependencies = [
      "pyusb",
      "pycryptodome",
      "colorama",
