@@ -1,6 +1,6 @@
 # Created by pyp2rpm-3.3.10
 %global pypi_name pycryptodome
-%global pypi_version 3.19.0
+%global pypi_version 3.19.1
 
 Name:           python-%{pypi_name}
 Version:        %{pypi_version}
@@ -56,5 +56,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitearch}/%{pypi_name}-%{pypi_version}-py%{python3_version}.egg-info
 
 %changelog
+* Fri Dec 29 2023 M3DZIK <me@medzik.dev> - 3.19.1-1
+- Update to 3.19.1
+
 * Sat Oct 28 2023 M3DZIK <me@medzik.dev> - 3.19.0-1
 - Initial package.
