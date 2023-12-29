@@ -123,6 +123,8 @@ update_package() {
     curl -X POST "$WEBHOOK_MTKCLIENT/$package"
   elif [ "$COPR" == "rust-dev" ]; then
     curl -X POST "$WEBHOOK_RUST_DEV/$package"
+  elif [ "$COPR" == "zig-tools" ]; then
+    curl -X POST "$WEBHOOK_ZIG_TOOLS/$package"
   fi
 
   echo "Committed"

@@ -26,3 +26,4 @@ jobs:
           WEBHOOK_KTLINT: ${{ secrets.WEBHOOK_KTLINT }}
           WEBHOOK_MTKCLIENT: ${{ secrets.WEBHOOK_MTKCLIENT }}
           WEBHOOK_RUST_DEV: ${{ secrets.WEBHOOK_RUST_DEV }}
+          WEBHOOK_ZIG_TOOLS: ${{ secrets.WEBHOOK_ZIG_TOOLS }}
