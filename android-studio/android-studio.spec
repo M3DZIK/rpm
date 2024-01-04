@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          android-studio
-Version:       2023.1.1.26
+Version:       2023.1.1.27
 Release:       1%{?dist}
 Summary:       Integrated development environment for Google's Android platform
 License:       Proprietary
@@ -103,6 +103,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Thu Jan 04 2024 M3DZIK <me@medzik.dev> - 2023.1.1.27-1
+- Update to 2023.1.1.27
+
 * Fri Dec 01 2023 M3DZIK <me@medzik.dev> - 2023.1.1.26-1
 - Update to 2023.1.1.26
 
