@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          android-studio-canary
-Version:       2023.3.1.2
+Version:       2023.3.1.3
 Release:       1%{?dist}
 Summary:       Integrated development environment for Google's Android platform - Canary branch
 License:       Proprietary
@@ -103,6 +103,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Fri Jan 05 2024 M3DZIK <me@medzik.dev> - 2023.3.1.3-1
+- Update to 2023.3.1.3
+
 * Wed Jan 03 2024 M3DZIK <me@medzik.dev> - 2023.3.1.2-1
 - Update to 2023.3.1.2
 
