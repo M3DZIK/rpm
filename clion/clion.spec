@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/bin/.*|%{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          clion
-Version:       2023.3.3
+Version:       2023.3.4
 Release:       1%{?dist}
 Summary:       A cross-platform IDE for C and C++
 License:       Commercial
@@ -101,6 +101,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Thu Feb 15 2024 M3DZIK <me@medzik.dev> - 2023.3.4-1
+- Update to 2023.3.4
+
 * Fri Jan 26 2024 M3DZIK <me@medzik.dev> - 2023.3.3-1
 - Update to 2023.3.3
 
