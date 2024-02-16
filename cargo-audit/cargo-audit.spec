@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:          cargo-audit
-Version:       0.19.0
+Version:       0.20.0
 Release:       1%{?dist}
 Summary:       Audit Cargo.lock for crates with security vulnerabilities
 License:       Apache-2.0 OR MIT
@@ -31,6 +31,9 @@ cp -af -p ./target/release/%{name} %{buildroot}%{_bindir}
 %{_bindir}/%{name}
 
 %changelog
+* Fri Feb 16 2024 M3DZIK <me@medzik.dev> - 0.20.0-1
+- Update to 0.20.0
+
 * Sun Feb 04 2024 M3DZIK <me@medzik.dev> - 0.19.0-1
 - Update to 0.19.0
 
