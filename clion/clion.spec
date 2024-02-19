@@ -54,7 +54,7 @@ This package contains documentation for CLion
 %if 0%{?fedora}
 %py3_shebang_fix bin
 %else
-find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
+find . -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
 %endif
 
 %install
