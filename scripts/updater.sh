@@ -30,7 +30,7 @@ update_package() {
   local latest_version;
   local latest_build;
   if [ "$TYPE" == "jetbrains" ]; then
-    eval "$(latest_jetbrains_version "$JETBRAINS_CODE")"
+    eval "$(latest_jetbrains_version "$JETBRAINS_CODE" "$JETBRAINS_TYPE")"
   elif [ "$TYPE" == "github" ]; then
     eval "$(latest_github_version "$GITHUB_REPO")"
   elif [ "$TYPE" == "github-tag" ]; then
@@ -135,7 +135,12 @@ latest_jetbrains_version() {
 
   local code="$1"
 
-  json="$(curl -s 'https://data.services.jetbrains.com/products/releases?code='"$code"'&latest=true&type=release')"
+  local type="$JETBRAINS_TYPE"
+  if [ -z "$type" ]; then
+    type="release"
+  fi
+
+  json="$(curl -s 'https://data.services.jetbrains.com/products/releases?code='"$code"'&latest=true&type='"$type"'')"
   version="$(printf "%s" "$json" | jq -r '.'"$code"'[0].version')"
   build="$(printf "%s" "$json" | jq -r '.'"$code"'[0].build')"
 
