@@ -119,8 +119,6 @@ update_package() {
     curl -X POST "$WEBHOOK_LIBREPASS/$package"
   elif [ "$COPR" == "ktlint" ]; then
     curl -X POST "$WEBHOOK_KTLINT/$package"
-  elif [ "$COPR" == "mtkclient" ]; then
-    curl -X POST "$WEBHOOK_MTKCLIENT/$package"
   elif [ "$COPR" == "rust-dev" ]; then
     curl -X POST "$WEBHOOK_RUST_DEV/$package"
   fi

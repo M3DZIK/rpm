@@ -24,5 +24,4 @@ jobs:
           WEBHOOK_JETBRAINS: ${{ secrets.WEBHOOK_JETBRAINS }}
           WEBHOOK_LIBREPASS: ${{ secrets.WEBHOOK_LIBREPASS }}
           WEBHOOK_KTLINT: ${{ secrets.WEBHOOK_KTLINT }}
-          WEBHOOK_MTKCLIENT: ${{ secrets.WEBHOOK_MTKCLIENT }}
           WEBHOOK_RUST_DEV: ${{ secrets.WEBHOOK_RUST_DEV }}
