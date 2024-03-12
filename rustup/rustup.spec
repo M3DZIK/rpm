@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:          rustup
-Version:       1.26.0
+Version:       1.27.0
 Release:       1%{?dist}
 Summary:       The Rust toolchain installer
 License:       MIT
@@ -58,5 +58,8 @@ mkdir -p %{buildroot}%{_datadir}/zsh/site-functions
 %{_datadir}/zsh/site-functions/*
 
 %changelog
+* Tue Mar 12 2024 M3DZIK <me@medzik.dev> - 1.27.0-1
+- Update to 1.27.0
+
 * Sun Oct 29 2023 M3DZIK <me@medzik.dev> - 1.26.0
 - Initial release
