@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname idea
-%global build_ver 233.14475.28
+%global build_ver 233.14808.21
 %global idea_name idea-IU
 
 # disable debuginfo subpackage
@@ -21,7 +21,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          intellij-idea-ultimate
-Version:       2023.3.4
+Version:       2023.3.5
 Release:       1%{?dist}
 Summary:       Capable and Ergonomic Java IDE - Ultimate Edition
 License:       Commercial
@@ -105,6 +105,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Wed Mar 13 2024 M3DZIK <me@medzik.dev> - 2023.3.5-1
+- Update to 2023.3.5 (233.14808.21)
+
 * Wed Feb 14 2024 M3DZIK <me@medzik.dev> - 2023.3.4-1
 - Update to 2023.3.4 (233.14475.28)
 
