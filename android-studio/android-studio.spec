@@ -22,7 +22,7 @@ Name:          android-studio
 Version:       2023.2.1.23
 Release:       1%{?dist}
 Summary:       Integrated development environment for Google's Android platform
-License:       Proprietary
+License:       Apache-2.0
 URL:           https://developer.android.com/%{appname}/
 
 Source0:       https://dl.google.com/android/studio/ide-zips/%{version}/android-studio-%{version}-linux.tar.gz
