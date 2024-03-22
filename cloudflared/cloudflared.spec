@@ -31,6 +31,7 @@ install -m 0644 -p %{name}.1 %{buildroot}%{_mandir}
 %files
 %license LICENSE
 %{_bindir}/%{name}
+%{_mandir}/%{name}.1
 
 %changelog
 * Fri Mar 22 2024 M3DZIK <me@medzik.dev> - 2024.3.0
