@@ -26,7 +26,7 @@ install -d %{buildroot}%{_bindir}
 cp -af -p %{name} %{buildroot}%{_bindir}
 
 install -d %{buildroot}%{_mandir}
-install -m 0644 -p %{name}.1 %{_mandir}
+install -m 0644 -p %{name}.1 %{buildroot}%{_mandir}
 
 %files
 %license LICENSE
