@@ -39,8 +39,6 @@ update_package() {
     eval "$(latest_git_version "$GIT_REPO")"
   elif [ "$TYPE" == "pypi" ]; then
     eval "$(latest_pypi_version "$PYPI_NAME")"
-  elif [ "$TYPE" == "crate" ]; then
-    eval "$(latest_crate_version "$CRATE_NAME")"
   elif [ "$TYPE" == "custom" ]; then
     latest_version=$("$package/$CUSTOM")
   fi
@@ -119,8 +117,6 @@ update_package() {
     curl -X POST "$WEBHOOK_LIBREPASS/$package"
   elif [ "$COPR" == "ktlint" ]; then
     curl -X POST "$WEBHOOK_KTLINT/$package"
-  elif [ "$COPR" == "rust-dev" ]; then
-    curl -X POST "$WEBHOOK_RUST_DEV/$package"
   elif [ "$COPR" == "cloudflared" ]; then
     curl -X POST "$WEBHOOK_CLOUDFLARED/$package"
   fi
@@ -205,18 +201,6 @@ latest_pypi_version() {
 
   json="$(curl -s 'https://pypi.org/pypi/'"$pkg"'/json')"
   version="$(printf "%s" "$json" | jq -r '.info.version')"
-
-  echo "local latest_version=$version"
-}
-
-latest_crate_version() {
-  local json;
-  local version;
-
-  local pkg="$1"
-
-  json="$(curl -s 'https://crates.io/api/v1/crates/'"$pkg"'')"
-  version="$(printf "%s" "$json" | jq -r '.crate.max_stable_version')"
 
   echo "local latest_version=$version"
 }
