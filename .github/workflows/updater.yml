@@ -25,3 +25,4 @@ jobs:
           WEBHOOK_LIBREPASS: ${{ secrets.WEBHOOK_LIBREPASS }}
           WEBHOOK_KTLINT: ${{ secrets.WEBHOOK_KTLINT }}
           WEBHOOK_RUST_DEV: ${{ secrets.WEBHOOK_RUST_DEV }}
+          WEBHOOK_CLOUDFLARED: ${{ secrets.WEBHOOK_CLOUDFLARED }}
