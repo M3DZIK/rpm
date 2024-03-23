@@ -22,8 +22,9 @@ A command-line client for Cloudflare Tunnel, a tunneling daemon that proxies tra
 go build -v \
     -ldflags "-compressdwarf=false \
         -linkmode external \
+        -extldflags ${LDFLAGS} \
         -X main.Version=%{version} \
-        -X main.BuildTime='$(date -u '+%Y-%m-%d-%H%M UTC')' \
+        -X main.BuildTime=$(date -u '+%Y%m%d-%H:%M:%S') \
         -X github.com/cloudflare/cloudflared/cmd/cloudflared/updater.BuiltForPackageManager=dnf" \
     ./cmd/cloudflared
 
