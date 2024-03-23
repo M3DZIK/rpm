@@ -24,7 +24,7 @@ go build -v \
         -linkmode external \
         -extldflags ${LDFLAGS} \
         -X main.Version=%{version} \
-        -X main.BuildTime=$(date -u '+%Y%m%d-%H:%M:%S') \
+        -X main.BuildTime=$(date -u '+%Y-%m-%d-%H:%M UTC') \
         -X github.com/cloudflare/cloudflared/cmd/cloudflared/updater.BuiltForPackageManager=dnf" \
     ./cmd/cloudflared
 
