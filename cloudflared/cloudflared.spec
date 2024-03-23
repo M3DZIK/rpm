@@ -3,7 +3,7 @@
 
 Name:          cloudflared
 Version:       2024.3.0
-Release:       3%{?dist}
+Release:       4%{?dist}
 Summary:       Cloudflare Tunnel client (formerly Argo Tunnel)
 License:       Apache-2.0
 URL:           https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/
@@ -19,8 +19,16 @@ A command-line client for Cloudflare Tunnel, a tunneling daemon that proxies tra
 %setup -q -n %{name}-%{version}
 
 %build
-go build -v -ldflags "-X \"main.Version=%{version}\" -X \"main.BuildTime=$(date -u '+%Y-%m-%d-%H%M UTC')\"" \
+go build -v \
+    -ldflags "-compressdwarf=false \
+        -linkmode external \
+        -X main.Version=%{version} \
+        -X main.BuildTime='$(date -u '+%Y-%m-%d-%H%M UTC')' \
+        -X github.com/cloudflare/cloudflared/cmd/cloudflared/updater.BuiltForPackageManager=dnf" \
     ./cmd/cloudflared
+
+%check
+go test -v -mod=vendor -race ./...
 
 %install
 install -d %{buildroot}%{_bindir}
