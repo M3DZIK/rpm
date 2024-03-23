@@ -18,26 +18,19 @@ A command-line client for Cloudflare Tunnel, a tunneling daemon that proxies tra
 %prep
 %setup -q -n %{name}-%{version}
 
-%build
-go build -v \
-    -ldflags "-compressdwarf=false \
-        -linkmode external \
-        -extldflags ${LDFLAGS} \
-        -X main.Version=%{version} \
-        -X main.BuildTime=$(date -u '+%Y-%m-%d-%H:%M UTC') \
-        -X github.com/cloudflare/cloudflared/cmd/cloudflared/updater.BuiltForPackageManager=dnf" \
-    ./cmd/cloudflared
-
-%check
-go test -v -mod=vendor -race ./...
-
 %install
-install -d %{buildroot}%{_bindir}
-cp -af -p %{name} %{buildroot}%{_bindir}
+make install \
+    VERSION=%{version} \
+    DATE=$(date -u +"%Y-%m-%dT%H:%M") \
+    PACKAGE_MANAGER=dnf \
+    PREFIX=%{buildroot} \
+    INSTALL_BINDIR=%{buildroot}%{_bindir} \
+    INSTALL_MANDIR=%{buildroot}%{_mandir}
 
 %files
 %license LICENSE
 %{_bindir}/%{name}
+%{_mandir}/%{name}.1
 
 %changelog
 * Sat Mar 23 2024 M3DZIK <me@medzik.dev> - 2024.3.0-3
