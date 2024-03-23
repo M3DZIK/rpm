@@ -10,6 +10,7 @@ URL:           https://developers.cloudflare.com/cloudflare-one/connections/conn
 
 Source0:       https://github.com/cloudflare/cloudflared/archive/%{version}.tar.gz
 
+BuildRequires: git
 BuildRequires: golang
 
 %description
