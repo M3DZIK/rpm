@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          android-studio-beta
-Version:       2023.3.1.14
+Version:       2023.3.1.15
 Release:       1%{?dist}
 Summary:       Integrated development environment for Google's Android platform - Beta Branch
 License:       Apache-2.0
@@ -103,6 +103,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Thu Mar 28 2024 M3DZIK <me@medzik.dev> - 2023.3.1.15-1
+- Update to 2023.3.1.15
+
 * Thu Mar 21 2024 M3DZIK <me@medzik.dev> - 2023.3.1.14-1
 - Update to 2023.3.1.14
 
