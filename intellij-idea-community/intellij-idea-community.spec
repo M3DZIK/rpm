@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname idea
-%global build_ver 233.15026.9
+%global build_ver 241.14494.240
 %global idea_name idea-IC
 
 # disable debuginfo subpackage
@@ -21,7 +21,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          intellij-idea-community
-Version:       2023.3.6
+Version:       2024.1
 Release:       1%{?dist}
 Summary:       Capable and Ergonomic Java IDE - Community Edition
 License:       Apache-2.0
@@ -103,6 +103,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Thu Apr 04 2024 M3DZIK <me@medzik.dev> - 2024.1-1
+- Update to 2024.1 (241.14494.240)
+
 * Thu Mar 21 2024 M3DZIK <me@medzik.dev> - 2023.3.6-1
 - Update to 2023.3.6 (233.15026.9)
 
