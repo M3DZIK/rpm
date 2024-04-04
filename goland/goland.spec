@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          goland
-Version:       2023.3.6
+Version:       2024.1
 Release:       1%{?dist}
 Summary:       Capable and Ergonomic Go IDE
 License:       Commercial
@@ -101,6 +101,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Thu Apr 04 2024 M3DZIK <me@medzik.dev> - 2024.1-1
+- Update to 2024.1
+
 * Fri Mar 22 2024 M3DZIK <me@medzik.dev> - 2023.3.6-1
 - Update to 2023.3.6
 
