@@ -2,8 +2,8 @@
 %global debug_package %{nil}
 
 Name:          cloudflared
-Version:       2024.3.0
-Release:       4%{?dist}
+Version:       2024.4.0
+Release:       1%{?dist}
 Summary:       Cloudflare Tunnel client (formerly Argo Tunnel)
 License:       Apache-2.0
 URL:           https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/
@@ -34,6 +34,9 @@ make install \
 %{_mandir}/%{name}.1
 
 %changelog
+* Wed Apr 10 2024 M3DZIK <me@medzik.dev> - 2024.4.0-1
+- Update to 2024.4.0
+
 * Sat Mar 23 2024 M3DZIK <me@medzik.dev> - 2024.3.0-3
 - Fixed cloudflared
 
