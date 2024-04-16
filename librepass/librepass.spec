@@ -1,11 +1,11 @@
 # disable debuginfo subpackage
 %global debug_package %{nil}
 
-%global git_commit 37a883d519de174c00a4ebacf55a30ae3a4a3321
+%global git_commit e358989affff8859a5fa9f7f0ef4d28ff93a4f9f
 
 Name:          librepass
 Epoch:         1
-Version:       1.0.0.alpha1.r98.g37a883d
+Version:       1.0.0.alpha1.r99.ge358989
 Release:       1%{?dist}
 Summary:       LibrePass Desktop Application
 License:       GPLv3
@@ -85,6 +85,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_metainfodir}/%{name}.metainfo.xml
 
 %changelog
+* Tue Apr 16 2024 M3DZIK <me@medzik.dev> - 1:1.0.0.alpha1.r99.ge358989-1
+- Update to 1.0.0.alpha1.r99.ge358989
+
 * Tue Apr 16 2024 M3DZIK <me@medzik.dev> - 1:1.0.0.alpha1.r98.g37a883d-1
 - Update to 1.0.0.alpha1.r98.g37a883d
 
