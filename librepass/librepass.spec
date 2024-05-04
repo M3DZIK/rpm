@@ -6,7 +6,7 @@
 Name:          librepass
 Epoch:         1
 Version:       1.0.0.alpha1.r102.gb39515e
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       LibrePass Desktop Application
 License:       GPLv3
 URL:           https://librepass.medzik.dev
@@ -85,6 +85,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_metainfodir}/%{name}.metainfo.xml
 
 %changelog
+* Sat May 04 2024 M3DZIK <me@medzik.dev> - 1:1.0.0.alpha1.r102.gb39515e-2
+- Fixed AppStream Metainfo
+
 * Wed May 01 2024 M3DZIK <me@medzik.dev> - 1:1.0.0.alpha1.r102.gb39515e-1
 - Update to 1.0.0.alpha1.r102.gb39515e
 

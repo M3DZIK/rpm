@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>dev.medzik.librepass</id>
+  <id>librepass.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPLv3</project_license>
   <name>LibrePass</name>
@@ -15,11 +15,9 @@
       have easy access to them.
     </p>
   </description>
-  <launchable type="desktop-id">librepass.desktop</launchable>
   <url type="bugtracker">https://github.com/LibrePass/LibrePass-Desktop/issues</url>
-  <url type="help">https://librepass.medzik.dev/help</url>
-  <url type="homepage">https://librepass.medzik.dev</url>
+  <url type="homepage">https://librepass.org</url>
   <developer_name>LibrePass Team</developer_name>
-  <update_contact>librepass@medzik.dev</update_contact>
+  <update_contact>contact@librepass.org</update_contact>
   <content_rating type="oars-1.1"/>
 </component>
