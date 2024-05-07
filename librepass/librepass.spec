@@ -1,12 +1,12 @@
 # disable debuginfo subpackage
 %global debug_package %{nil}
 
-%global git_commit b39515e09e1a1f841dd57440e9361d862681c38c
+%global git_commit c2a9a0486750217573b3c70b2eaea89989da4ecf
 
 Name:          librepass
 Epoch:         1
-Version:       1.0.0.alpha1.r102.gb39515e
-Release:       3%{?dist}
+Version:       1.0.0.alpha1.r103.gc2a9a04
+Release:       1%{?dist}
 Summary:       LibrePass Desktop Application
 License:       GPLv3
 URL:           https://librepass.medzik.dev
@@ -85,6 +85,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_metainfodir}/%{name}.metainfo.xml
 
 %changelog
+* Tue May 07 2024 M3DZIK <me@medzik.dev> - 1:1.0.0.alpha1.r103.gc2a9a04-1
+- Update to 1.0.0.alpha1.r103.gc2a9a04
+
 * Sat May 04 2024 M3DZIK <me@medzik.dev> - 1:1.0.0.alpha1.r102.gb39515e-2
 - Fixed AppStream Metainfo
 
