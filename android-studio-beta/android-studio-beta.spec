@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          android-studio-beta
-Version:       2024.1.1.7
+Version:       2024.1.1.8
 Release:       1%{?dist}
 Summary:       Integrated development environment for Google's Android platform - Beta Branch
 License:       Apache-2.0
@@ -103,6 +103,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Wed May 15 2024 M3DZIK <me@medzik.dev> - 2024.1.1.8-1
+- Update to 2024.1.1.8
+
 * Tue May 14 2024 M3DZIK <me@medzik.dev> - 2024.1.1.7-1
 - Update to 2024.1.1.7
 
