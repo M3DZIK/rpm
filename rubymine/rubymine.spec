@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/bin/.*|%{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          rubymine
-Version:       2024.1.1
+Version:       2024.1.2
 Release:       1%{?dist}
 Summary:       Ruby and Rails IDE with the full stack of essential developer tools
 License:       Commercial
@@ -101,6 +101,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Thu May 23 2024 M3DZIK <me@medzik.dev> - 2024.1.2-1
+- Update to 2024.1.2
+
 * Thu Apr 25 2024 M3DZIK <me@medzik.dev> - 2024.1.1-1
 - Update to 2024.1.1
 
