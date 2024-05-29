@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          pycharm-professional
-Version:       2024.1.1
+Version:       2024.1.2
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE - Professional
 License:       Commercial
@@ -101,6 +101,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Wed May 29 2024 M3DZIK <me@medzik.dev> - 2024.1.2-1
+- Update to 2024.1.2
+
 * Tue Apr 30 2024 M3DZIK <me@medzik.dev> - 2024.1.1-1
 - Update to 2024.1.1
 
