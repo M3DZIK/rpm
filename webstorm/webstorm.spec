@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname webstorm
-%global build_ver 241.17890.13
+%global build_ver 241.18034.50
 
 # disable debuginfo subpackage
 %global debug_package %{nil}
@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          webstorm
-Version:       2024.1.4
+Version:       2024.1.5
 Release:       1%{?dist}
 Summary:       The smartest JavaScript IDE
 License:       Commercial
@@ -102,6 +102,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Fri Jun 21 2024 M3DZIK <me@medzik.dev> - 2024.1.5-1
+- Update to 2024.1.5 (241.18034.50)
+
 * Mon Jun 10 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
 - Update to 2024.1.4 (241.17890.13)
 
