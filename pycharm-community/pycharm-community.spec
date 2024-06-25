@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
 Name:          pycharm-community
-Version:       2024.1.3
+Version:       2024.1.4
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE - Community
 License:       Apache-2.0
@@ -101,6 +101,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %doc *.txt
 
 %changelog
+* Tue Jun 25 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
+- Update to 2024.1.4
+
 * Mon Jun 10 2024 M3DZIK <me@medzik.dev> - 2024.1.3-1
 - Update to 2024.1.3
 
