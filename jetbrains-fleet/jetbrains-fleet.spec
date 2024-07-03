@@ -16,7 +16,7 @@
 %global __requires_exclude_from %{_javadir}/%{name}/lib/.*
 
 Name:          jetbrains-fleet
-Version:       1.36.104
+Version:       1.37.84
 Release:       1%{?dist}
 Summary:       Next-generation IDE by JetBrains
 License:       Commercial
@@ -77,6 +77,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 
 %changelog
+* Wed Jul 03 2024 M3DZIK <me@medzik.dev> - 1.37.84-1
+- Update to 1.37.84
+
 * Thu Jun 13 2024 M3DZIK <me@medzik.dev> - 1.36.104-1
 - Update to 1.36.104
 
