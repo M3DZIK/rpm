@@ -17,7 +17,7 @@
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
-%global _exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/jdk-shared-indexes/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*|%{_javadir}/%{name}/modules/.*
+%global _exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*|%{_javadir}/%{name}/modules/.*
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}
 
@@ -57,13 +57,6 @@ Requires: %{name}
 %description jbr
 A patched JRE for IntelliJ IDEA Ultimate.
 
-%package doc
-Summary:   Documentation for IntelliJ IDEA Ultimate
-BuildArch: noarch
-
-%description doc
-%{summary}.
-
 %prep
 %ifarch x86_64
 wget -q https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
@@ -77,7 +70,7 @@ cd %{idea_name}-%{build_ver}
 
 # Patching shebangs...
 %if 0%{?fedora}
-%py3_shebang_fix bin
+%py3_shebang_fix .
 %else
 find . -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
 %endif
@@ -129,15 +122,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
-%{_datadir}/icons/hicolor/scalable/apps/%{name}.*
+%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 %{_metainfodir}/%{name}.metainfo.xml
 
 %files jbr
 %{_javadir}/%{name}/jbr
-
-%files doc
-%doc %{idea_name}-%{build_ver}/help/
-%doc %{idea_name}-%{build_ver}/Install-Linux-tar.txt
 
 %changelog
 * Fri Jun 21 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1

@@ -26,12 +26,11 @@ Summary:       The smartest JavaScript IDE
 License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
 
-Source0:       https://download.jetbrains.com/%{appname}/WebStorm-%{version}.tar.gz
+Source0:   source-info.txt
 
-Source101:     %{name}.desktop
+Source101: %{name}.desktop
 
 BuildRequires: desktop-file-utils
-BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
 
@@ -41,24 +40,27 @@ Requires:      javapackages-filesystem
 %description
 WebStorm is an IDE for JavaScript and related technologies
 
-%package doc
-Summary:       Documentation for WebStorm
-BuildArch:     noarch
-
-%description doc
-This package contains documentation for WebStorm
-
 %prep
-%setup -q -n WebStorm-%{build_ver}
+%ifarch x86_64
+wget -q https://download.jetbrains.com/%{appname}/WebStorm-%{version}.tar.gz
+tar xf WebStorm-%{version}.tar.gz
+%else
+wget -q https://download.jetbrains.com/%{appname}/WebStorm-%{version}-aarch64.tar.gz
+tar xf WebStorm-%{version}-aarch64.tar.gz
+%endif
+
+cd WebStorm-%{build_ver}
 
 # Patching shebangs...
 %if 0%{?fedora}
-%py3_shebang_fix bin
+%py3_shebang_fix .
 %else
-find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
+find . -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
 %endif
 
 %install
+cd WebStorm-%{build_ver}
+
 # Installing application...
 install -d %{buildroot}%{_javadir}/%{name}
 cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
@@ -68,15 +70,6 @@ install -d %{buildroot}%{_datadir}/pixmaps
 install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
-
-# Creating additional PNG icons on the fly...
-for size in 16 22 24 32 48 64 128 256; do
-    dest=%{buildroot}%{_datadir}/icons/hicolor/${size}x${size}/apps
-    install -d ${dest}
-    rsvg-convert -w ${size} -h ${size} bin/%{appname}.svg -o ${dest}/%{name}.png
-    chmod 0644 ${dest}/%{name}.png
-    touch -r bin/%{appname}.svg ${dest}/%{name}.png
-done
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
@@ -90,16 +83,12 @@ install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/applications/%{name}.des
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
-%license license/*
+%license RubyMine-%{version}/license/*
 %{_javadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
-%{_datadir}/icons/hicolor/*/apps/%{name}.*
-
-%files doc
-%doc help/
-%doc *.txt
+%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 
 %changelog
 * Fri Jun 21 2024 M3DZIK <me@medzik.dev> - 2024.1.5-1
