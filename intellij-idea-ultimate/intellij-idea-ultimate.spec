@@ -17,8 +17,9 @@
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
-%global __provides_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
-%global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
+%global _exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/jdk-shared-indexes/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*|%{_javadir}/%{name}/modules/.*
+%global __provides_exclude_from %{_exclude_from}
+%global __requires_exclude_from %{_exclude_from}
 
 Name:    intellij-idea-ultimate
 Version: 2024.1.4
@@ -40,7 +41,6 @@ BuildRequires: javapackages-filesystem
 BuildRequires: wget
 BuildRequires: tar
 
-Requires:      %{name}-plugins
 Requires:      %{name}-jbr
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
@@ -51,12 +51,6 @@ Recommends:    %{name}-jdk-shared-indexes
 IntelliJ IDEA Ultimate is a fully-fledged commercial IDE for the JVM platform. IntelliJ IDEA provides all the
 tools you need for productive enterprise, Web, and mobile development. IntelliJ IDEA supports Java, Groovy,
 Kotlin, Scala, Android, JavaScript, SQL and lots of other languages and frameworks.
-
-%package plugins
-Summary: Plugins for IntelliJ IDEA Ultimate
-
-%description plugins
-%{summary}.
 
 %package jbr
 Summary: JetBrains Runtime for IntelliJ IDEA Ultimate
@@ -148,15 +142,12 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
 %license %{idea_name}-%{build_ver}/license/*
-%{_javadir}/%{name}/{bin,jbr,lib,build.txt,product-info.json}
+%{_javadir}/%{name}/{bin,jbr,lib,plugins,modules,build.txt,product-info.json}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
 %{_metainfodir}/%{name}.metainfo.xml
-
-%files plugins
-%{_javadir}/%{name}/{plugins,modules}
 
 %files jbr
 %{_javadir}/%{name}/jbr
