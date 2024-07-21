@@ -49,27 +49,32 @@ IntelliJ IDEA Ultimate is a fully-fledged commercial IDE for the JVM platform. I
 tools you need for productive enterprise, Web, and mobile development. IntelliJ IDEA supports Java, Groovy,
 Kotlin, Scala, Android, JavaScript, SQL and lots of other languages and frameworks.
 
+%package plugins
+Summary: Plugins for IntelliJ IDEA Ultimate
+
+%description plugins
+%{summary}.
+
 %package jbr
-Summary:       JetBrains Runtime for IntelliJ IDEA Ultimate
-BuildArch:     noarch
+Summary: JetBrains Runtime for IntelliJ IDEA Ultimate
 
 %description jbr
-A patched JRE for IntelliJ IDEA Ultimate
+A patched JRE for IntelliJ IDEA Ultimate.
 
 %package doc
-Summary:       Documentation for IntelliJ IDEA Ultimate
-BuildArch:     noarch
+Summary:   Documentation for IntelliJ IDEA Ultimate
+BuildArch: noarch
 
 %description doc
-This package contains documentation for IntelliJ IDEA Ultimate
+%{summary}.
 
 %prep
 %ifarch x86_64
 wget -q https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
-tar xvf ideaIU-%{version}.tar.gz
+tar xf ideaIU-%{version}.tar.gz
 %else
 wget -q https://download.jetbrains.com/idea/ideaIU-%{version}-aarch64.tar.gz
-tar xvf ideaIU-%{version}-aarch64.tar.gz
+tar xf ideaIU-%{version}-aarch64.tar.gz
 %endif
 
 cd %{idea_name}-%{build_ver}
@@ -86,18 +91,18 @@ cd %{idea_name}-%{build_ver}
 
 # Installing application...
 install -d %{buildroot}%{_javadir}/%{name}
-cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
+cp -arf ./{bin,jbr,jdk-shared-indexes,lib,plugins,modules,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
 
 # Deleting not needed files...
-find %{buildroot}%{_javadir}/%{name}/ -name '*darwin*' -exec rm -rv {} \;
-find %{buildroot}%{_javadir}/%{name}/ -name '*macos*' -exec rm -rv {} \;
-find %{buildroot}%{_javadir}/%{name}/ -name '*windows*' -exec rm -rv {} \;
+find %{buildroot}%{_javadir}/%{name}/ -iname '*darwin*' -exec rm -rv {} +
+find %{buildroot}%{_javadir}/%{name}/ -iname '*macos*' -exec rm -rv {} +
+find %{buildroot}%{_javadir}/%{name}/ -iname '*windows*' -exec rm -rv {} +
 %ifarch x86_64
-find %{buildroot}%{_javadir}/%{name}/ -name '*arm64*' -exec rm -rv {} \;
-find %{buildroot}%{_javadir}/%{name}/ -name '*aarch64*' -exec rm -rv {} \;
+find %{buildroot}%{_javadir}/%{name}/ -name '*arm64*' -exec rm -rv {} +
+find %{buildroot}%{_javadir}/%{name}/ -name '*aarch64*' -exec rm -rv {} +
 %else
-find %{buildroot}%{_javadir}/%{name}/ -name '*amd64*' -exec rm -rv {} \;
-find %{buildroot}%{_javadir}/%{name}/ -name '*x86_64*' -exec rm -rv {} \;
+find %{buildroot}%{_javadir}/%{name}/ -name '*amd64*' -exec rm -rv {} +
+find %{buildroot}%{_javadir}/%{name}/ -name '*x86_64*' -exec rm -rv {} +
 %endif
 
 # Installing icons...
@@ -133,12 +138,15 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
 %license %{idea_name}-%{build_ver}/license/*
-%{_javadir}/%{name}/{bin,jbr,lib,plugins,build.txt,product-info.json}
+%{_javadir}/%{name}/{bin,jbr,lib,build.txt,product-info.json}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
 %{_metainfodir}/%{name}.metainfo.xml
+
+%files plugins
+%{_javadir}/%{name}/{plugins,modules}
 
 %files jbr
 %{_javadir}/%{name}/jbr
