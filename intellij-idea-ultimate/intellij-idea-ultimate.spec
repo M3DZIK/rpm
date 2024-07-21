@@ -112,7 +112,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metain
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
-%license license/*
+%license %{idea_name}-%{build_ver}/license/*
 %{_javadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
@@ -121,8 +121,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_metainfodir}/%{name}.metainfo.xml
 
 %files doc
-%doc help/
-%doc *.txt
+%doc %{idea_name}-%{build_ver}/help/
+%doc %{idea_name}-%{build_ver}/*.txt
 
 %changelog
 * Fri Jun 21 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
