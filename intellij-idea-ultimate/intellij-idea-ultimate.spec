@@ -20,12 +20,12 @@
 %global __provides_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
-Name:          intellij-idea-ultimate
-Version:       2024.1.4
-Release:       3%{?dist}
-Summary:       Capable and Ergonomic Java IDE - Ultimate Edition
-License:       Commercial
-URL:           https://www.jetbrains.com/%{appname}/
+Name:    intellij-idea-ultimate
+Version: 2024.1.4
+Release: 3%{?dist}
+Summary: Capable and Ergonomic Java IDE - Ultimate Edition
+License: Commercial
+URL:     https://www.jetbrains.com/%{appname}/
 
 Source0:   source-info.txt
 
@@ -40,9 +40,12 @@ BuildRequires: javapackages-filesystem
 BuildRequires: wget
 BuildRequires: tar
 
+Requires:      %{name}-plugins
 Requires:      %{name}-jbr
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
+
+Recommends:    %{name}-jdk-shared-indexes
 
 %description
 IntelliJ IDEA Ultimate is a fully-fledged commercial IDE for the JVM platform. IntelliJ IDEA provides all the
