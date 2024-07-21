@@ -18,7 +18,7 @@
 %global __provides_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 %global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 
-Name:          intellij-gateway
+Name:          jetbrains-gateway
 Version:       2024.1.2
 Release:       1%{?dist}
 Summary:       Capable and Ergonomic Java IDE - Community Edition
@@ -27,7 +27,7 @@ URL:           https://www.jetbrains.com/remote-development/gateway/
 
 Source0:       https://download.jetbrains.com/idea/gateway/JetBrainsGateway-%{version}.tar.gz
 
-Source101:     intellij-gateway.desktop
+Source101:     jetbrains-gateway.desktop
 
 BuildRequires: desktop-file-utils
 BuildRequires: librsvg2-tools
