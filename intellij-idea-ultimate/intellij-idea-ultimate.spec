@@ -88,6 +88,18 @@ cd %{idea_name}-%{build_ver}
 install -d %{buildroot}%{_javadir}/%{name}
 cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
 
+# Deleting not needed files...
+find %{buildroot}%{_javadir}/%{name}/ -name '*darwin*' -delete
+find %{buildroot}%{_javadir}/%{name}/ -name '*macos*' -delete
+find %{buildroot}%{_javadir}/%{name}/ -name '*windows*' -delete
+%ifarch x86_64
+find %{buildroot}%{_javadir}/%{name}/ -name '*arm64*' -delete
+find %{buildroot}%{_javadir}/%{name}/ -name '*aarch64*' -delete
+%else
+find %{buildroot}%{_javadir}/%{name}/ -name '*amd64*' -delete
+find %{buildroot}%{_javadir}/%{name}/ -name '*x86_64*' -delete
+%endif
+
 # Installing icons...
 install -d %{buildroot}%{_datadir}/pixmaps
 install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
