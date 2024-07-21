@@ -61,6 +61,13 @@ Summary: JetBrains Runtime for IntelliJ IDEA Ultimate
 %description jbr
 A patched JRE for IntelliJ IDEA Ultimate.
 
+%package jdk-shared-indexes
+Summary:   Shared JDK indexes for IntelliJ IDEA Ultimate
+BuildArch: noarch
+
+%description jdk-shared-indexes
+%{summary}.
+
 %package doc
 Summary:   Documentation for IntelliJ IDEA Ultimate
 BuildArch: noarch
@@ -150,6 +157,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files jbr
 %{_javadir}/%{name}/jbr
+
+%files jdk-shared-indexes
+%{_javadir}/%{name}/jdk-shared-indexes
 
 %files doc
 %doc %{idea_name}-%{build_ver}/help/
