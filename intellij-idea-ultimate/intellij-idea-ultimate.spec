@@ -33,6 +33,7 @@ Source101: intellij-idea-ultimate.desktop
 Source102: %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
+BuildRequires: libappstream-glib
 BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
