@@ -63,7 +63,7 @@ wget https://download.jetbrains.com/idea/ideaIU-%{version}-aarch64.tar.gz
 tar xvf ideaIU-%{version}-aarch64.tar.gz
 %endif
 
-%setup -q -n %{idea_name}-%{build_ver}
+cd %{idea_name}-%{build_ver}
 
 # Patching shebangs...
 %if 0%{?fedora}
