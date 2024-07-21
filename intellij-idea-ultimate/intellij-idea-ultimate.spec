@@ -22,7 +22,7 @@
 
 Name:          intellij-idea-ultimate
 Version:       2024.1.4
-Release:       2%{?dist}
+Release:       3%{?dist}
 Summary:       Capable and Ergonomic Java IDE - Ultimate Edition
 License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
@@ -40,6 +40,7 @@ BuildRequires: javapackages-filesystem
 BuildRequires: wget
 BuildRequires: tar
 
+Requires:      %{name}-jbr
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
 
@@ -47,6 +48,13 @@ Requires:      javapackages-filesystem
 IntelliJ IDEA Ultimate is a fully-fledged commercial IDE for the JVM platform. IntelliJ IDEA provides all the
 tools you need for productive enterprise, Web, and mobile development. IntelliJ IDEA supports Java, Groovy,
 Kotlin, Scala, Android, JavaScript, SQL and lots of other languages and frameworks.
+
+%package jbr
+Summary:       JetBrains Runtime for IntelliJ IDEA Ultimate
+BuildArch:     noarch
+
+%description jbr
+A patched JRE for IntelliJ IDEA Ultimate
 
 %package doc
 Summary:       Documentation for IntelliJ IDEA Ultimate
@@ -57,10 +65,10 @@ This package contains documentation for IntelliJ IDEA Ultimate
 
 %prep
 %ifarch x86_64
-wget https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
+wget -q https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
 tar xvf ideaIU-%{version}.tar.gz
 %else
-wget https://download.jetbrains.com/idea/ideaIU-%{version}-aarch64.tar.gz
+wget -q https://download.jetbrains.com/idea/ideaIU-%{version}-aarch64.tar.gz
 tar xvf ideaIU-%{version}-aarch64.tar.gz
 %endif
 
@@ -113,16 +121,19 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
 %license %{idea_name}-%{build_ver}/license/*
-%{_javadir}/%{name}
+%{_javadir}/%{name}/{bin,jbr,lib,plugins,build.txt,product-info.json}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
 %{_metainfodir}/%{name}.metainfo.xml
 
+%files jbr
+%{_javadir}/%{name}/jbr
+
 %files doc
 %doc %{idea_name}-%{build_ver}/help/
-%doc %{idea_name}-%{build_ver}/*.txt
+%doc %{idea_name}-%{build_ver}/Install-Linux-tar.txt
 
 %changelog
 * Fri Jun 21 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
