@@ -27,8 +27,10 @@ Summary:       Capable and Ergonomic Java IDE - Ultimate Edition
 License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
 
-Source101:     intellij-idea-ultimate.desktop
-Source102:     %{name}.metainfo.xml
+Source0:   source-info.txt
+
+Source101: intellij-idea-ultimate.desktop
+Source102: %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: librsvg2-tools
