@@ -21,7 +21,7 @@
 Name:          jetbrains-gateway
 Version:       2024.1.2
 Release:       1%{?dist}
-Summary:       Capable and Ergonomic Java IDE - Community Edition
+Summary:       Your single entry point to all remote development environments
 License:       Commercial
 URL:           https://www.jetbrains.com/remote-development/gateway/
 
