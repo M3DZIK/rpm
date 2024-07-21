@@ -27,8 +27,7 @@ Summary:       Capable and Ergonomic Java IDE - Ultimate Edition
 License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
 
-Source0:   https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
-Source1:   https://download.jetbrains.com/idea/ideaIU-%{version}-aarch64.tar.gz
+Source0:   source-info.txt
 
 Source101: intellij-idea-ultimate.desktop
 Source102: %{name}.metainfo.xml
@@ -37,6 +36,8 @@ BuildRequires: desktop-file-utils
 BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
+BuildRequires: wget
+BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
@@ -55,19 +56,25 @@ This package contains documentation for IntelliJ IDEA Ultimate
 
 %prep
 %ifarch x86_64
-%setup -q -n %{idea_name}-%{build_ver} -a 0
+wget https://download.jetbrains.com/idea/%{idea_name}-%{version}.tar.gz
+tar xvf %{idea_name}-%{version}.tar.gz
 %else
-%setup -q -n %{idea_name}-%{build_ver} -a 1
+wget https://download.jetbrains.com/idea/%{idea_name}-%{version}-aarch64.tar.gz
+tar xvf %{idea_name}-%{version}-aarch64.tar.gz
 %endif
+
+cd %{idea_name}-%{build_ver}
 
 # Patching shebangs...
 %if 0%{?fedora}
 %py3_shebang_fix bin
 %else
-find bin -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
+find . -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
 %endif
 
 %install
+cd %{idea_name}-%{build_ver}
+
 # Installing application...
 install -d %{buildroot}%{_javadir}/%{name}
 cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
