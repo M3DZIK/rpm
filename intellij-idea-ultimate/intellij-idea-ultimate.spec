@@ -27,7 +27,8 @@ Summary:       Capable and Ergonomic Java IDE - Ultimate Edition
 License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
 
-Source0:   source-info.txt
+Source0:   https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
+Source1:   https://download.jetbrains.com/idea/ideaIU-%{version}-aarch64.tar.gz
 
 Source101: intellij-idea-ultimate.desktop
 Source102: %{name}.metainfo.xml
@@ -36,8 +37,6 @@ BuildRequires: desktop-file-utils
 BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
-BuildRequires: wget
-BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
@@ -56,14 +55,10 @@ This package contains documentation for IntelliJ IDEA Ultimate
 
 %prep
 %ifarch x86_64
-wget https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
-tar xvf ideaIU-%{version}.tar.gz
+%setup -q -n %{idea_name}-%{build_ver} -a 0
 %else
-wget https://download.jetbrains.com/idea/ideaIU-%{version}-aarch64.tar.gz
-tar xvf ideaIU-%{version}-aarch64.tar.gz
+%setup -q -n %{idea_name}-%{build_ver} -a 1
 %endif
-
-cd %{idea_name}-%{build_ver}
 
 # Patching shebangs...
 %if 0%{?fedora}
