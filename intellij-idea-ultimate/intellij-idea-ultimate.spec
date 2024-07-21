@@ -22,19 +22,20 @@
 
 Name:          intellij-idea-ultimate
 Version:       2024.1.4
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Capable and Ergonomic Java IDE - Ultimate Edition
 License:       Commercial
 URL:           https://www.jetbrains.com/%{appname}/
 
-Source0:       https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
-
 Source101:     intellij-idea-ultimate.desktop
+Source102:     %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
+BuildRequires: wget
+BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
@@ -52,6 +53,14 @@ BuildArch:     noarch
 This package contains documentation for IntelliJ IDEA Ultimate
 
 %prep
+%ifarch x86_64
+wget https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
+tar xvf ideaIU-%{version}.tar.gz
+%else
+wget https://download.jetbrains.com/idea/ideaIU-%{version}-aarch64.tar.gz
+tar xvf ideaIU-%{version}-aarch64.tar.gz
+%endif
+
 %setup -q -n %{idea_name}-%{build_ver}
 
 # Patching shebangs...
@@ -89,7 +98,12 @@ ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
 install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
+# Installing metainfo...
+install -d %{buildroot}%{_metainfodir}
+install -m 0644 -p %{SOURCE102} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
+
 %check
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
@@ -99,6 +113,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
+%{_metainfodir}/%{name}.metainfo.xml
 
 %files doc
 %doc help/
