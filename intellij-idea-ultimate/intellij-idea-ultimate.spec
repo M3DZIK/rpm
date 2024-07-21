@@ -35,17 +35,15 @@ Source102: %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
-BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
 BuildRequires: wget
 BuildRequires: tar
 
-Requires:      %{name}-jbr
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
 
-Recommends:    %{name}-jdk-shared-indexes
+Recommends:    %{name}-jbr
 
 %description
 IntelliJ IDEA Ultimate is a fully-fledged commercial IDE for the JVM platform. IntelliJ IDEA provides all the
@@ -53,17 +51,11 @@ tools you need for productive enterprise, Web, and mobile development. IntelliJ 
 Kotlin, Scala, Android, JavaScript, SQL and lots of other languages and frameworks.
 
 %package jbr
-Summary: JetBrains Runtime for IntelliJ IDEA Ultimate
+Summary:  JetBrains Runtime for IntelliJ IDEA Ultimate
+Requires: %{name}
 
 %description jbr
 A patched JRE for IntelliJ IDEA Ultimate.
-
-%package jdk-shared-indexes
-Summary:   Shared JDK indexes for IntelliJ IDEA Ultimate
-BuildArch: noarch
-
-%description jdk-shared-indexes
-%{summary}.
 
 %package doc
 Summary:   Documentation for IntelliJ IDEA Ultimate
@@ -95,7 +87,7 @@ cd %{idea_name}-%{build_ver}
 
 # Installing application...
 install -d %{buildroot}%{_javadir}/%{name}
-cp -arf ./{bin,jbr,jdk-shared-indexes,lib,plugins,modules,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
+cp -arf ./{bin,jbr,lib,plugins,modules,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
 
 # Deleting not needed files...
 find %{buildroot}%{_javadir}/%{name}/ -iname '*darwin*' -exec rm -rv {} +
@@ -114,15 +106,6 @@ install -d %{buildroot}%{_datadir}/pixmaps
 install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
-
-# Creating additional PNG icons on the fly...
-for size in 16 22 24 32 48 64 128 256; do
-    dest=%{buildroot}%{_datadir}/icons/hicolor/${size}x${size}/apps
-    install -d ${dest}
-    rsvg-convert -w ${size} -h ${size} bin/%{appname}.svg -o ${dest}/%{name}.png
-    chmod 0644 ${dest}/%{name}.png
-    touch -r bin/%{appname}.svg ${dest}/%{name}.png
-done
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
@@ -146,14 +129,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
-%{_datadir}/icons/hicolor/*/apps/%{name}.*
+%{_datadir}/icons/hicolor/scalable/apps/%{name}.*
 %{_metainfodir}/%{name}.metainfo.xml
 
 %files jbr
 %{_javadir}/%{name}/jbr
-
-%files jdk-shared-indexes
-%{_javadir}/%{name}/jdk-shared-indexes
 
 %files doc
 %doc %{idea_name}-%{build_ver}/help/
