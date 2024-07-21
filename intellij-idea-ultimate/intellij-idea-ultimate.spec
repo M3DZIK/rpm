@@ -57,10 +57,10 @@ This package contains documentation for IntelliJ IDEA Ultimate
 
 %prep
 %ifarch x86_64
-wget https://download.jetbrains.com/idea/%{idea_name}-%{version}.tar.gz
+wget https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
 tar xvf %{idea_name}-%{version}.tar.gz
 %else
-wget https://download.jetbrains.com/idea/%{idea_name}-%{version}-aarch64.tar.gz
+wget https://download.jetbrains.com/idea/ideaIU-%{version}-aarch64.tar.gz
 tar xvf %{idea_name}-%{version}-aarch64.tar.gz
 %endif
 
