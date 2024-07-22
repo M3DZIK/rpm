@@ -21,7 +21,7 @@
 
 Name:    rustrover
 Version: 2024.1.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A powerhouse IDE for Rust developers
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
