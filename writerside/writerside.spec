@@ -1,4 +1,5 @@
 %global appname writerside
+%global build_ver 241.18775.98
 
 # disable debuginfo subpackage
 %global debug_package %{nil}
@@ -52,9 +53,9 @@ JetBrains Runtime - a patched Java Runtime Environment (JRE).
 
 %prep
 %ifarch x86_64
-download_file="%{name}-%{version}.tar.gz"
+download_file="%{name}-%{build_ver}.tar.gz"
 %else
-download_file="%{name}-%{version}-aarch64.tar.gz"
+download_file="%{name}-%{build_ver}-aarch64.tar.gz"
 %endif
 
 wget -q "https://download-cf.jetbrains.com/%{name}/$download_file"
