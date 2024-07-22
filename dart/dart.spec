@@ -9,6 +9,7 @@ Version: 3.4.4
 Release: 1%{?dist}
 Summary: The dart programming language SDK
 License: BSD-3
+URL:     https://dart.dev
 
 Source0: https://github.com/dart-lang/sdk/archive/refs/tags/%{version}.tar.gz
 
