@@ -1,4 +1,4 @@
-%global appname datagrip
+%global appname writerside
 
 # disable debuginfo subpackage
 %global debug_package %{nil}
@@ -18,10 +18,10 @@
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}
 
-Name:    datagrip
-Version: 2024.1.4
+Name:    writerside
+Version: 2024.1
 Release: 1%{?dist}
-Summary: A powerful tool for relational and NoSQL databases
+Summary: A new technical writing environment from JetBrains
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
 
@@ -38,7 +38,7 @@ Requires:      javapackages-filesystem
 Recommends:    %{name}-jbr
 
 %description
-Smart SQL Editor and Advanced Database Client Packed Together for Optimum Productivity.
+The most powerful development environment – now adapted for writing documentation.
 
 %package jbr
 Summary:  JetBrains Runtime
