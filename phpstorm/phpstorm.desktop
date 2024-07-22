@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=PhpStorm
+GenericName=Lightning-smart PHP IDE
+Exec=phpstorm
+Terminal=false
+Icon=phpstorm
+Type=Application
+Categories=Development;IDE;
+StartupWMClass=jetbrains-phpstorm
