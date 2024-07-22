@@ -14,6 +14,7 @@ License: BSD-3
 Source0: https://github.com/dart-lang/sdk/archive/refs/tags/%{version}.tar.gz
 
 BuildRequires: python3
+BuildRequires: git
 
 %description
 %{summary}
