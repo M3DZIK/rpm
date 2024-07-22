@@ -18,11 +18,11 @@ BuildRequires: git
 %{summary}
 
 %prep
-git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git --depth 1
+git clone --depth 1 https://chromium.googlesource.com/chromium/tools/depot_tools.git %{_builddir}/depot_tools
 
 %setup -q -n sdk-%{version}
 
-%{buildroot}/depot_tools/fetch dart --no-history
+%{_builddir}/depot_tools/depot_tools/fetch dart --no-history
 
 %build
 cd sdk
