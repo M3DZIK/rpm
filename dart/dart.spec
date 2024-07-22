@@ -22,7 +22,7 @@ BuildRequires: git
 %prep
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git --depth 1
 
-%setup -q -n flutter-%{version}
+%setup -q -n sdk-%{version}
 
 %{buildroot}/depot_tools/fetch dart --no-history
 
