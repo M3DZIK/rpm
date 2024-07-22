@@ -60,6 +60,18 @@ mv %{idea_name}-%{version}/* .
 find . -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
 %endif
 
+# Deleting unnecessary files...
+find %{buildroot}%{_javadir}/%{name}/ -iname '*darwin*' -exec rm -rv {} +
+find %{buildroot}%{_javadir}/%{name}/ -iname '*macos*' -exec rm -rv {} +
+find %{buildroot}%{_javadir}/%{name}/ -iname '*windows*' -exec rm -rv {} +
+%ifarch x86_64
+find %{buildroot}%{_javadir}/%{name}/ -name '*arm64*' -exec rm -rv {} +
+find %{buildroot}%{_javadir}/%{name}/ -name '*aarch64*' -exec rm -rv {} +
+%else
+find %{buildroot}%{_javadir}/%{name}/ -name '*amd64*' -exec rm -rv {} +
+find %{buildroot}%{_javadir}/%{name}/ -name '*x86_64*' -exec rm -rv {} +
+%endif
+
 %install
 # Installing application...
 install -d %{buildroot}%{_javadir}/%{name}
