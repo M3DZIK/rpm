@@ -24,7 +24,7 @@ git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git --dep
 
 %setup -q -n flutter-%{version}
 
-fetch dart --no-history
+%{buildroot}/depot_tools/fetch dart --no-history
 
 %build
 cd sdk
