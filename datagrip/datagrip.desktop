@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=DataGrip
+GenericName=A powerful tool for relational and NoSQL databases
+Exec=datagrip
+Terminal=false
+Icon=datagrip
+Type=Application
+Categories=Development;IDE;
+StartupWMClass=jetbrains-datagrip
