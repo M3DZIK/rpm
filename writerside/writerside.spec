@@ -127,5 +127,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_javadir}/%{name}/jbr
 
 %changelog
-* Mon Jul 22 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
+* Mon Jul 22 2024 M3DZIK <me@medzik.dev> - 2024.1-1
 - Initial release
