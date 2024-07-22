@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>com.jetbrains.DataSpell</id>
+    <name>DataSpell</name>
+    <summary>A powerful toolkit for working with data</summary>
+    <description>
+        <p>
+            DataSpell is an Integrated Development Environment (IDE) that is dedicated to specific tasks for exploratory data analysis and prototyping ML (machine learning) models. 
+        </p>
+    </description>
+    <launchable type="desktop-id">intellij-idea-ultimate.desktop</launchable>
+    <metadata_license>>CC0-1.0</metadata_license>
+    <project_license>LicenseRef-proprietary</project_license>
+    <developer_name>JetBrains s.r.o.</developer_name>
+    <screenshots>
+        <screenshot type="default">
+            <image>https://resources.jetbrains.com/help/img/idea/2024.1/py_ds_intro.png</image>
+        </screenshot>
+    </screenshots>
+    <url type="homepage">https://www.jetbrains.com/dataspell/</url>
+    <url type="bugtracker">https://youtrack.jetbrains.com/</url>
+    <url type="help">https://www.jetbrains.com/help/dataspell/</url>
+    <developer_name>JetBrains s.r.o.</developer_name>
+    <content_rating type="oars-1.1"/>
+</component>
