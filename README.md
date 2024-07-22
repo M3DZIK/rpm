@@ -1,6 +1,10 @@
 # Automatically Updated RPM Repositories
 
-This guide outlines how to add and utilize automatically updated RPM repositories from the COPR project (Community Owned Package Repositories).
+This repository provides configuration files to automatically update RPM packages hosted on the COPR (Community Owned Package Repositories) project using GitHub Actions. 
+
+By leveraging GitHub Actions, these configurations enable you to keep your development environment up-to-date with the latest versions of the packages you rely on. 
+
+**The auto-update task is scheduled to run every 6 hours, ensuring that all packages remains up-to-date.**
 
 ## Adding a Repository
 
