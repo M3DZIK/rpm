@@ -6,5 +6,4 @@ Terminal=false
 Icon=rubymine
 Type=Application
 Categories=Development;IDE;
-Keywords=development;ruby;ide;
 StartupWMClass=jetbrains-rubymine

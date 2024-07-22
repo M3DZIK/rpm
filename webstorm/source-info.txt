@@ -1,5 +1,0 @@
-This package does not include source code for compilation. It re-packages official pre-compiled binaries.
-
-Binaries were downloaded from the official release at:
-- https://download.jetbrains.com/webstorm/WebStorm-[VERSION].tar.gz for x86-64
-- https://download.jetbrains.com/webstorm/WebStorm-[VERSION]-arm64.tar.gz for arm64

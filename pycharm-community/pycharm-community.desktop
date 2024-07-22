@@ -6,5 +6,4 @@ Terminal=false
 Icon=pycharm-community
 Type=Application
 Categories=Development;IDE;
-Keywords=development;pycharm;ide;python;
 StartupWMClass=jetbrains-pycharm-ce
