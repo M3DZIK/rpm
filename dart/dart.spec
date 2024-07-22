@@ -36,14 +36,8 @@ arch=arm64
 ./tools/build.py --mode release --arch $arch create_sdk
 
 %install
-%ifarch x86_64
-out_dir=out/ReleaseX64
-%elifarch aarch64
-out_dir=out/ReleaseARM64
-%endif
-
 install -d %{buildroot}%{dartlibdir}
-cp -arf ./${out_dir}/dart-sdk %{buildroot}%{dartlibdir}/
+cp -arf ./out/*/dart-sdk %{buildroot}%{dartlibdir}/
 
 # Set up symbolic links for the executables
 install -d %{buildroot}%{_bindir}
