@@ -57,6 +57,7 @@ download_file="%{name}-%{version}-aarch64.tar.gz"
 %endif
 
 wget -q "https://download-cf.jetbrains.com/python/$download_file"
+mkdir "${download_file}.out"
 tar xf "$download_file" -C "${download_file}.out"
 mv "${download_file}.out"/*/* .
 
