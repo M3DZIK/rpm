@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=RustRover
+GenericName=A powerhouse IDE for Rust developers
+Exec=rustrover
+Terminal=false
+Icon=rustrover
+Type=Application
+Categories=Development;IDE;
+StartupWMClass=jetbrains-rustrover

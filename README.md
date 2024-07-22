@@ -65,4 +65,5 @@ The JetBrains repository offers the following development tools:
 * `pycharm-professional`: Paid, feature-rich Python IDE
 * `rider`: .NET development IDE
 * `rubymine`: Ruby and Rails IDE
+* `rustrover`: Rust IDE
 * `webstorm`: JavaScript and web development IDE
