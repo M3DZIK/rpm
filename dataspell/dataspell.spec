@@ -23,7 +23,7 @@
 
 Name:    dataspell
 Version: 2024.1.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Python IDE for data scientists
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
