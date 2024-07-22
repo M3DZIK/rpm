@@ -19,14 +19,14 @@
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}
 
-Name:    android-studio-beta
-Version: 2024.1.2.9
+Name:    android-studio-canary
+Version: 2024.1.3.1
 Release: 1%{?dist}
 Summary: Integrated development environment for Google's Android platform - Canary Channel
 License: Apache-2.0
 URL:     https://developer.android.com/%{appname}/
 
-Source0:   https://dl.google.com/android/studio/ide-zips/%{version}/android-studio-%{version}-linux.tar.gz
+Source0: https://dl.google.com/android/studio/ide-zips/%{version}/android-studio-%{version}-linux.tar.gz
 
 Source101: %{name}.desktop
 

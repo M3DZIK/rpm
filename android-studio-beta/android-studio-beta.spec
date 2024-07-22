@@ -26,7 +26,7 @@ Summary: Integrated development environment for Google's Android platform - Beta
 License: Apache-2.0
 URL:     https://developer.android.com/%{appname}/
 
-Source0:   https://dl.google.com/android/studio/ide-zips/%{version}/android-studio-%{version}-linux.tar.gz
+Source0: https://dl.google.com/android/studio/ide-zips/%{version}/android-studio-%{version}-linux.tar.gz
 
 Source101: %{name}.desktop
 
