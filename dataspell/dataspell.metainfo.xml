@@ -2,7 +2,7 @@
 <component type="desktop-application">
     <id>com.jetbrains.DataSpell</id>
     <name>DataSpell</name>
-    <summary>A powerful toolkit for working with data</summary>
+    <summary>Python IDE for data scientists</summary>
     <description>
         <p>
             DataSpell is an Integrated Development Environment (IDE) that is dedicated to specific tasks for exploratory data analysis and prototyping ML (machine learning) models. 
