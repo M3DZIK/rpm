@@ -47,6 +47,9 @@ DataSpell is an Integrated Development Environment (IDE) that is dedicated to sp
 Summary:  JetBrains Runtime for IntelliJ IDEA Ultimate
 Requires: %{name}
 
+%global __provides_exclude_from %{_javadir}/%{name}/jbr/.*
+%global __requires_exclude_from %{_javadir}/%{name}/jbr/.*
+
 %description jbr
 JetBrains Runtime - a patched Java Runtime Environment (JRE).
 
