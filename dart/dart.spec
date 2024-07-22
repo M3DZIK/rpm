@@ -39,7 +39,7 @@ arch=arm64
 
 %install
 install -d %{buildroot}%{dartlibdir}
-cp -arf ./out/*/dart-sdk %{buildroot}%{dartlibdir}/
+cp -arf ./sdk/out/*/dart-sdk %{buildroot}%{dartlibdir}/
 
 # Set up symbolic links for the executables
 install -d %{buildroot}%{_bindir}
