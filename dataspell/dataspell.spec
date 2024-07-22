@@ -1,6 +1,5 @@
 %global appname dataspell
 %global build_ver 241.18034.23
-%global idea_name %{appname}
 
 # disable debuginfo subpackage
 %global debug_package %{nil}
@@ -51,9 +50,8 @@ download_file="%{name}-%{version}-aarch64.tar.gz"
 %endif
 
 wget -q "https://download-cf.jetbrains.com/python/$download_file"
-tar xf "$download_file"
-
-mv %{idea_name}-%{version}/* .
+tar xf "$download_file" -C "${download_file}.out"
+mv "${download_file}.out"/*/* .
 
 # Patching shebangs...
 %if 0%{?fedora}
@@ -63,15 +61,23 @@ find . -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g
 %endif
 
 # Deleting unnecessary files...
-find . -iname '*darwin*' -exec rm -rv {} +; true
-find . -iname '*macos*' -exec rm -rv {} +; true
-find . -iname '*windows*' -exec rm -rv {} +; true
+# First it removes directories, because it sometimes throws an error
+find . -type d -iname '*darwin*' -exec rm -rv {} +
+find . -iname '*darwin*' -exec rm -rv {} +
+find . -type d -iname '*macos*' -exec rm -rv {} +
+find . -iname '*macos*' -exec rm -rv {} +
+find . -type d -iname '*windows*' -exec rm -rv {} +
+find . -iname '*windows*' -exec rm -rv {} +
 %ifarch x86_64
-find . -name '*arm64*' -exec rm -rv {} +; true
-find . -name '*aarch64*' -exec rm -rv {} +; true
+find . -type d -name '*arm64*' -exec rm -rv {} +
+find . -name '*arm64*' -exec rm -rv {} +
+find . -type d -name '*aarch64*' -exec rm -rv {} +
+find . -name '*aarch64*' -exec rm -rv {} +
 %else
-find . -name '*amd64*' -exec rm -rv {} +; true
-find . -name '*x86_64*' -exec rm -rv {} +; true
+find . -type d -name '*amd64*' -exec rm -rv {} +
+find . -name '*amd64*' -exec rm -rv {} +
+find . -type d -name '*x86_64*' -exec rm -rv {} +
+find . -name '*x86_64*' -exec rm -rv {} +
 %endif
 
 %install
