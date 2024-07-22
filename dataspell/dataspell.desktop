@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=DataSpell
+GenericName=A powerful toolkit for working with data
+Exec=dataspell
+Terminal=false
+Icon=dataspell
+Type=Application
+Categories=Development;IDE;
+StartupWMClass=jetbrains-dataspell
