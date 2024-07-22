@@ -42,6 +42,13 @@ Requires:      javapackages-filesystem
 %description
 DataSpell is an Integrated Development Environment (IDE) that is dedicated to specific tasks for exploratory data analysis and prototyping ML (machine learning) models. 
 
+%package jbr
+Summary:  JetBrains Runtime for IntelliJ IDEA Ultimate
+Requires: %{name}
+
+%description jbr
+JetBrains Runtime - a patched Java Runtime Environment (JRE).
+
 %prep
 %ifarch x86_64
 download_file="%{name}-%{version}.tar.gz"
@@ -109,12 +116,15 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
 %license license/*
-%{_javadir}/%{name}
+%{_javadir}/%{name}/{bin,lib,plugins,build.txt,product-info.json}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 %{_metainfodir}/%{name}.metainfo.xml
+
+%files jbr
+%{_javadir}/%{name}/jbr
 
 %changelog
 * Mon Jul 22 2024 M3DZIK <me@medzik.dev> - 2024.1.3-1
