@@ -15,7 +15,7 @@
 # disable rpath checks
 %define __brp_check_rpaths %{nil}
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
-%global _exclude_from %{_javadir}/%{name}/bin/.*.so|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*|%{_javadir}/%{name}/jbr/.*
+%global _exclude_from %{_javadir}/%{name}/bin/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*|%{_javadir}/%{name}/jbr/.*
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}
 
