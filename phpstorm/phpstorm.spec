@@ -55,7 +55,7 @@ JetBrains Runtime - a patched Java Runtime Environment (JRE).
 %ifarch x86_64
 download_file="PhpStorm-%{version}.tar.gz"
 %else
-download_file="WebStorm-%{version}-aarch64.tar.gz"
+download_file="PhpStorm-%{version}-aarch64.tar.gz"
 %endif
 
 wget -q "https://download-cf.jetbrains.com/webide/$download_file"
