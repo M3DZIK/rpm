@@ -1,31 +1,44 @@
-# Automatically updated RPM repositories
+# Automatically Updated RPM Repositories
 
-## List of repositories
+This guide outlines how to add and utilize automatically updated RPM repositories from the COPR project (Community Owned Package Repositories).
 
-### Multiple packages
+## Adding a Repository
 
-* jetbrains
+1. **Open a terminal window.**
+2. **Execute the following command, replacing `<repository name>` with the desired repository name:**
 
-### Single package
+   ```bash
+   sudo dnf copr enable medzik/<repository name>
+   ```
 
-* cloudflared
-* ktlint
-* librepass
+    **Example**: To enable the JetBrains repository, use:
 
-## Packages in JetBrains Repository
+    ```bash
+    sudo dnf copr enable medzik/jetbrains
+    ```
 
-* `android-studio`
-* `android-studio-beta`
-* `android-studio-canary`
-* `clion`
-* `dataspell`
-* `goland`
-* `intellij-idea-community`
-* `intellij-idea-ultimate`
-* `jetbrains-fleet`
-* `jetbrains-gateway`
-* `pycharm-community`
-* `pycharm-professional`
-* `rider`
-* `rubymine`
-* `webstorm`
+## Installing Packages
+
+Once a repository is enabled, you can install packages using the dnf install command:
+
+```bash
+sudo dnf install <package name>
+```
+
+**Example**: To install Android Studio from the JetBrains repository:
+
+```bash
+sudo dnf install android-studio
+```
+
+## Available Repositories
+
+### Multiple Packages:
+
+* [JetBrains](https://copr.fedorainfracloud.org/coprs/medzik/jetbrains/)
+
+### Single Packages:
+
+* [cloudflared](https://copr.fedorainfracloud.org/coprs/medzik/cloudflared/)
+* [ktlint](https://copr.fedorainfracloud.org/coprs/medzik/ktlint/)
+* [librepass](https://copr.fedorainfracloud.org/coprs/medzik/librepass/)
