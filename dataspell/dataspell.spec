@@ -48,7 +48,7 @@ download_file="%{name}-%{version}.tar.gz"
 download_file="%{name}-%{version}-aarch64.tar.gz"
 %endif
 
-wget -q "https://download-cf.jetbrains.com/%{appname}/$download_file"
+wget -q "https://download-cf.jetbrains.com/python/$download_file"
 tar xf "$download_file"
 
 mv %{idea_name}-%{version}/* .
