@@ -1,7 +1,8 @@
 # disable debuginfo subpackage
 %global debug_package %{nil}
 
-%global dartlibdir /opt/dark-sdk
+%global common_libdir %{_prefix}/lib
+%global dartlibdir %{common_libdir}/dart-sdk
 
 Name:    dart
 Version: 3.4.4
