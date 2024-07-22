@@ -15,7 +15,7 @@
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
-%global _exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
+%global _exclude_from %{_javadir}/%{name}/bin/.*.so|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}
 
