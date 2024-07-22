@@ -46,3 +46,23 @@ sudo dnf install android-studio
 * [cloudflared](https://copr.fedorainfracloud.org/coprs/medzik/cloudflared/)
 * [ktlint](https://copr.fedorainfracloud.org/coprs/medzik/ktlint/)
 * [librepass](https://copr.fedorainfracloud.org/coprs/medzik/librepass/)
+
+## JetBrains Repository Packages
+
+The JetBrains repository offers the following development tools:
+
+* `android-studio`: Android development IDE
+* `android-studio-beta`: Beta version of Android Studio
+* `android-studio-canary`: Cutting-edge canary build of Android Studio (potentially unstable)
+* `clion`: C and C++ IDE
+* `dataspell`: Data science IDE for Python
+* `goland`: Go programming IDE
+* `intellij-idea-community`: Free and open-source Java IDE
+* `intellij-idea-ultimate`: Paid, feature-rich Java IDE
+* `jetbrains-fleet`: Unified IDE for multiple languages
+* `jetbrains-gateway`: Development environment for creating cross-platform apps
+* `pycharm-community`: Free and open-source Python IDE
+* `pycharm-professional`: Paid, feature-rich Python IDE
+* `rider`: .NET development IDE
+* `rubymine`: Ruby and Rails IDE
+* `webstorm`: JavaScript and web development IDE
