@@ -122,7 +122,7 @@ install -d %{buildroot}%{_metainfodir}
 install -m 0644 -p %{SOURCE1} %{buildroot}%{_metainfodir}/%{metainfo_id}.appdata.xml
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{metainfo_id}.appdata.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
