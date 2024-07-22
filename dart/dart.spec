@@ -28,12 +28,20 @@ fetch dart --no-history
 %build
 cd sdk
 
+%ifarch x86_64
 arch=x64
+%elifarch aarch64
+arch=arm64
+%endif
 
 ./tools/build.py --mode release --arch $arch create_sdk
 
 %install
+%ifarch x86_64
 out_dir=out/ReleaseX64
+%elifarch aarch64
+out_dir=out/ReleaseARM64
+%endif
 
 install -d %{buildroot}%{dartlibdir}
 cp -arf ./${out_dir}/dart-sdk %{buildroot}%{dartlibdir}/
