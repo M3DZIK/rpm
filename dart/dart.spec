@@ -1,8 +1,6 @@
 # disable debuginfo subpackage
 %global debug_package %{nil}
 
-#%global common_libdir %{_prefix}/lib
-#%global dartlibdir %{common_libdir}/rustlib
 %global dartlibdir /opt/dark-sdk
 
 Name:    dart
