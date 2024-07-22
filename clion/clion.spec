@@ -21,7 +21,7 @@
 
 Name:    clion
 Version: 2024.1.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A cross-platform IDE for C and C++
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
