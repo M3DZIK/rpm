@@ -26,7 +26,6 @@ License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
 
 Source0: %{name}.desktop
-Source1: %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: python3-devel
