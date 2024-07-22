@@ -22,7 +22,7 @@ git clone --depth 1 https://chromium.googlesource.com/chromium/tools/depot_tools
 
 %setup -q -n sdk-%{version}
 
-%{_builddir}/depot_tools/fetch dart --no-history
+%{_builddir}/depot_tools/fetch --no-history dart
 
 %build
 cd sdk
