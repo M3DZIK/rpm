@@ -43,7 +43,7 @@ Recommends:    %{name}-jbr
 WebStorm is an IDE for JavaScript and related technologies.
 
 %package jbr
-Summary:  JetBrains Runtime for IntelliJ IDEA Ultimate
+Summary:  JetBrains Runtime
 Requires: %{name}
 
 %global __provides_exclude_from %{_exclude_from}

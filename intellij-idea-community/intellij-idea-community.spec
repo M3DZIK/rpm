@@ -45,7 +45,7 @@ IntelliJ IDEA Community is a free and open-source edition of IntelliJ IDEA, the 
 IntelliJ IDEA Community provides all the tools you need for Java, Groovy, Kotlin, Scala, and Android.
 
 %package jbr
-Summary:  JetBrains Runtime for IntelliJ IDEA Ultimate
+Summary:  JetBrains Runtime
 Requires: %{name}
 
 %global __provides_exclude_from %{_exclude_from}

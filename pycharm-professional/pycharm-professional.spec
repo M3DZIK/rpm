@@ -42,7 +42,7 @@ Recommends:    %{name}-jbr
 PyCharm is designed by programmers, for programmers, to provide all the tools you need for productive Python development.
 
 %package jbr
-Summary:  JetBrains Runtime for IntelliJ IDEA Ultimate
+Summary:  JetBrains Runtime
 Requires: %{name}
 
 %global __provides_exclude_from %{_exclude_from}

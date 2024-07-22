@@ -6,5 +6,4 @@ Terminal=false
 Icon=clion
 Type=Application
 Categories=Development;IDE;
-Keywords=development;clion;ide;
 StartupWMClass=jetbrains-clion

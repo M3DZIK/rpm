@@ -15,27 +15,28 @@
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
-%global __provides_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
-%global __requires_exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*
+%global _exclude_from %{_javadir}/%{name}/bin/.*.so|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*|%{_javadir}/%{name}/jbr/.*
+%global __provides_exclude_from %{_exclude_from}
+%global __requires_exclude_from %{_exclude_from}
 
-Name:          android-studio
-Version:       2024.1.1.12
-Release:       1%{?dist}
-Summary:       Integrated development environment for Google's Android platform
-License:       Apache-2.0
-URL:           https://developer.android.com/%{appname}/
+Name:    android-studio
+Version: 2024.1.1.12
+Release: 1%{?dist}
+Summary: Integrated development environment for Google's Android platform
+License: Apache-2.0
+URL:     https://developer.android.com/%{appname}/
 
-Source0:       https://dl.google.com/android/studio/ide-zips/%{version}/android-studio-%{version}-linux.tar.gz
+Source0:   https://dl.google.com/android/studio/ide-zips/%{version}/android-studio-%{version}-linux.tar.gz
 
-Source101:     android-studio.desktop
+Source101: %{name}.desktop
 
 BuildRequires: desktop-file-utils
-BuildRequires: librsvg2-tools
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
+Recommends:    %{name}-jbr
 
 %description
 Official Integrated Development Environment (IDE) for developing
@@ -43,12 +44,15 @@ applications. The IDE is based on IntelliJ IDEA, and provides
 features on top of its powerful code editor and developer tools
 to enhance the productivity of the Android application developers
 
-%package doc
-Summary:       Documentation for Android Studio
-BuildArch:     noarch
+%package jbr
+Summary:  JetBrains Runtime
+Requires: %{name}
 
-%description doc
-This package contains documentation for Android Studio
+%global __provides_exclude_from %{_exclude_from}
+%global __requires_exclude_from %{_exclude_from}
+
+%description jbr
+JetBrains Runtime - a patched Java Runtime Environment (JRE).
 
 %prep
 %setup -q -n android-studio
@@ -71,15 +75,6 @@ install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/%{name}.pn
 install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 
-# Creating additional PNG icons on the fly...
-for size in 16 22 24 32 48 64 128 256; do
-    dest=%{buildroot}%{_datadir}/icons/hicolor/${size}x${size}/apps
-    install -d ${dest}
-    rsvg-convert -w ${size} -h ${size} bin/%{appname}.svg -o ${dest}/%{name}.png
-    chmod 0644 ${dest}/%{name}.png
-    touch -r bin/%{appname}.svg ${dest}/%{name}.png
-done
-
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
 ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
@@ -97,10 +92,10 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
-%{_datadir}/icons/hicolor/*/apps/%{name}.*
+%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 
-%files doc
-%doc *.txt
+%files jbr
+%{_javadir}/%{name}/jbr
 
 %changelog
 * Fri Jul 12 2024 M3DZIK <me@medzik.dev> - 2024.1.1.12-1

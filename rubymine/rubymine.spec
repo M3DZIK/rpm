@@ -42,7 +42,7 @@ Recommends:    %{name}-jbr
 RubyMine is an IDE that helps you be more productive in every aspect of Ruby/Rails projects development.
 
 %package jbr
-Summary:  JetBrains Runtime for IntelliJ IDEA Ultimate
+Summary:  JetBrains Runtime
 Requires: %{name}
 
 %global __provides_exclude_from %{_exclude_from}

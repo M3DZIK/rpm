@@ -42,7 +42,7 @@ Recommends:    %{name}-jbr
 Rider supports .NET Framework, the new cross-platform .NET Core, and Mono based projects.
 
 %package jbr
-Summary:  JetBrains Runtime for IntelliJ IDEA Ultimate
+Summary:  JetBrains Runtime
 Requires: %{name}
 
 %global __provides_exclude_from %{_exclude_from}
