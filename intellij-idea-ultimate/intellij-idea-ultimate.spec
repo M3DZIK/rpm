@@ -1,7 +1,7 @@
 # setting some global constants
 %global appname idea
 %global build_ver 241.18034.62
-%global idea_name idea-IU
+%global idea_name ideaIU
 
 # disable debuginfo subpackage
 %global debug_package %{nil}
@@ -17,21 +17,19 @@
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
-%global _exclude_from %{_javadir}/%{name}/jbr/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*|%{_javadir}/%{name}/modules/.*
+%global _exclude_from %{_javadir}/%{name}/bin/.*.so|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*|%{_javadir}/%{name}/jbr/.*
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    intellij-idea-ultimate
 Version: 2024.1.4
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Capable and Ergonomic Java IDE - Ultimate Edition
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
 
-Source0:   source-info.txt
-
-Source101: intellij-idea-ultimate.desktop
-Source102: %{name}.metainfo.xml
+Source0: %{name}.desktop
+Source1: %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
@@ -42,7 +40,6 @@ BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-
 Recommends:    %{name}-jbr
 
 %description
@@ -54,19 +51,23 @@ Kotlin, Scala, Android, JavaScript, SQL and lots of other languages and framewor
 Summary:  JetBrains Runtime for IntelliJ IDEA Ultimate
 Requires: %{name}
 
+%global __provides_exclude_from %{_exclude_from}
+%global __requires_exclude_from %{_exclude_from}
+
 %description jbr
-A patched JRE for IntelliJ IDEA Ultimate.
+JetBrains Runtime - a patched Java Runtime Environment (JRE).
 
 %prep
 %ifarch x86_64
-wget -q https://download.jetbrains.com/idea/ideaIU-%{version}.tar.gz
-tar xf ideaIU-%{version}.tar.gz
+download_file="%{idea_name}-%{version}.tar.gz"
 %else
-wget -q https://download.jetbrains.com/idea/ideaIU-%{version}-aarch64.tar.gz
-tar xf ideaIU-%{version}-aarch64.tar.gz
+download_file="%{idea_name}-%{version}-aarch64.tar.gz"
 %endif
 
-cd %{idea_name}-%{build_ver}
+wget -q "https://download-cf.jetbrains.com/idea/$download_file"
+mkdir "${download_file}.out"
+tar xf "$download_file" -C "${download_file}.out"
+mv "${download_file}.out"/*/* .
 
 # Patching shebangs...
 %if 0%{?fedora}
@@ -75,24 +76,34 @@ cd %{idea_name}-%{build_ver}
 find . -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
 %endif
 
-%install
-cd %{idea_name}-%{build_ver}
+# Deleting unnecessary files...
+size_before=$(du -s . | awk '{print $1}')
+# First it removes directories, because it sometimes throws an error
+find . -type d -iname '*darwin*' -exec rm -rv {} +
+find . -iname '*darwin*' -exec rm -rv {} +
+find . -type d -iname '*macos*' -exec rm -rv {} +
+find . -iname '*macos*' -exec rm -rv {} +
+find . -type d -iname '*windows*' -exec rm -rv {} +
+find . -iname '*windows*' -exec rm -rv {} +
+%ifarch x86_64
+find . -type d -name '*arm64*' -exec rm -rv {} +
+find . -name '*arm64*' -exec rm -rv {} +
+find . -type d -name '*aarch64*' -exec rm -rv {} +
+find . -name '*aarch64*' -exec rm -rv {} +
+%else
+find . -type d -name '*amd64*' -exec rm -rv {} +
+find . -name '*amd64*' -exec rm -rv {} +
+find . -type d -name '*x86_64*' -exec rm -rv {} +
+find . -name '*x86_64*' -exec rm -rv {} +
+%endif
+size_after=$(du -s . | awk '{print $1}')
+size_diff=$(( size_before - size_after ))
+echo "Space freed: $size_diff bytes"
 
+%install
 # Installing application...
 install -d %{buildroot}%{_javadir}/%{name}
-cp -arf ./{bin,jbr,lib,plugins,modules,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
-
-# Deleting not needed files...
-find %{buildroot}%{_javadir}/%{name}/ -iname '*darwin*' -exec rm -rv {} +
-find %{buildroot}%{_javadir}/%{name}/ -iname '*macos*' -exec rm -rv {} +
-find %{buildroot}%{_javadir}/%{name}/ -iname '*windows*' -exec rm -rv {} +
-%ifarch x86_64
-find %{buildroot}%{_javadir}/%{name}/ -name '*arm64*' -exec rm -rv {} +
-find %{buildroot}%{_javadir}/%{name}/ -name '*aarch64*' -exec rm -rv {} +
-%else
-find %{buildroot}%{_javadir}/%{name}/ -name '*amd64*' -exec rm -rv {} +
-find %{buildroot}%{_javadir}/%{name}/ -name '*x86_64*' -exec rm -rv {} +
-%endif
+cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
 
 # Installing icons...
 install -d %{buildroot}%{_datadir}/pixmaps
@@ -106,19 +117,19 @@ ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
-install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/applications/%{name}.desktop
+install -m 0644 -p %{SOURCE0} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 # Installing metainfo...
 install -d %{buildroot}%{_metainfodir}
-install -m 0644 -p %{SOURCE102} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
+install -m 0644 -p %{SOURCE1} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
-%license %{idea_name}-%{build_ver}/license/*
-%{_javadir}/%{name}/{bin,jbr,lib,plugins,modules,build.txt,product-info.json}
+%license license/*
+%{_javadir}/%{name}/{bin,lib,plugins,build.txt,product-info.json}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png

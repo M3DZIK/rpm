@@ -1,8 +1,6 @@
 %global appname dataspell
 %global build_ver 241.18034.23
 
-%global metainfo_id com.jetbrains.DataSpell
-
 # disable debuginfo subpackage
 %global debug_package %{nil}
 # Disable build-id symlinks to avoid conflicts
@@ -29,7 +27,7 @@ License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
 
 Source0: %{name}.desktop
-Source1: %{metainfo_id}.metainfo.xml
+Source1: %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
@@ -119,10 +117,10 @@ install -m 0644 -p %{SOURCE0} %{buildroot}%{_datadir}/applications/%{name}.deskt
 
 # Installing metainfo...
 install -d %{buildroot}%{_metainfodir}
-install -m 0644 -p %{SOURCE1} %{buildroot}%{_metainfodir}/%{metainfo_id}.appdata.xml
+install -m 0644 -p %{SOURCE1} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{metainfo_id}.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
@@ -132,7 +130,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
-%{_metainfodir}/%{metainfo_id}.appdata.xml
+%{_metainfodir}/%{name}.metainfo.xml
 
 %files jbr
 %{_javadir}/%{name}/jbr

@@ -6,5 +6,4 @@ Terminal=false
 Icon=intellij-idea-community
 Type=Application
 Categories=Development;IDE;
-Keywords=development;idea;ide;intellij;java;
 StartupWMClass=jetbrains-idea-ce
