@@ -6,7 +6,7 @@
 
 Name:    dart
 Version: 3.4.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: The dart programming language SDK
 License: BSD-3
 URL:     https://dart.dev
@@ -39,7 +39,7 @@ arch=arm64
 
 %install
 install -d %{buildroot}%{dartlibdir}
-cp -arf ./sdk/out/*/dart-sdk %{buildroot}%{dartlibdir}/
+cp -arf ./sdk/out/*/dart-sdk/* %{buildroot}%{dartlibdir}/
 
 # Set up symbolic links for the executables
 install -d %{buildroot}%{_bindir}
