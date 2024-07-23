@@ -51,6 +51,7 @@ done
 %license LICENSE
 %{dartlibdir}
 %{_bindir}/%{name}
+%{_bindir}/%{name}aotruntime
 
 %changelog
 * Mon Jul 22 2024 M3DZIK <me@medzik.dev> - 3.4.4-1
