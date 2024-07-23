@@ -1,5 +1,5 @@
-# disable debuginfo subpackage
 %global debug_package %{nil}
+%global _build_id_links none
 
 %global common_libdir %{_prefix}/lib
 %global dartlibdir %{common_libdir}/dart-sdk
