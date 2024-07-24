@@ -20,8 +20,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    rustrover
-Version: 2024.1.5
-Release: 2%{?dist}
+Version:       2024.1.6
+Release:       1%{?dist}
 Summary: A powerhouse IDE for Rust developers
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -130,5 +130,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_javadir}/%{name}/jbr
 
 %changelog
+* Wed Jul 24 2024 M3DZIK <me@medzik.dev> - 2024.1.6-1
+- Update to 2024.1.6
+
 * Mon Jun 22 2024 M3DZIK <me@medzik.dev> - 2024.1.5-1
 - Initial release
