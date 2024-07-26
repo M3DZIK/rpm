@@ -137,8 +137,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{_name}.desktop
 %{_javadir}/%{_name}/jbr
 
 %changelog
-* Fri Jun 21 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
+* Fri Jun 26 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
 - Migrated from `intellij-idea-community`
-
-* Thu Aug 31 2023 M3DZIK <me@medzik.dev> - 2023.2.1
-- Initial release
