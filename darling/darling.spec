@@ -10,7 +10,7 @@ Summary: Darwin/macOS emulation layer for Linux
 License: GPL-3
 URL:     https://www.darlinghq.org/
 
-Source0: https://github.com/darlinghq/darling/archive/refs/tags/%{_git_tag}.tar.gz
+Source0: https://github.com/darlinghq/darling/archive/%{_git_tag}.tar.gz
 
 BuildRequires: git
 BuildRequires: git-lfs
@@ -58,7 +58,7 @@ BuildRequires: libavformat-free-devel
 %{summary}
 
 %prep
-git clone --depth 1 --recursive https://github.com/darlinghq/darling.git %{_builddir}/%{name}
+git clone --depth 1 --recursive -b %{_git_tag} https://github.com/darlinghq/darling.git %{_builddir}/%{name}
 
 %build
 cd %{_builddir}/%{name}
