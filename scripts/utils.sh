@@ -27,8 +27,8 @@ spec_get_global() {
 # Write version to spec file
 # example: spec_write_version test.spec 1.0.0
 spec_write_version() {
-  sed -i "s/^Version: .*/Version:       $2/" "$1"
-  sed -i "s/^Release: .*/Release:       1%{?dist}/" "$1"
+  sed -i "s/^Version: .*/Version: $2/" "$1"
+  sed -i "s/^Release: .*/Release: 1%{?dist}/" "$1"
 }
 
 # Write global variable to spec file
