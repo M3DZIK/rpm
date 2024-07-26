@@ -1,5 +1,7 @@
 # setting some global constants
 %global appname pycharm
+%global build_ver 241.18034.82
+%global idea_name pycharmPC
 
 # disable debuginfo subpackage
 %global debug_package %{nil}
@@ -21,7 +23,7 @@
 
 Name:    pycharm-community
 Version: 2024.1.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Intelligent Python IDE - Community
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
@@ -33,6 +35,8 @@ BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
 BuildRequires: wget
 BuildRequires: tar
+BuildRequires: git
+BuildRequires: p7zip
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
@@ -52,16 +56,41 @@ Requires: %{name}
 JetBrains Runtime - a patched Java Runtime Environment (JRE).
 
 %prep
+git clone https://github.com/JetBrains/intellij-community -b pycharm/%{build_ver} --depth 1
+cd intellij-community
+git clone git://git.jetbrains.org/idea/android.git android -b pycharm/%{build_ver} --depth 1
+
+%build
+# Building
+cd intellij-community
+./python/installers.cmd -Dintellij.build.target.os=linux
+cd ..
+
+artifact_version=$(echo "%{build_ver}" | sed -E 's|pycharm/||; s|.[0-9]+$||')
+
+idea_target_dir="./intellij-community/out/pycharm-ce/artifacts"
 %ifarch x86_64
-download_file="%{name}-%{version}.tar.gz"
+target_file_name="%{idea_name}-${artifact_version}.*.tar.gz"
 %else
-download_file="%{name}-%{version}-aarch64.tar.gz"
+target_file_name="%{idea_name}-${artifact_version}.*-aarch64.tar.gz"
 %endif
 
-wget -q "https://download-cf.jetbrains.com/python/$download_file"
-mkdir "${download_file}.out"
-tar xf "$download_file" -C "${download_file}.out"
-mv "${download_file}.out"/*/* .
+target_file_pattern="${idea_target_dir}/${target_file_name}"
+
+%ifarch x86_64
+# Exclude aarch64 from search
+target_file=$(ls ${target_file_pattern} 2>/dev/null | grep -v 'aarch64' | head -n 1)
+%else
+target_file=$(ls ${target_file_pattern} 2>/dev/null | head -n 1)
+%endif
+
+mkdir -p "unpacked"
+tar xf "${target_file}" -C "unpacked"
+mkdir -p "target"
+
+mv "unpacked"/*/* target
+
+cd target
 
 # Patching shebangs...
 %if 0%{?fedora}
@@ -95,6 +124,8 @@ size_diff=$(( size_before - size_after ))
 echo "Space freed: $size_diff bytes"
 
 %install
+cd target
+
 # Installing application...
 install -d %{buildroot}%{_javadir}/%{name}
 cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
@@ -117,7 +148,7 @@ install -m 0644 -p %{SOURCE0} %{buildroot}%{_datadir}/applications/%{name}.deskt
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
-%license license/*
+%license target/license/*
 %{_javadir}/%{name}/{bin,lib,plugins,build.txt,product-info.json}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
@@ -128,6 +159,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_javadir}/%{name}/jbr
 
 %changelog
+* Fri Jun 26 2024 M3DZIK <me@medzik.dev> - 2024.1.4-3
+- Build from sources
+
 * Tue Jun 25 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
 - Update to 2024.1.4
 

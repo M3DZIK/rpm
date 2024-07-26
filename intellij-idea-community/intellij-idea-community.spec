@@ -13,7 +13,7 @@
 # dont repack jars
 %global __jar_repack %{nil}
 # disable rpath checks
-%define __brp_check_rpaths %{nil}
+%global __brp_check_rpaths %{nil}
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
@@ -23,7 +23,7 @@
 
 Name:    intellij-idea-community
 Version: 2024.1.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Capable and Ergonomic Java IDE - Community Edition
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
@@ -35,6 +35,8 @@ BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
 BuildRequires: wget
 BuildRequires: tar
+BuildRequires: git
+BuildRequires: p7zip
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
@@ -55,16 +57,41 @@ Requires: %{name}
 JetBrains Runtime - a patched Java Runtime Environment (JRE).
 
 %prep
+git clone https://github.com/JetBrains/intellij-community -b idea/%{build_ver} --depth 1
+cd intellij-community
+git clone git://git.jetbrains.org/idea/android.git android -b idea/%{build_ver} --depth 1
+
+%build
+# Building
+cd intellij-community
+./installers.cmd -Dintellij.build.target.os=linux
+cd ..
+
+artifact_version=$(echo "%{build_ver}" | sed -E 's|idea/||; s|.[0-9]+$||')
+
+idea_target_dir="./intellij-community/out/idea-ce/artifacts"
 %ifarch x86_64
-download_file="%{idea_name}-%{version}.tar.gz"
+target_file_name="%{idea_name}-${artifact_version}.*.tar.gz"
 %else
-download_file="%{idea_name}-%{version}-aarch64.tar.gz"
+target_file_name="%{idea_name}-${artifact_version}.*-aarch64.tar.gz"
 %endif
 
-wget -q "https://download-cf.jetbrains.com/idea/$download_file"
-mkdir "${download_file}.out"
-tar xf "$download_file" -C "${download_file}.out"
-mv "${download_file}.out"/*/* .
+target_file_pattern="${idea_target_dir}/${target_file_name}"
+
+%ifarch x86_64
+# Exclude aarch64 from search
+target_file=$(ls ${target_file_pattern} 2>/dev/null | grep -v 'aarch64' | head -n 1)
+%else
+target_file=$(ls ${target_file_pattern} 2>/dev/null | head -n 1)
+%endif
+
+mkdir -p "unpacked"
+tar xf "${target_file}" -C "unpacked"
+mkdir -p "target"
+
+mv "unpacked"/*/* target
+
+cd target
 
 # Patching shebangs...
 %if 0%{?fedora}
@@ -98,6 +125,8 @@ size_diff=$(( size_before - size_after ))
 echo "Space freed: $size_diff bytes"
 
 %install
+cd target
+
 # Installing application...
 install -d %{buildroot}%{_javadir}/%{name}
 cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
@@ -120,7 +149,7 @@ install -m 0644 -p %{SOURCE0} %{buildroot}%{_datadir}/applications/%{name}.deskt
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
-%license license/*
+%license target/license/*
 %{_javadir}/%{name}/{bin,lib,plugins,build.txt,product-info.json}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
@@ -131,6 +160,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_javadir}/%{name}/jbr
 
 %changelog
+* Fri Jun 26 2024 M3DZIK <me@medzik.dev> - 2024.1.4-3
+- Bump from sources
+
 * Fri Jun 21 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
 - Update to 2024.1.4 (241.18034.62)
 
