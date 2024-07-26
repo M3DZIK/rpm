@@ -23,7 +23,7 @@
 
 Name:    intellij-idea-community
 Version: 2024.1.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Capable and Ergonomic Java IDE - Community Edition
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
@@ -160,6 +160,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_javadir}/%{name}/jbr
 
 %changelog
+* Fri Jun 26 2024 M3DZIK <me@medzik.dev> - 2024.1.4-3
+- Bump from sources
+
 * Fri Jun 21 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
 - Update to 2024.1.4 (241.18034.62)
 
