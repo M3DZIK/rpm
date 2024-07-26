@@ -25,12 +25,13 @@
 
 Name:    %{_name}-bin
 Version: 2024.1.4
-Release: 2%{?dist}
+Release: 1%{?dist}
 Summary: Capable and Ergonomic Java IDE - Community Edition
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
 
 Provides: %{_name}
+
 Source0: %{_name}.desktop
 
 BuildRequires: desktop-file-utils
@@ -137,52 +138,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{_name}.desktop
 
 %changelog
 * Fri Jun 21 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
-- Update to 2024.1.4 (241.18034.62)
-
-* Mon Jun 10 2024 M3DZIK <me@medzik.dev> - 2024.1.3-1
-- Update to 2024.1.3 (241.17890.1)
-
-* Thu May 23 2024 M3DZIK <me@medzik.dev> - 2024.1.2-1
-- Update to 2024.1.2 (241.17011.79)
-
-* Tue Apr 30 2024 M3DZIK <me@medzik.dev> - 2024.1.1-1
-- Update to 2024.1.1 (241.15989.150)
-
-* Thu Apr 04 2024 M3DZIK <me@medzik.dev> - 2024.1-1
-- Update to 2024.1 (241.14494.240)
-
-* Thu Mar 21 2024 M3DZIK <me@medzik.dev> - 2023.3.6-1
-- Update to 2023.3.6 (233.15026.9)
-
-* Wed Mar 13 2024 M3DZIK <me@medzik.dev> - 2023.3.5-1
-- Update to 2023.3.5 (233.14808.21)
-
-* Wed Feb 14 2024 M3DZIK <me@medzik.dev> - 2023.3.4-1
-- Update to 2023.3.4 (233.14475.28)
-
-* Fri Jan 26 2024 M3DZIK <me@medzik.dev> - 2023.3.3-1
-- Update to 2023.3.3 (233.14015.106)
-
-* Thu Dec 21 2023 M3DZIK <me@medzik.dev> - 2023.3.2-1
-- Update to 2023.3.2 (233.13135.103)
-
-* Wed Dec 13 2023 M3DZIK <me@medzik.dev> - 2023.3.1-1
-- Update to 2023.3.1 (233.11799.300)
-
-* Thu Dec 07 2023 M3DZIK <me@medzik.dev> - 2023.3-1
-- Update to 2023.3 (233.11799.241)
-
-* Fri Nov 10 2023 M3DZIK <me@medzik.dev> - 2023.2.5-1
-- Update to 2023.2.5 (232.10227.8)
-
-* Thu Oct 26 2023 M3DZIK <me@medzik.dev> - 2023.2.4
-- Update to 2023.2.4 (232.10203.10)
-
-* Thu Oct 12 2023 M3DZIK <me@medzik.dev> - 2023.2.3
-- Update to 2023.2.3 (232.10072.27)
-
-* Thu Sep 14 2023 M3DZIK <me@medzik.dev> - 2023.2.2
-- Update to 2023.2.2 (232.9921.47)
+- Migrated from `intellij-idea-community`
 
 * Thu Aug 31 2023 M3DZIK <me@medzik.dev> - 2023.2.1
 - Initial release
