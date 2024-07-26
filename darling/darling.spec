@@ -64,7 +64,7 @@ git clone --depth 1 --recursive -b %{_git_tag} https://github.com/darlinghq/darl
 cd %{_builddir}/%{name}
 
 mkdir build && cd build
-cmake ..
+CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" cmake ..
 make -j$(nproc)
 
 %install
