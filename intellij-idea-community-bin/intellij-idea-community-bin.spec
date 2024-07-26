@@ -3,6 +3,8 @@
 %global build_ver 241.18034.62
 %global idea_name ideaIC
 
+%global _name intellij-idea-community
+
 # disable debuginfo subpackage
 %global debug_package %{nil}
 # Disable build-id symlinks to avoid conflicts
@@ -13,34 +15,33 @@
 # dont repack jars
 %global __jar_repack %{nil}
 # disable rpath checks
-%global __brp_check_rpaths %{nil}
+%define __brp_check_rpaths %{nil}
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
-%global _exclude_from %{_javadir}/%{name}/bin/.*|%{_javadir}/%{name}/lib/.*|%{_javadir}/%{name}/plugins/.*|%{_javadir}/%{name}/jbr/.*
+%global _exclude_from %{_javadir}/%{_name}/bin/.*|%{_javadir}/%{_name}/lib/.*|%{_javadir}/%{_name}/plugins/.*|%{_javadir}/%{_name}/jbr/.*
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}
 
-Name:    intellij-idea-community
+Name:    %{_name}-bin
 Version: 2024.1.4
 Release: 2%{?dist}
 Summary: Capable and Ergonomic Java IDE - Community Edition
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
 
-Source0: %{name}.desktop
+Provides: %{_name}
+Source0: %{_name}.desktop
 
 BuildRequires: desktop-file-utils
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
 BuildRequires: wget
 BuildRequires: tar
-BuildRequires: git
-BuildRequires: p7zip
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr
+Recommends:    %{_name}-jbr
 
 %description
 IntelliJ IDEA Community is a free and open-source edition of IntelliJ IDEA, the commercial Java IDE by JetBrains.
@@ -48,7 +49,9 @@ IntelliJ IDEA Community provides all the tools you need for Java, Groovy, Kotlin
 
 %package jbr
 Summary:  JetBrains Runtime
-Requires: %{name}
+Requires: %{_name}
+
+Provides: %{_name}-jbr
 
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}
@@ -57,41 +60,16 @@ Requires: %{name}
 JetBrains Runtime - a patched Java Runtime Environment (JRE).
 
 %prep
-git clone https://github.com/JetBrains/intellij-community -b idea/%{build_ver} --depth 1
-cd intellij-community
-git clone git://git.jetbrains.org/idea/android.git android -b idea/%{build_ver} --depth 1
-
-%build
-# Building
-cd intellij-community
-./installers.cmd -Dintellij.build.target.os=linux
-cd ..
-
-artifact_version=$(echo "%{build_ver}" | sed -E 's|idea/||; s|.[0-9]+$||')
-
-idea_target_dir="./intellij-community/out/idea-ce/artifacts"
 %ifarch x86_64
-target_file_name="%{idea_name}-${artifact_version}.*.tar.gz"
+download_file="%{idea_name}-%{version}.tar.gz"
 %else
-target_file_name="%{idea_name}-${artifact_version}.*-aarch64.tar.gz"
+download_file="%{idea_name}-%{version}-aarch64.tar.gz"
 %endif
 
-target_file_pattern="${idea_target_dir}/${target_file_name}"
-
-%ifarch x86_64
-# Exclude aarch64 from search
-target_file=$(ls ${target_file_pattern} 2>/dev/null | grep -v 'aarch64' | head -n 1)
-%else
-target_file=$(ls ${target_file_pattern} 2>/dev/null | head -n 1)
-%endif
-
-mkdir -p "unpacked"
-tar xf "${target_file}" -C "unpacked"
-mkdir -p "target"
-
-mv "unpacked"/*/* target
-
-cd target
+wget -q "https://download-cf.jetbrains.com/idea/$download_file"
+mkdir "${download_file}.out"
+tar xf "$download_file" -C "${download_file}.out"
+mv "${download_file}.out"/*/* .
 
 # Patching shebangs...
 %if 0%{?fedora}
@@ -125,39 +103,37 @@ size_diff=$(( size_before - size_after ))
 echo "Space freed: $size_diff bytes"
 
 %install
-cd target
-
 # Installing application...
-install -d %{buildroot}%{_javadir}/%{name}
-cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{name}/
+install -d %{buildroot}%{_javadir}/%{_name}
+cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{_name}/
 
 # Installing icons...
 install -d %{buildroot}%{_datadir}/pixmaps
-install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
+install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/%{_name}.png
 install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
-install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{_name}.svg
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
-ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
+ln -s %{_javadir}/%{_name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{_name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
-install -m 0644 -p %{SOURCE0} %{buildroot}%{_datadir}/applications/%{name}.desktop
+install -m 0644 -p %{SOURCE0} %{buildroot}%{_datadir}/applications/%{_name}.desktop
 
 %check
-desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
+desktop-file-validate %{buildroot}%{_datadir}/applications/%{_name}.desktop
 
 %files
-%license target/license/*
-%{_javadir}/%{name}/{bin,lib,plugins,build.txt,product-info.json}
-%{_bindir}/%{name}
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/pixmaps/%{name}.png
-%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+%license license/*
+%{_javadir}/%{_name}/{bin,lib,plugins,build.txt,product-info.json}
+%{_bindir}/%{_name}
+%{_datadir}/applications/%{_name}.desktop
+%{_datadir}/pixmaps/%{_name}.png
+%{_datadir}/icons/hicolor/scalable/apps/%{_name}.svg
 
 %files jbr
-%{_javadir}/%{name}/jbr
+%{_javadir}/%{_name}/jbr
 
 %changelog
 * Fri Jun 21 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1

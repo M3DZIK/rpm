@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=PyCharm Community
+GenericName=The intelligent Python IDE
+Exec=pycharm-community
+Terminal=false
+Icon=pycharm-community
+Type=Application
+Categories=Development;IDE;
+StartupWMClass=jetbrains-pycharm-ce
