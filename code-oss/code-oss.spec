@@ -34,7 +34,7 @@ BuildRequires: git
 # Must be git repository
 cd ..
 rm -rf vscode-%{version}
-git clone --depth 1 https://github.com/microsoft/vscode.git vscode-%{version}
+git clone --depth 1 -b %{version} https://github.com/microsoft/vscode.git vscode-%{version}
 cd vscode-%{version}
 
 %patch0 -p1
