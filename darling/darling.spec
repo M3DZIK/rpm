@@ -58,24 +58,22 @@ BuildRequires: libavformat-free-devel
 %{summary}
 
 %prep
-git clone --depth 1 --recursive -b %{_git_tag} https://github.com/darlinghq/darling.git %{_builddir}/%{name}
+%setup -q -n darling-%{_git_tag}
+
+cd ..
+git clone --depth 1 --recursive -b %{_git_tag} https://github.com/darlinghq/darling.git darling-%{_git_tag}
 
 %build
-cd %{_builddir}/%{name}
-
-mkdir build && cd build
-CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" cmake ..
-make -j$(nproc)
+CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" %cmake
+%cmake_build
 
 %install
-cd %{_builddir}/%{name}/build
-
-cmake --install . --prefix %{buildroot}%{_prefix}
+%cmake_install
 
 sed -i 's@/usr/local@/usr@g' %{buildroot}%{_prefix}/lib/binfmt.d/%{name}.conf
 
 %files
-%license %{name}/LICENSE
+%license /LICENSE
 %{_prefix}/lib/binfmt.d/%{name}.conf
 %{_libexecdir}/%{name}
 %{_bindir}/%{name}*
