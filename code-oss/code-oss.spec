@@ -66,7 +66,7 @@ sed -i 's|@@APPNAME@@|code-oss|g' resources/completions/{bash/code-oss,zsh/_code
 %build
 %ifarch x86_64
 _vscode_arch="x64"
-%ifarch aarch64
+%elifarch aarch64
 _vscode_arch="arm64"
 %endif
 
@@ -83,7 +83,6 @@ cp -arf VSCode-linux-*/resources/app/* %{buildroot}%{_lib}/%{name}
 
 # Replace statically included binary with system copy
 ln -sf /usr/bin/rg %{buildroot}%{_lib}/%{name}/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
-
 
 %files
 %license LICENSE
