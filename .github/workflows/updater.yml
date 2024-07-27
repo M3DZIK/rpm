@@ -25,3 +25,4 @@ jobs:
           WEBHOOK_LIBREPASS: ${{ secrets.WEBHOOK_LIBREPASS }}
           WEBHOOK_KTLINT: ${{ secrets.WEBHOOK_KTLINT }}
           WEBHOOK_CLOUDFLARED: ${{ secrets.WEBHOOK_CLOUDFLARED }}
+          WEBHOOK_DARLING: ${{ secrets.WEBHOOK_DARLING }}

@@ -121,6 +121,8 @@ update_package() {
     curl -X POST "$WEBHOOK_KTLINT/$package"
   elif [ "$COPR" == "cloudflared" ]; then
     curl -X POST "$WEBHOOK_CLOUDFLARED/$package"
+  elif [ "$COPR" == "darling" ]; then
+    curl -X POST "$WEBHOOK_DARLING/$package"
   fi
 
   echo "Committed"
