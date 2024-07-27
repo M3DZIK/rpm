@@ -65,11 +65,9 @@ BuildRequires: libavformat-free-devel
 %prep
 %setup -q -n darling-%{git_commit}
 
-cd ..
-rm -rf darling-%{git_commit}
-git clone --depth 1 --recursive https://github.com/darlinghq/darling.git darling-%{git_commit}
-cd darling-%{git_commit}
-git reset --hard %{git_commit}
+git init
+git remote add origin https://github.com/darlinghq/darling.git
+git submodule update
 
 %build
 CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" cmake -S . -B redhat-linux-build -DCMAKE_INSTALL_PREFIX=/usr
