@@ -67,10 +67,9 @@ BuildRequires: libavformat-free-devel
 
 cd ..
 rm -rf darling-%{git_commit}
-git clone https://github.com/darlinghq/darling.git darling-%{git_commit}
+git clone --recursive https://github.com/darlinghq/darling.git darling-%{git_commit}
 cd darling-%{git_commit}
 git reset --hard %{git_commit}
-git submodule init 
 git submodule update
 
 %build
