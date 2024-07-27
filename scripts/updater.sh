@@ -185,7 +185,7 @@ latest_github_git_version() {
   count="$(curl -I -k 'https://api.github.com/repos/'"$repo"'/commits?per_page=1' | sed -n '/^[Ll]ink:/ s/.*"next".*page=\([0-9]*\).*"last".*/\1/p')"
   latest_sha="$(curl -s 'https://api.github.com/repos/'"$repo"'/commits?per_page=1' | jq -r '[.[]][0].sha')"
 
-  echo "local latest_version=0.0.0.${count}.${latest_sha}"
+  echo "local latest_version=0.0.0.${count}.${latest_sha:0:6}"
   echo "local latest_hash=$latest_sha"
 }
 
