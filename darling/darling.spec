@@ -65,7 +65,7 @@ rm -rf darling-%{_git_tag}
 git clone --depth 1 --recursive -b %{_git_tag} https://github.com/darlinghq/darling.git darling-%{_git_tag}
 
 %build
-CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" %cmake
+CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" cmake -S . -B redhat-linux-build -DCMAKE_INSTALL_PREFIX=/usr
 %cmake_build
 
 %install
