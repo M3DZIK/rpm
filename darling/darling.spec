@@ -2,10 +2,10 @@
 %global _build_id_links none
 %global __brp_mangle_shebangs %{nil}
 
-%global git_commit master
+%global git_commit a36bf0c07b16675b446377890c5f6f74563f84dd
 
 Name:    darling
-Version: 0.0.0
+Version: 0.0.0.179.a36bf0c07b16675b446377890c5f6f74563f84dd
 Release: 1%{?dist}
 Summary: Darwin/macOS emulation layer for Linux
 License: GPL-3
