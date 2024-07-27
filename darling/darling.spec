@@ -57,6 +57,7 @@ BuildRequires: llvm-devel
 BuildRequires: libcap-devel
 BuildRequires: libavcodec-free-devel
 BuildRequires: libavformat-free-devel
+BuildRequires: python3-devel
 
 %description
 %{summary}
