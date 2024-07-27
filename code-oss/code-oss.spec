@@ -37,7 +37,7 @@ rm -rf vscode-%{version}
 git clone --depth 1 -b %{version} https://github.com/microsoft/vscode.git vscode-%{version}
 cd vscode-%{version}
 
-%patch0 -p0
+%patch 0
 
 # Patch appdata and desktop file
 sed -i 's|/usr/share/@@NAME@@/@@NAME@@|@@NAME@@|g
