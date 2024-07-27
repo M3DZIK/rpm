@@ -69,8 +69,6 @@ cd ..
 rm -rf darling-%{git_commit}
 git clone --recursive https://github.com/darlinghq/darling.git darling-%{git_commit}
 cd darling-%{git_commit}
-git reset --hard %{git_commit}
-git submodule update
 
 %build
 CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" cmake -S . -B redhat-linux-build -DCMAKE_INSTALL_PREFIX=/usr
