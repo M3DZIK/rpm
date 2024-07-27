@@ -2,7 +2,7 @@
 %global _build_id_links none
 %global __brp_mangle_shebangs %{nil}
 
-%global _git_tag master
+%global git_commit master
 
 Name:    darling
 Version: 0.0.0
@@ -11,7 +11,7 @@ Summary: Darwin/macOS emulation layer for Linux
 License: GPL-3
 URL:     https://www.darlinghq.org/
 
-Source0: https://github.com/darlinghq/darling/archive/%{_git_tag}.tar.gz
+Source0: https://github.com/darlinghq/darling/archive/%{git_commit}.tar.gz
 
 BuildRequires: git
 BuildRequires: git-lfs
@@ -63,11 +63,11 @@ BuildRequires: libavformat-free-devel
 %{summary}
 
 %prep
-%setup -q -n darling-%{_git_tag}
+%setup -q -n darling-%{git_commit}
 
 cd ..
-rm -rf darling-%{_git_tag}
-git clone --depth 1 --recursive -b %{_git_tag} https://github.com/darlinghq/darling.git darling-%{_git_tag}
+rm -rf darling-%{git_commit}
+git clone --depth 1 --recursive -b %{git_commit} https://github.com/darlinghq/darling.git darling-%{git_commit}
 
 %build
 CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" cmake -S . -B redhat-linux-build -DCMAKE_INSTALL_PREFIX=/usr
