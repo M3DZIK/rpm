@@ -2,10 +2,10 @@
 %global _build_id_links none
 %global __brp_mangle_shebangs %{nil}
 
-%global git_commit a36bf0c07b16675b446377890c5f6f74563f84dd
+%global git_commit 203af1f604727e13032df1870e3491572e7d6704
 
 Name:    darling
-Version: 0.0.0.179.a36bf0c07b16675b446377890c5f6f74563f84dd
+Version: 0.0.0.4224.203af1f604727e13032df1870e3491572e7d6704
 Release: 1%{?dist}
 Summary: Darwin/macOS emulation layer for Linux
 License: GPL-3
@@ -85,5 +85,8 @@ sed -i 's@/usr/local@/usr@g' %{buildroot}%{_prefix}/lib/binfmt.d/%{name}.conf
 %{_bindir}/%{name}*
 
 %changelog
+* Sat Jul 27 2024 M3DZIK <me@medzik.dev> - 0.0.0.4224.203af1f604727e13032df1870e3491572e7d6704-1
+- Update to 0.0.0.4224.203af1f604727e13032df1870e3491572e7d6704
+
 * Fri Jul 26 2024 M3DZIK <me@medzik.dev> - 0.0.0-1
 - Initial release
