@@ -67,3 +67,4 @@ The JetBrains repository offers the following development tools:
 * `rubymine`: Ruby and Rails IDE
 * `rustrover`: Rust IDE
 * `webstorm`: JavaScript and web development IDE
+* `writerside`: A new technical writing environment from JetBrains
