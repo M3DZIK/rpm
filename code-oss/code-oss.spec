@@ -13,6 +13,7 @@ URL:     https://github.com/microsoft/vscode
 Source0: https://github.com/microsoft/vscode/archive/%{version}.tar.gz
 Patch0:  product_json.patch
 
+BuildRequires: python3
 BuildRequires: npm
 BuildRequires: yarnpkg
 BuildRequires: make
@@ -37,7 +38,7 @@ rm -rf vscode-%{version}
 git clone --depth 1 -b %{version} https://github.com/microsoft/vscode.git vscode-%{version}
 cd vscode-%{version}
 
-%patch -P0 -p0
+%patch 0
 
 # Patch appdata and desktop file
 sed -i 's|/usr/share/@@NAME@@/@@NAME@@|@@NAME@@|g
