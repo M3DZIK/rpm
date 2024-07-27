@@ -79,7 +79,8 @@ CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" cmake -S . -B redhat-linux-build -D
 # Patching shebangs...
 %if 0%{?fedora}
 %py3_shebang_fix %{buildroot}%{_libexecdir}
-%else find %{buildroot}%{_libexecdir} -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
+%else
+find %{buildroot}%{_libexecdir} -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
 %endif
 
 sed -i 's@/usr/local@/usr@g' %{buildroot}%{_prefix}/lib/binfmt.d/%{name}.conf
