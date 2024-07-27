@@ -21,6 +21,7 @@ BuildRequires: clang
 BuildRequires: pkgconfig(openssl)
 BuildRequires: pkgconfig(libxml-2.0)
 BuildRequires: pkgconfig(fuse)
+BuildRequires: pkgconfig(bzip2)
 BuildRequires: libicu-devel
 
 %description
