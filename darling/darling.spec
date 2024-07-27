@@ -65,8 +65,12 @@ BuildRequires: libavformat-free-devel
 %prep
 %setup -q -n darling-%{git_commit}
 
-git init
-git remote add origin https://github.com/darlinghq/darling.git
+cd ..
+rm -rf darling-%{git_commit}
+git clone https://github.com/darlinghq/darling.git darling-%{git_commit}
+cd darling-%{git_commit}
+git reset --hard %{git_commit}
+git submodule init 
 git submodule update
 
 %build
@@ -86,7 +90,4 @@ sed -i 's@/usr/local@/usr@g' %{buildroot}%{_prefix}/lib/binfmt.d/%{name}.conf
 
 %changelog
 * Sat Jul 27 2024 M3DZIK <me@medzik.dev> - 0.0.0.4224.203af1f604727e13032df1870e3491572e7d6704-1
-- Update to 0.0.0.4224.203af1f604727e13032df1870e3491572e7d6704
-
-* Fri Jul 26 2024 M3DZIK <me@medzik.dev> - 0.0.0-1
 - Initial release
