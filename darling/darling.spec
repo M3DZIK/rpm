@@ -67,7 +67,9 @@ BuildRequires: libavformat-free-devel
 
 cd ..
 rm -rf darling-%{git_commit}
-git clone --depth 1 --recursive -b %{git_commit} https://github.com/darlinghq/darling.git darling-%{git_commit}
+git clone --depth 1 --recursive https://github.com/darlinghq/darling.git darling-%{git_commit}
+cd darling-%{git_commit}
+git reset --hard %{git_commit}
 
 %build
 CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" cmake -S . -B redhat-linux-build -DCMAKE_INSTALL_PREFIX=/usr
