@@ -53,7 +53,7 @@ BuildRequires: giflib-devel
 BuildRequires: pulseaudio-libs-devel
 BuildRequires: libxkbfile-devel
 BuildRequires: openssl-devel
-BuildRequires: llvm
+BuildRequires: llvm-devel
 BuildRequires: libcap-devel
 BuildRequires: libavcodec-free-devel
 BuildRequires: libavformat-free-devel
