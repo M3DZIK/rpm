@@ -57,11 +57,13 @@ The JetBrains repository offers the following development tools:
 * `clion`: C and C++ IDE
 * `dataspell`: Data science IDE for Python
 * `goland`: Go programming IDE
-* `intellij-idea-community`: Free and open-source Java IDE
+* `intellij-idea-community`: Free and open-source Java IDE (Compiled from source code on Fedora COPR)
+* `intellij-idea-community-bin`: Free and open-source Java IDE (Official binaries from JetBrains build)
 * `intellij-idea-ultimate`: Paid, feature-rich Java IDE
 * `jetbrains-fleet`: Unified IDE for multiple languages
 * `jetbrains-gateway`: Development environment for creating cross-platform apps
-* `pycharm-community`: Free and open-source Python IDE
+* `pycharm-community`: Free and open-source Python IDE (Compiled from source code on Fedora COPR)
+* `pycharm-community-bin`: Free and open-source Python IDE (Official binaries from JetBrains build)
 * `pycharm-professional`: Paid, feature-rich Python IDE
 * `rider`: .NET development IDE
 * `rubymine`: Ruby and Rails IDE
