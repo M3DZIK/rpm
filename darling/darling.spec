@@ -61,6 +61,7 @@ BuildRequires: libavformat-free-devel
 %setup -q -n darling-%{_git_tag}
 
 cd ..
+rm -rf darling-%{_git_tag}
 git clone --depth 1 --recursive -b %{_git_tag} https://github.com/darlinghq/darling.git darling-%{_git_tag}
 
 %build
