@@ -42,7 +42,8 @@ BuildRequires: mesa-libGLU-devel
 BuildRequires: mesa-libGLU-devel(x86-32)
 BuildRequires: vulkan-loader-devel
 BuildRequires: vulkan-headers
-BuildRequires: glm-devel
+BuildRequires: glslang-devel
+BuildRequires: glslc
 BuildRequires: libtiff-devel
 BuildRequires: libxml2-devel
 BuildRequires: libbsd-devel
