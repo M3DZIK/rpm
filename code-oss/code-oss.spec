@@ -37,6 +37,8 @@ rm -rf vscode-%{version}
 git clone --depth 1 https://github.com/microsoft/vscode.git vscode-%{version}
 cd vscode-%{version}
 
+%patch0 -p1
+
 # Patch appdata and desktop file
 sed -i 's|/usr/share/@@NAME@@/@@NAME@@|@@NAME@@|g
         s|@@NAME_SHORT@@|Code|g
@@ -47,8 +49,6 @@ sed -i 's|/usr/share/@@NAME@@/@@NAME@@|@@NAME@@|g
         s|@@LICENSE@@|MIT|g
         s|@@URLPROTOCOL@@|vscode|g
         s|inode/directory;||' resources/linux/code{.appdata.xml,.desktop,-url-handler.desktop}
-
-%patch 0
 
 desktop-file-edit --set-key StartupWMClass --set-value code-oss resources/linux/code.desktop
 
