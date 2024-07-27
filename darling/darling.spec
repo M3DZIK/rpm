@@ -1,5 +1,6 @@
 %global debug_package %{nil}
 %global _build_id_links none
+%global __brp_mangle_shebangs %{nil}
 
 %global _git_tag master
 
@@ -57,7 +58,6 @@ BuildRequires: llvm-devel
 BuildRequires: libcap-devel
 BuildRequires: libavcodec-free-devel
 BuildRequires: libavformat-free-devel
-BuildRequires: python3-devel
 
 %description
 %{summary}
@@ -75,13 +75,6 @@ CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" cmake -S . -B redhat-linux-build -D
 
 %install
 %cmake_install
-
-# Patching shebangs...
-%if 0%{?fedora}
-%py3_shebang_fix %{buildroot}%{_libexecdir}
-%else
-find %{buildroot}%{_libexecdir} -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
-%endif
 
 sed -i 's@/usr/local@/usr@g' %{buildroot}%{_prefix}/lib/binfmt.d/%{name}.conf
 
