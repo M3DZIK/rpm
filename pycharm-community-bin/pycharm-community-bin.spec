@@ -23,7 +23,7 @@
 
 Name:    %{_name}-bin
 Version: 2024.1.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Intelligent Python IDE - Community
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
@@ -86,8 +86,8 @@ find . -iname '*macos*' -exec rm -rv {} +
 find . -type d -iname '*windows*' -exec rm -rv {} +
 find . -iname '*windows*' -exec rm -rv {} +
 %ifarch x86_64
-find . -type d -name '*arm64*' -exec rm -rv {} +
-find . -name '*arm64*' -exec rm -rv {} +
+find . -type d -name '*arm64*' ! -name '*pycharm*' -exec rm -rv {} +
+find . -name '*arm64*' ! -name '*pycharm*' -exec rm -rv {} +
 find . -type d -name '*aarch64*' -exec rm -rv {} +
 find . -name '*aarch64*' -exec rm -rv {} +
 %else
@@ -134,5 +134,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{_name}.desktop
 %{_javadir}/%{_name}/jbr
 
 %changelog
+* Sat Jun 27 2024 M3DZIK <me@medzik.dev> - 2024.1.4-2
+- Fix vmoptions file
+
 * Fri Jun 26 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
 - Migrated from `pycharm-community`

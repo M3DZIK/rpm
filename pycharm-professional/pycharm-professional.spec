@@ -21,7 +21,7 @@
 
 Name:    pycharm-professional
 Version: 2024.1.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Intelligent Python IDE - Professional
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -80,8 +80,8 @@ find . -iname '*macos*' -exec rm -rv {} +
 find . -type d -iname '*windows*' -exec rm -rv {} +
 find . -iname '*windows*' -exec rm -rv {} +
 %ifarch x86_64
-find . -type d -name '*arm64*' -exec rm -rv {} +
-find . -name '*arm64*' -exec rm -rv {} +
+find . -type d -name '*arm64*' ! -name '*pycharm*' -exec rm -rv {} +
+find . -name '*arm64*' ! -name '*pycharm*' -exec rm -rv {} +
 find . -type d -name '*aarch64*' -exec rm -rv {} +
 find . -name '*aarch64*' -exec rm -rv {} +
 %else
@@ -128,6 +128,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_javadir}/%{name}/jbr
 
 %changelog
+* Sat Jun 27 2024 M3DZIK <me@medzik.dev> - 2024.1.4-3
+- Fix vmoptions file
+
 * Tue Jun 25 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
 - Update to 2024.1.4
 
