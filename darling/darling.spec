@@ -85,7 +85,7 @@ CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" cmake -S . -B redhat-linux-build -D
 sed -i 's@/usr/local@/usr@g' %{buildroot}%{_prefix}/lib/binfmt.d/%{name}.conf
 
 %files
-%license /LICENSE
+%license LICENSE
 %{_prefix}/lib/binfmt.d/%{name}.conf
 %{_libexecdir}/%{name}
 %{_bindir}/%{name}*
