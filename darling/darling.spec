@@ -40,6 +40,8 @@ BuildRequires: mesa-libEGL-devel
 BuildRequires: mesa-libEGL-devel(x86-32)
 BuildRequires: mesa-libGLU-devel
 BuildRequires: mesa-libGLU-devel(x86-32)
+BuildRequires: mesa-vulkan-devel
+BuildRequires: mesa-vulkan-devel(x86-32)
 BuildRequires: libtiff-devel
 BuildRequires: libxml2-devel
 BuildRequires: libbsd-devel
