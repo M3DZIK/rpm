@@ -35,6 +35,8 @@ update_package() {
     eval "$(latest_github_version "$GITHUB_REPO")"
   elif [ "$TYPE" == "github-tag" ]; then
     eval "$(latest_github_tag_version "$GITHUB_REPO")"
+  elif [ "$TYPE" == "github-git" ]; then
+    eval "$(latest_github_git_version "$GITHUB_REPO")"
   elif [ "$TYPE" == "git" ]; then
     eval "$(latest_git_version "$GIT_REPO")"
   elif [ "$TYPE" == "pypi" ]; then
@@ -170,6 +172,19 @@ latest_github_tag_version() {
   version="${tag/v/}"
 
   echo "local latest_version=$version"
+}
+
+latest_github_git_version() {
+  local count;
+  local latest_sha;
+
+  local repo="$1"
+
+  count="$(curl -I -k 'https://api.github.com/repos/'"$repo"'/commits?per_page=1' | sed -n '/^[Ll]ink:/ s/.*"next".*page=\([0-9]*\).*"last".*/\1/p')"
+  latest_sha="$(curl -s 'https://api.github.com/repos/'"$repo"'/commits?per_page=1' | jq -r '[.[]][0].sha')"
+
+  echo "local latest_version=0.0.0.${count}.${latest_sha}"
+  echo "local latest_hash=$latest_sha"
 }
 
 latest_git_version() {

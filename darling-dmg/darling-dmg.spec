@@ -1,18 +1,18 @@
 %global debug_package %{nil}
 %global _build_id_links none
 
-%global _git_tag master
-
 %global _lib %{_prefix}/lib
 
+%global git_commit 203af1f604727e13032df1870e3491572e7d6704
+
 Name:    darling-dmg
-Version: 0.0.0
+Version: 0.0.0.
 Release: 1%{?dist}
 Summary: FUSE module for .dmg files (containing an HFS+ filesystem) 
 License: GPL-3
 URL:     https://www.darlinghq.org/
 
-Source0: https://github.com/darlinghq/%{name}/archive/%{_git_tag}.tar.gz
+Source0: https://github.com/darlinghq/%{name}/archive/%{git_commit}.tar.gz
 
 BuildRequires: git
 BuildRequires: make
@@ -28,7 +28,7 @@ BuildRequires: libicu-devel
 %{summary}.
 
 %prep
-%setup -q -n %{name}-%{_git_tag}
+%setup -q -n %{name}-%{git_commit}
 
 %build
 %cmake
