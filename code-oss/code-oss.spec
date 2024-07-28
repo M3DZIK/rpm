@@ -95,7 +95,9 @@ install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p resources/linux/code.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 # Install shell completions
+install -d %{buildroot}%{_datadir}/bash-completion/completions
 install -m 0644 -p resources/completions/bash/code %{buildroot}%{_datadir}/bash-completion/completions/%{name}
+install -d %{buildroot}%{_datadir}/zsh/site-functions
 install -m 0644 -p resources/completions/zsh/_code %{buildroot}%{_datadir}/zsh/site-functions/%{name}
 
 %files
