@@ -67,17 +67,16 @@ sed -i 's|/usr/share/@@NAME@@/@@NAME@@|@@NAME@@|g
         s|@@URLPROTOCOL@@|vscode|g
         s|inode/directory;||' resources/linux/code{.appdata.xml,.desktop,-url-handler.desktop}
 
-desktop-file-edit --set-key StartupWMClass --set-value VSCodium resources/linux/codium.desktop
+desktop-file-edit --set-key StartupWMClass --set-value VSCodium resources/linux/code.desktop
 
-cp resources/linux/{code,codium}-url-handler.desktop
-desktop-file-edit --set-key MimeType --set-value x-scheme-handler/codium resources/linux/codium-url-handler.desktop
+desktop-file-edit --set-key MimeType --set-value x-scheme-handler/codium resources/linux/code-url-handler.desktop
 
 # Add completions for codium
-cp resources/completions/bash/code resources/completions/bash/codium
-cp resources/completions/zsh/_code resources/completions/zsh/_codium
+cp resources/completions/bash/code resources/completions/bash/%{name}
+cp resources/completions/zsh/_code resources/completions/zsh/_%{name}
 
 # Patch completions with correct names
-sed -i 's|@@APPNAME@@|codium|g' resources/completions/{bash/codium,zsh/_codium}
+sed -i 's|@@APPNAME@@|%{name}|g' resources/completions/{bash/%{name},zsh/_%{name}}
 
 %build
 %ifarch x86_64
@@ -112,11 +111,11 @@ ln -s %{_lib}/%{name}/bin/%{name} %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
-install -m 0644 -p vscode/resources/linux/codium.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
+install -m 0644 -p vscode/resources/linux/code.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 # Installing metainfo...
 install -d %{buildroot}%{_metainfodir}
-install -m 0644 -p vscode/resources/linux/codium.appdata.xml %{buildroot}%{_metainfodir}/%{name}.appdata.xml
+install -m 0644 -p vscode/resources/linux/code.appdata.xml %{buildroot}%{_metainfodir}/%{name}.appdata.xml
 
 # Install shell completions
 install -d %{buildroot}%{_datadir}/bash-completion/completions
