@@ -11,7 +11,7 @@ Version: 1.91.1.24193
 Release: 1%{?dist}
 Summary: Free/Libre Open Source Software Binaries of VS Code
 License: MIT
-URL:     https://github.com/VSCodium/vscodium
+URL:     https://vscodium.com
 
 Source0: https://github.com/VSCodium/vscodium/archive/%{version}.tar.gz
 
@@ -31,7 +31,7 @@ BuildRequires: jq
 BuildRequires: git
 
 %description
-VSCodium is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code.
+VSCodium is a community-driven, freely-licensed binary distribution of Microsoft's editor VS Code.
 
 %prep
 %setup -q -n vscodium-%{version}
