@@ -6,7 +6,7 @@
 
 Name:    darling
 Version: 0.0.0.4224.203af1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Darwin/macOS emulation layer for Linux
 License: GPL-3
 URL:     https://www.darlinghq.org/
@@ -59,6 +59,7 @@ BuildRequires: libcap-devel
 BuildRequires: libavcodec-free-devel
 BuildRequires: libavformat-free-devel
 BuildRequires: libtiff-devel
+BuildRequires: libtiff-devel(x86-32)
 
 %description
 %{summary}
@@ -88,7 +89,4 @@ sed -i 's@/usr/local@/usr@g' %{buildroot}%{_prefix}/lib/binfmt.d/%{name}.conf
 
 %changelog
 * Sun Jul 28 2024 M3DZIK <me@medzik.dev> - 0.0.0.4224.203af1-1
-- Update to 0.0.0.4224.203af1
-
-* Sat Jul 27 2024 M3DZIK <me@medzik.dev> - 0.0.0.4224.203af1f604727e13032df1870e3491572e7d6704-1
 - Initial release
