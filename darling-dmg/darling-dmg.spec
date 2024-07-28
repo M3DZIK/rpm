@@ -6,7 +6,7 @@
 %global git_commit a36bf0c07b16675b446377890c5f6f74563f84dd
 
 Name:    darling-dmg
-Version: 0.0.0.179.a36bf0c07b16675b446377890c5f6f74563f84dd
+Version: 0.0.0.179.a36bf0
 Release: 1%{?dist}
 Summary: FUSE module for .dmg files (containing an HFS+ filesystem) 
 License: GPL-3
@@ -43,6 +43,9 @@ BuildRequires: libicu-devel
 %{_bindir}/%{name}
 
 %changelog
+* Sun Jul 28 2024 M3DZIK <me@medzik.dev> - 0.0.0.179.a36bf0-1
+- Update to 0.0.0.179.a36bf0
+
 * Sat Jul 27 2024 M3DZIK <me@medzik.dev> - 0.0.0.179.a36bf0c07b16675b446377890c5f6f74563f84dd-1
 - Update to 0.0.0.179.a36bf0c07b16675b446377890c5f6f74563f84dd
 
