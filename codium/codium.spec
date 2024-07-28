@@ -54,6 +54,8 @@ export DISABLE_UPDATE="yes"
 
 ./get_repo.sh
 
+cd vscode
+
 # Patch appdata and desktop file
 sed -i 's|/usr/share/@@NAME@@/@@NAME@@|@@NAME@@|g
         s|@@NAME_SHORT@@|VSCodium|g
@@ -110,17 +112,17 @@ ln -s %{_lib}/%{name}/bin/%{name} %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
-install -m 0644 -p resources/linux/codium.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
+install -m 0644 -p vscode/resources/linux/codium.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 # Installing metainfo...
 install -d %{buildroot}%{_metainfodir}
-install -m 0644 -p resources/linux/codium.appdata.xml %{buildroot}%{_metainfodir}/%{name}.appdata.xml
+install -m 0644 -p vscode/resources/linux/codium.appdata.xml %{buildroot}%{_metainfodir}/%{name}.appdata.xml
 
 # Install shell completions
 install -d %{buildroot}%{_datadir}/bash-completion/completions
-install -m 0644 -p resources/completions/bash/codium %{buildroot}%{_datadir}/bash-completion/completions/%{name}
+install -m 0644 -p vscode/resources/completions/bash/codium %{buildroot}%{_datadir}/bash-completion/completions/%{name}
 install -d %{buildroot}%{_datadir}/zsh/site-functions
-install -m 0644 -p resources/completions/zsh/_codium %{buildroot}%{_datadir}/zsh/site-functions/%{name}
+install -m 0644 -p vscode/resources/completions/zsh/_codium %{buildroot}%{_datadir}/zsh/site-functions/%{name}
 
 %files
 %license LICENSE
