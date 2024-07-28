@@ -123,6 +123,8 @@ update_package() {
     curl -X POST "$WEBHOOK_CLOUDFLARED/$package"
   elif [ "$COPR" == "darling" ]; then
     curl -X POST "$WEBHOOK_DARLING/$package"
+  elif [ "$COPR" == "vscode" ]; then
+    curl -X POST "$WEBHOOK_VSCODE/$package"
   fi
 
   echo "Committed"
