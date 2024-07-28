@@ -3,12 +3,12 @@
 
 %global _lib %{_prefix}/lib
 
-%global _exclude_from %{_lib}/%{name}/.*.so
-%global __provides_exclude_from %{_exclude_from}
+%global __requires_exclude libffmpeg.so
+%global __provides_exclude_from %{_lib}/%{name}/.*.so
 
 Name:    code-oss
 Version: 1.91.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: The Open Source version of Visual Studio Code (vscode) editor
 License: MIT
 URL:     https://github.com/microsoft/vscode
