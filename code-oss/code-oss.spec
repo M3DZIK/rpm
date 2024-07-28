@@ -3,6 +3,9 @@
 
 %global _lib %{_prefix}/lib
 
+%global _exclude_from %{_lib}/%{name}/.*.so
+%global __provides_exclude_from %{_exclude_from}
+
 Name:    code-oss
 Version: 1.91.1
 Release: 1%{?dist}
@@ -22,6 +25,7 @@ BuildRequires: gcc-c++
 BuildRequires: pkgconfig(krb5)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xkbfile)
+BuildRequires: pkgconfig(libsecret-1)
 BuildRequires: desktop-file-utils
 BuildRequires: zip
 BuildRequires: git
@@ -77,14 +81,29 @@ yarn gulp vscode-linux-$_vscode_arch-min
 %install
 # Installing application...
 install -d %{buildroot}%{_lib}/%{name}
-cp -arf VSCode-linux-*/resources/app/* %{buildroot}%{_lib}/%{name}
+cp -arf ../VSCode-linux-*/* %{buildroot}%{_lib}/%{name}
 
 # Replace statically included binary with system copy
-ln -sf /usr/bin/rg %{buildroot}%{_lib}/%{name}/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
+ln -sf %{_bindir}/rg %{buildroot}%{_lib}/%{name}/resources/app/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
+
+# Installing launcher...
+install -d %{buildroot}%{_bindir}
+ln -s %{_lib}/%{name}/bin/%{name} %{buildroot}%{_bindir}/%{name}
+
+# Installing desktop file...
+install -d %{buildroot}%{_datadir}/applications
+install -m 0644 -p resources/linux/code.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
+
+# Install shell completions
+install -m 0644 -p resources/completions/bash/code %{buildroot}%{_datadir}/bash-completion/completions/%{name}
+install -m 0644 -p resources/completions/zsh/_code %{buildroot}%{_datadir}/zsh/site-functions/%{name}
 
 %files
-%license LICENSE
+%license LICENSE.txt
+%{_lib}/%{name}
 %{_bindir}/%{name}
+%{_datadir}/bash-completion/completions/%{name}
+%{_datadir}/zsh/site-functions/%{name}
 
 %changelog
 * Sat Jul 27 2024 M3DZIK <me@medzik.dev> - 1.91.1-1
