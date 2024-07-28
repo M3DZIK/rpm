@@ -74,9 +74,6 @@ _vscode_arch="arm64"
 yarn install --arch=$_vscode_arch
 yarn gulp vscode-linux-$_vscode_arch-min
 
-# Replace statically included binary with system copy
-ln -sf /usr/bin/rg usr/lib/code/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
-
 %install
 # Installing application...
 install -d %{buildroot}%{_lib}/%{name}
