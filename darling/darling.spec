@@ -6,7 +6,7 @@
 
 Name:    darling
 Version: 0.0.0.4224.203af1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Darwin/macOS emulation layer for Linux
 License: GPL-3
 URL:     https://www.darlinghq.org/
@@ -58,6 +58,7 @@ BuildRequires: llvm-devel
 BuildRequires: libcap-devel
 BuildRequires: libavcodec-free-devel
 BuildRequires: libavformat-free-devel
+BuildRequires: libtiff-devel
 
 %description
 %{summary}
