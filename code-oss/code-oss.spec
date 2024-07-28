@@ -65,7 +65,6 @@ cp resources/completions/bash/code resources/completions/bash/code-oss
 cp resources/completions/zsh/_code resources/completions/zsh/_code-oss
 
 # Patch completions with correct names
-sed -i 's|@@APPNAME@@|code|g' resources/completions/{bash/code,zsh/_code}
 sed -i 's|@@APPNAME@@|code-oss|g' resources/completions/{bash/code-oss,zsh/_code-oss}
 
 %build
@@ -94,6 +93,10 @@ ln -s %{_lib}/%{name}/bin/%{name} %{buildroot}%{_bindir}/%{name}
 install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p resources/linux/code.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
 
+# Installing metainfo...
+install -d %{buildroot}%{_metainfodir}
+install -m 0644 -p resources/linux/code.appdata.xml %{buildroot}%{_metainfodir}/%{name}.appdata.xml
+
 # Install shell completions
 install -d %{buildroot}%{_datadir}/bash-completion/completions
 install -m 0644 -p resources/completions/bash/code %{buildroot}%{_datadir}/bash-completion/completions/%{name}
@@ -104,6 +107,8 @@ install -m 0644 -p resources/completions/zsh/_code %{buildroot}%{_datadir}/zsh/s
 %license LICENSE.txt
 %{_lib}/%{name}
 %{_bindir}/%{name}
+%{_datadir}/applications/%{name}.desktop
+%{_metainfodir}/%{name}.appdata.xml
 %{_datadir}/bash-completion/completions/%{name}
 %{_datadir}/zsh/site-functions/%{name}
 
