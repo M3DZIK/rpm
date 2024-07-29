@@ -117,6 +117,10 @@ install -m 0644 -p vscode/resources/linux/code.desktop %{buildroot}%{_datadir}/a
 install -d %{buildroot}%{_metainfodir}
 install -m 0644 -p vscode/resources/linux/code.appdata.xml %{buildroot}%{_metainfodir}/%{name}.appdata.xml
 
+# Installing icon...
+install -d %{_datadir}/pixmaps
+install -m 0644 -p VSCode-linux-*/resources/app/resources/linux/code.png %{_datadir}/pixmaps/%{name}.png
+
 # Install shell completions
 install -d %{buildroot}%{_datadir}/bash-completion/completions
 install -m 0644 -p vscode/resources/completions/bash/codium %{buildroot}%{_datadir}/bash-completion/completions/%{name}
@@ -129,6 +133,7 @@ install -m 0644 -p vscode/resources/completions/zsh/_codium %{buildroot}%{_datad
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_metainfodir}/%{name}.appdata.xml
+%{_datadir}/pixmaps/%{name}.png
 %{_datadir}/bash-completion/completions/%{name}
 %{_datadir}/zsh/site-functions/%{name}
 
