@@ -8,7 +8,7 @@
 
 Name:    code-oss
 Version: 1.91.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: The Open Source version of Visual Studio Code (vscode) editor
 License: MIT
 URL:     https://github.com/microsoft/vscode
@@ -49,7 +49,7 @@ sed -i 's|/usr/share/@@NAME@@/@@NAME@@|@@NAME@@|g
         s|@@NAME_SHORT@@|Code|g
         s|@@NAME_LONG@@|Code - OSS|g
         s|@@NAME@@|code-oss|g
-        s|@@ICON@@|com.visualstudio.code.oss|g
+        s|@@ICON@@|code-oss|g
         s|@@EXEC@@|code-oss|g
         s|@@LICENSE@@|MIT|g
         s|@@URLPROTOCOL@@|vscode|g
@@ -96,6 +96,10 @@ install -m 0644 -p resources/linux/code.desktop %{buildroot}%{_datadir}/applicat
 # Installing metainfo...
 install -d %{buildroot}%{_metainfodir}
 install -m 0644 -p resources/linux/code.appdata.xml %{buildroot}%{_metainfodir}/%{name}.appdata.xml
+
+# Installing icon...
+install -d %{_datadir}/pixmaps
+ln -s %{_lib}/%{name}/resources/app/resources/linux/code.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
 # Install shell completions
 install -d %{buildroot}%{_datadir}/bash-completion/completions
