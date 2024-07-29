@@ -15,6 +15,8 @@ URL:     https://vscodium.com
 
 Source0: https://github.com/VSCodium/vscodium/archive/%{version}.tar.gz
 
+Provides: vscodium = %{version}-%{release}
+
 BuildRequires: python3
 BuildRequires: npm
 BuildRequires: yarnpkg
