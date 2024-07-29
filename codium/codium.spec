@@ -100,7 +100,7 @@ export DISABLE_UPDATE="yes"
 %install
 # Installing application...
 install -d %{buildroot}%{_lib}/%{name}
-cp -arf ../VSCode-linux-*/* %{buildroot}%{_lib}/%{name}
+cp -arf VSCode-linux-*/* %{buildroot}%{_lib}/%{name}
 
 # Replace statically included binary with system copy
 ln -sf %{_bindir}/rg %{buildroot}%{_lib}/%{name}/resources/app/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
