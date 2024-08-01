@@ -1,6 +1,9 @@
 %global debug_package %{nil}
 %global _build_id_links none
 %global __brp_mangle_shebangs %{nil}
+%global _exclude_from %{_libexecdir}/%{name}/.*
+%global __provides_exclude_from %{_exclude_from}
+%global __requires_exclude_from %{_exclude_from}
 
 %global git_commit 203af1f604727e13032df1870e3491572e7d6704
 
@@ -58,8 +61,6 @@ BuildRequires: llvm-devel
 BuildRequires: libcap-devel
 BuildRequires: libavcodec-free-devel
 BuildRequires: libavformat-free-devel
-BuildRequires: libtiff-devel
-BuildRequires: libtiff-devel(x86-32)
 
 %description
 %{summary}
