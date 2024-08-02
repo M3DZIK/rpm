@@ -18,7 +18,7 @@
 
 Name:    jetbrains-fleet
 Version: 1.38.89
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Next-generation IDE by JetBrains
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -86,6 +86,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 
 %changelog
+* Fri Aug 02 2024 M3DZIK <me@medzik.dev> - 1.38.89-2
+- Fix run issue
+
 * Wed Jul 31 2024 M3DZIK <me@medzik.dev> - 1.38.89-1
 - Update to 1.38.89
 
