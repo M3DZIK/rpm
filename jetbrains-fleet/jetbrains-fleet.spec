@@ -52,6 +52,7 @@ mv "${download_file}.out"/*/* .
 # Installing application...
 install -d %{buildroot}%{_javadir}/%{name}
 cp -arf ./{bin,lib} %{buildroot}%{_javadir}/%{name}/
+chmod -R 775 "%{buildroot}%{_javadir}/%{name}/lib/app/code-cache"
 
 # Installing icons...
 install -d %{buildroot}%{_datadir}/pixmaps
