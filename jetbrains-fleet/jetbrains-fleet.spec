@@ -9,8 +9,6 @@
 %global __jar_repack %{nil}
 # disable rpath checks
 %define __brp_check_rpaths %{nil}
-# there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
-%global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
 %global _exclude_from %{_javadir}/%{name}/lib/.*
 %global __provides_exclude_from %{_exclude_from}
@@ -26,7 +24,6 @@ URL:     https://www.jetbrains.com/%{appname}/
 Source0: %{name}.desktop
 
 BuildRequires: desktop-file-utils
-BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
 BuildRequires: wget
 BuildRequires: tar
@@ -50,13 +47,6 @@ wget -q "https://download-cf.jetbrains.com/fleet/installers/linux_$download_arch
 mkdir "${download_file}.out"
 tar xf "$download_file" -C "${download_file}.out"
 mv "${download_file}.out"/*/* .
-
-# Patching shebangs...
-%if 0%{?fedora}
-%py3_shebang_fix .
-%else
-find . -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
-%endif
 
 %install
 # Installing application...
