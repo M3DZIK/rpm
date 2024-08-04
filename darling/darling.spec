@@ -1,15 +1,19 @@
+%global __os_install_post %{nil}
 %global debug_package %{nil}
 %global _build_id_links none
 %global __brp_mangle_shebangs %{nil}
-%global _exclude_from %{_libexecdir}/%{name}/.*
-%global __provides_exclude_from %{_exclude_from}
-%global __requires_exclude_from %{_exclude_from}
+
+# explicitly ignore all the bogus dependencies that the auto-scanner finds in `/usr/libexec/darling`
+#
+# note that we *don't* want to simply use `__requires_exclude_from` to exclude `/usr/libexec/darling` from scanning,
+# since we *do* want our Mach-O scanner to scan that tree (and there's no way to only exclude paths for some dependency generators; it's all or nothing).
+%global __requires_exclude ^(/bin/sed|/bin/sh|/usr/bin/perl|/usr/bin/python2.7|/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7|/usr/bin/python|/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby|/usr/bin/env|/usr/bin/ruby)$
 
 %global git_commit 203af1f604727e13032df1870e3491572e7d6704
 
 Name:    darling
 Version: 0.0.0.4224.203af1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Darwin/macOS emulation layer for Linux
 License: GPL-3
 URL:     https://www.darlinghq.org/
@@ -89,5 +93,8 @@ sed -i 's@/usr/local@/usr@g' %{buildroot}%{_prefix}/lib/binfmt.d/%{name}.conf
 %{_bindir}/%{name}*
 
 %changelog
+* Sun Aug 04 2024 M3DZIK <me@medzik.dev> - 0.0.0.4224.203af1-4
+- Exclude requires from internal darling files
+
 * Sun Jul 28 2024 M3DZIK <me@medzik.dev> - 0.0.0.4224.203af1-1
 - Initial release
