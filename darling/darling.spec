@@ -13,6 +13,7 @@
 
 Name:    darling
 Version: 0.0.0.4224.203af1
+Epoch:   1
 Release: 5%{?dist}
 Summary: Darwin/macOS emulation layer for Linux
 Group:   Utility
