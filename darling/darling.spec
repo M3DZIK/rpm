@@ -21,6 +21,7 @@ URL:     https://www.darlinghq.org/
 
 Source0: https://github.com/darlinghq/darling/archive/%{git_commit}.tar.gz
 
+BuildRequires: git
 BuildRequires: cmake clang bison flex python2 glibc-devel(x86-64) glibc-devel(x86-32)
 BuildRequires: fuse-devel systemd-devel
 BuildRequires: cairo-devel freetype-devel(x86-64) fontconfig-devel(x86-64)
