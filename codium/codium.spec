@@ -101,7 +101,7 @@ install -d %{buildroot}%{_metainfodir}
 install -m 0644 -p %{SOURCE102} %{buildroot}%{_metainfodir}/%{name}.appdata.xml
 
 # Installing icon...
-install -d %{_datadir}/pixmaps
+install -d %{buildroot}%{_datadir}/pixmaps
 ln -s %{_lib}/%{name}/resources/app/resources/linux/code.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
 # Install shell completions
