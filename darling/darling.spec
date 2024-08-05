@@ -30,7 +30,7 @@ BuildRequires: libjpeg-turbo-devel(x86-64) libtiff-devel(x86-64)
 BuildRequires: libjpeg-turbo-devel(x86-32)
 BuildRequires: libglvnd-devel mesa-libGL-devel mesa-libEGL-devel
 BuildRequires: libxml2-devel elfutils-libelf-devel
-BuildRequires: libbsd-devel
+BuildRequires: ffmpeg-free-devel libbsd-devel
 BuildRequires: pulseaudio-libs-devel openssl-devel giflib-devel
 BuildRequires: libXrandr-devel libXcursor-devel libxkbfile-devel dbus-devel mesa-libGLU-devel
 BuildRequires: vulkan-headers llvm-devel libcap-devel bash vulkan-loader-devel
