@@ -115,6 +115,7 @@ ln -s %{_lib}/%{name}/resources/completions/zsh/_codium %{buildroot}%{_datadir}/
 %{_lib}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/%{name}-uri-handler.desktop
 %{_metainfodir}/%{name}.appdata.xml
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/bash-completion/completions/%{name}
