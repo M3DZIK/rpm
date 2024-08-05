@@ -92,7 +92,7 @@ ln -s %{_lib}/%{name}/bin/%{name} %{buildroot}%{_bindir}/%{name}
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p resources/linux/code.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
-install -m 0644 -p resources/linux/code-oss-url-handler.desktop %{buildroot}%{_datadir}/applications/%{name}-oss-url-handler.desktop
+install -m 0644 -p resources/linux/code-url-handler.desktop %{buildroot}%{_datadir}/applications/%{name}-oss-url-handler.desktop
 
 # Installing metainfo...
 install -d %{buildroot}%{_metainfodir}
