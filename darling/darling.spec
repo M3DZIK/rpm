@@ -13,61 +13,191 @@
 
 Name:    darling
 Version: 0.0.0.4224.203af1
-Release: 4%{?dist}
+Release: 5%{?dist}
 Summary: Darwin/macOS emulation layer for Linux
-License: GPL-3
+Group:   Utility
+License: GPLv3
 URL:     https://www.darlinghq.org/
 
 Source0: https://github.com/darlinghq/darling/archive/%{git_commit}.tar.gz
 
-BuildRequires: git
-BuildRequires: git-lfs
-BuildRequires: make
-BuildRequires: cmake
-BuildRequires: clang
-BuildRequires: bison
-BuildRequires: dbus-devel
-BuildRequires: bison
-BuildRequires: flex
-BuildRequires: glibc-devel(x86-32)
-BuildRequires: fuse-devel
-BuildRequires: systemd-devel
-BuildRequires: elfutils-libelf-devel
-BuildRequires: cairo-devel
-BuildRequires: freetype-devel
-BuildRequires: freetype-devel(x86-32)
-BuildRequires: libjpeg-turbo-devel
+BuildRequires: cmake clang bison flex python2 glibc-devel(x86-64) glibc-devel(x86-32)
+BuildRequires: fuse-devel systemd-devel
+BuildRequires: cairo-devel freetype-devel(x86-64) fontconfig-devel(x86-64)
+BuildRequires: freetype-devel(x86-32) fontconfig-devel(x86-32) make
+BuildRequires: libjpeg-turbo-devel(x86-64) libtiff-devel(x86-64)
 BuildRequires: libjpeg-turbo-devel(x86-32)
-BuildRequires: fontconfig-devel
-BuildRequires: fontconfig-devel(x86-32)
-BuildRequires: libglvnd-devel
-BuildRequires: libglvnd-devel(x86-32)
-BuildRequires: mesa-libGL-devel
-BuildRequires: mesa-libGL-devel(x86-32)
-BuildRequires: mesa-libEGL-devel
-BuildRequires: mesa-libEGL-devel(x86-32)
-BuildRequires: mesa-libGLU-devel
-BuildRequires: mesa-libGLU-devel(x86-32)
-BuildRequires: vulkan-loader-devel
-BuildRequires: vulkan-headers
-BuildRequires: glslang-devel
-BuildRequires: glslc
-BuildRequires: libtiff-devel
-BuildRequires: libxml2-devel
+BuildRequires: libglvnd-devel mesa-libGL-devel mesa-libEGL-devel
+BuildRequires: libxml2-devel elfutils-libelf-devel
 BuildRequires: libbsd-devel
-BuildRequires: libXcursor-devel
-BuildRequires: libXrandr-devel
-BuildRequires: giflib-devel
-BuildRequires: pulseaudio-libs-devel
-BuildRequires: libxkbfile-devel
-BuildRequires: openssl-devel
-BuildRequires: llvm-devel
-BuildRequires: libcap-devel
-BuildRequires: libavcodec-free-devel
-BuildRequires: libavformat-free-devel
+BuildRequires: ffmpeg-devel pulseaudio-libs-devel openssl-devel giflib-devel
+BuildRequires: libXrandr-devel libXcursor-devel libxkbfile-devel dbus-devel mesa-libGLU-devel
+BuildRequires: vulkan-headers llvm-devel libcap-devel bash vulkan-loader-devel
+
+Requires: darling-cli darling-python2 darling-ruby darling-perl darling-gui darling-gui-stubs darling-pyobjc
 
 %description
-%{summary}
+Translation layer for running macOS software on Linux
+
+%package extra
+Summary:       Extra components for Darling
+Group:         Utility
+Requires:      darling darling-jsc darling-cli-extra
+
+%description extra
+Extra components for Darling that are not part of a typical ("stock") installation
+
+%package core
+Summary:    Darling core components
+Group:      Utility
+Requires:   xdg-user-dirs
+
+%description core
+Core components of Darling
+
+%package system
+Summary:    Darling system components
+Group:      Utility
+Requires:   darling-core
+
+%description system
+System components of Darling
+
+%package cli
+Summary:    Darling CLI components
+Group:      Utility
+Requires:   darling-system darling-cli-gui-common darling-cli-python2-common
+
+%description cli
+CLI components of Darling
+
+%package ffi
+Summary:    libffi for Darling
+Group:      Utility
+Requires:   darling-core
+
+%description ffi
+libffi built for use within Darling
+
+%package cli-gui-common
+Summary:    Darling CLI and GUI common components
+Group:      Utility
+Requires:   darling-system
+
+%description cli-gui-common
+Components of Darling that are shared between the CLI and GUI components
+
+%package iokitd
+Summary:    Darling IOKit daemon
+Group:      Utility
+Requires:   darling-system darling-iosurface
+
+%description iokitd
+IOKit daemon for Darling
+
+%package cli-devenv-gui-common
+Summary:    Darling developer environment and GUI common components
+Group:      Utility
+Requires:   darling-system
+
+%description cli-devenv-gui-common
+Components of Darling that are shared between the developer environment and the GUI components
+
+%package cli-extra
+Summary:    Extra Darling CLI components
+Group:      Utility
+Requires:   darling-cli
+
+%description cli-extra
+Non-standard CLI components of Darling
+
+%package gui
+Summary:    Darling GUI components
+Group:      Utility
+Requires:   darling-system darling-cli-devenv-gui-common darling-iokitd darling-cli-gui-common darling-iosurface
+
+%description gui
+GUI components of Darling
+
+%package python2
+Summary:    Python 2 for Darling
+Group:      Utility
+Requires:   darling-core darling-cli-python2-common darling-ffi
+
+%description python2
+Python 2 (and associated programs) built for use within Darling
+
+%package cli-python2-common
+Summary:    Darling CLI and Python 2 common components
+Group:      Utility
+Requires:   darling-core
+
+%description cli-python2-common
+Components of Darling that are shared between the CLI and Python 2 components
+
+%package pyobjc
+Summary:    PyObjC for Darling
+Group:      Utility
+Requires:   darling-gui-stubs darling-python2
+
+%description pyobjc
+PyObjC built for use within Darling
+
+%package ruby
+Summary:    Ruby for Darling
+Group:      Utility
+Requires:   darling-core darling-ffi
+
+%description ruby
+Ruby built for use within Darling
+
+%package perl
+Summary:    Perl for Darling
+Group:      Utility
+Requires:   darling-core
+
+%description perl
+Perl built for use within Darling
+
+%package jsc-webkit-common
+Summary:    Darling JavaScriptCore and WebKit common components
+Group:      Utility
+Requires:   darling-system
+
+%description jsc-webkit-common
+Components of Darling that are shared between JavaScriptCore and WebKit
+
+%package jsc
+Summary:    JavaScriptCore for Darling
+Group:      Utility
+Requires:   darling-system darling-jsc-webkit-common
+
+%description jsc
+JavaScriptCore built for use within Darling
+
+%package iosurface
+Summary:    IOSurface framework for Darling
+Group:      Utility
+Requires:   darling-system
+
+%description iosurface
+IOSurface framework built for use within Darling
+
+%package cli-devenv-gui-stubs-common
+Summary:    Darling developer environment and GUI stubs common components
+Group:      Utility
+Requires:   darling-cli-devenv-gui-common
+
+%description cli-devenv-gui-stubs-common
+Components of Darling that are shared between the developer environment and GUI stub components
+
+%package gui-stubs
+Summary:    Darling GUI stub components
+Group:      Utility
+Requires:   darling-gui darling-cli-devenv-gui-stubs-common
+
+%description gui-stubs
+GUI stub components of Darling
 
 %prep
 %setup -q -n darling-%{git_commit}
@@ -78,21 +208,107 @@ git clone --recursive https://github.com/darlinghq/darling.git darling-%{git_com
 cd darling-%{git_commit}
 
 %build
-CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" cmake -S . -B redhat-linux-build -DCMAKE_INSTALL_PREFIX=/usr
-%cmake_build
+%{__mkdir_p} build
+pushd build
+	# Release is broken https://github.com/darlinghq/darling/issues/331
+	#          -DCMAKE_BUILD_TYPE=Release \
+	CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS="" \
+	%{__cmake} -DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	           -DOpenGL_GL_PREFERENCE=GLVND \
+	           -DDEBIAN_PACKAGING=ON \
+	           -DJSC_UNIFIED_BUILD=ON \
+	           ..
+	%{make_build} -j `nproc`
+popd
 
 %install
-%cmake_install
+DARLING_COMPONENTS=(
+	core
+	system
+	cli
+	ffi
+	cli_gui_common
+	iokitd
+	cli_dev_gui_common
+	cli_extra
+	gui
+	python
+	cli_python_common
+	pyobjc
+	ruby
+	perl
+	jsc_webkit_common
+	jsc
+	iosurface
+	cli_dev_gui_stubs_common
+	gui_stubs
+)
+PACKAGE_SUFFIXES=(
+	core
+	system
+	cli
+	ffi
+	cli-gui-common
+	iokitd
+	cli-devenv-gui-common
+	cli-extra
+	gui
+	python2
+	cli-python2-common
+	pyobjc
+	ruby
+	perl
+	jsc-webkit-common
+	jsc
+	iosurface
+	cli-devenv-gui-stubs-common
+	gui-stubs
+)
+pushd build
+	for index in {0..18}; do
+		rm -rf tmp/${PACKAGE_SUFFIXES[index]}
+		DESTDIR=tmp/${PACKAGE_SUFFIXES[index]} %{__cmake} -DCOMPONENT=${DARLING_COMPONENTS[index]} -P cmake_install.cmake
+		find tmp/${PACKAGE_SUFFIXES[index]} \( ! -type d -o -type d -empty \) -printf '"/%%P"\n' > files.${PACKAGE_SUFFIXES[index]}.txt
+		cp -rla tmp/${PACKAGE_SUFFIXES[index]}/. %{?buildroot}/
+	done
 
-sed -i 's@/usr/local@/usr@g' %{buildroot}%{_prefix}/lib/binfmt.d/%{name}.conf
+	# pack up a "source" (actually binary) tarball for `darling-cli-devenv`
+	# NOTE: this is probably not the best approach. fix this if something better comes up.
+	rm -rf tmp/cli-devenv
+	DESTDIR=tmp/cli-devenv %{__cmake} -DCOMPONENT=cli_dev -P cmake_install.cmake
+	rm -f %{_sourcedir}/darling-cli-devenv.tar.gz
+	tar --transform "s|^\./|darling-cli-devenv/|" -cf %{_sourcedir}/darling-cli-devenv.tar.gz -C tmp/cli-devenv .
+popd
 
 %files
 %license LICENSE
-%{_prefix}/lib/binfmt.d/%{name}.conf
-%{_libexecdir}/%{name}
-%{_bindir}/%{name}*
+
+%files extra
+
+%files core -f build/files.core.txt
+%files system -f build/files.system.txt
+%files cli -f build/files.cli.txt
+%files ffi -f build/files.ffi.txt
+%files cli-gui-common -f build/files.cli-gui-common.txt
+%files iokitd -f build/files.iokitd.txt
+%files cli-devenv-gui-common -f build/files.cli-devenv-gui-common.txt
+%files cli-extra -f build/files.cli-extra.txt
+%files gui -f build/files.gui.txt
+%files python2 -f build/files.python2.txt
+%files cli-python2-common -f build/files.cli-python2-common.txt
+%files pyobjc -f build/files.pyobjc.txt
+%files ruby -f build/files.ruby.txt
+%files perl -f build/files.perl.txt
+%files jsc-webkit-common -f build/files.jsc-webkit-common.txt
+%files jsc -f build/files.jsc.txt
+%files iosurface -f build/files.iosurface.txt
+%files cli-devenv-gui-stubs-common -f build/files.cli-devenv-gui-stubs-common.txt
+%files gui-stubs -f build/files.gui-stubs.txt
 
 %changelog
+* Sun Aug 04 2024 M3DZIK <me@medzik.dev> - 0.0.0.4224.203af1-5
+- Refactor package
+
 * Sun Aug 04 2024 M3DZIK <me@medzik.dev> - 0.0.0.4224.203af1-4
 - Exclude requires from internal darling files
 
