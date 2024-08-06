@@ -20,8 +20,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    rider
-Version: 2024.1.4
-Release: 2%{?dist}
+Version: 2024.1.5
+Release: 1%{?dist}
 Summary: Fast & powerful, cross platform .NET IDE
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -128,6 +128,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_javadir}/%{name}/jbr
 
 %changelog
+* Tue Aug 06 2024 M3DZIK <me@medzik.dev> - 2024.1.5-1
+- Update to 2024.1.5
+
 * Tue Jun 25 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
 - Update to 2024.1.4
 
