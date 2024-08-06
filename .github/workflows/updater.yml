@@ -13,10 +13,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Configure GIT
+      - name: Configure Git
         run: |
-          git config --global user.email 'me@medzik.dev'
-          git config --global user.name 'M3DZIK'
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Run updater
         run: ./scripts/updater.sh
