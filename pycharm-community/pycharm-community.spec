@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname pycharm
-%global build_ver 241.18034.82
+%global build_ver 241.18968.29
 %global idea_name pycharmPC
 
 # disable debuginfo subpackage
@@ -22,8 +22,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    pycharm-community
-Version: 2024.1.4
-Release: 4%{?dist}
+Version: 2024.1.5
+Release: 1%{?dist}
 Summary: Intelligent Python IDE - Community
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
@@ -160,6 +160,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_javadir}/%{name}/jbr
 
 %changelog
+* Tue Aug 06 2024 M3DZIK <me@medzik.dev> - 2024.1.5-1
+- Update to 2024.1.5 (241.18968.29)
+
 * Sat Jun 27 2024 M3DZIK <me@medzik.dev> - 2024.1.4-4
 - Fix vmoptions file
 
