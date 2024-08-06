@@ -113,7 +113,7 @@ install -m 0644 -p resources/completions/zsh/_code %{buildroot}%{_datadir}/zsh/s
 %{_lib}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/applications/%{name}-uri-handler.desktop
+%{_datadir}/applications/%{name}-url-handler.desktop
 %{_metainfodir}/%{name}.appdata.xml
 %{_datadir}/bash-completion/completions/%{name}
 %{_datadir}/zsh/site-functions/%{name}
