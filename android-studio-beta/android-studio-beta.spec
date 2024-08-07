@@ -20,8 +20,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    android-studio-beta
-Version:       2024.1.2.10
-Release:       1%{?dist}
+Version: 2024.1.2.11
+Release: 1%{?dist}
 Summary: Integrated development environment for Google's Android platform - Beta Channel
 License: Apache-2.0
 URL:     https://developer.android.com/%{appname}/
@@ -98,6 +98,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_javadir}/%{name}/jbr
 
 %changelog
+* Wed Aug 07 2024 M3DZIK <me@medzik.dev> - 2024.1.2.11-1
+- Update to 2024.1.2.11
+
 * Thu Jul 25 2024 M3DZIK <me@medzik.dev> - 2024.1.2.10-1
 - Update to 2024.1.2.10
 
