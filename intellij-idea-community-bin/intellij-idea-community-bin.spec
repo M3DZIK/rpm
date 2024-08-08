@@ -25,7 +25,7 @@
 
 Name:    %{_name}-bin
 Version: 2024.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Capable and Ergonomic Java IDE - Community Edition
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
@@ -52,7 +52,7 @@ IntelliJ IDEA Community provides all the tools you need for Java, Groovy, Kotlin
 Summary:  JetBrains Runtime
 Requires: %{_name}
 
-Provides: %{_name}-jbr
+Conflicts: %{_name}-jbr
 
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}

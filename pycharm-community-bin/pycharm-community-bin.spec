@@ -23,7 +23,7 @@
 
 Name:    %{_name}-bin
 Version: 2024.1.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Intelligent Python IDE - Community
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
@@ -49,7 +49,7 @@ PyCharm is designed by programmers, for programmers, to provide all the tools yo
 Summary:  JetBrains Runtime
 Requires: %{_name}
 
-Provides: %{_name}-jbr
+Conflicts: %{_name}-jbr
 
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}
