@@ -6,5 +6,5 @@ Categories=Development;IDE;
 Type=Application
 Exec=android-studio
 Terminal=false
-Icon=android-studio
+Icon=com.google.AndroidStudio
 StartupWMClass=jetbrains-studio

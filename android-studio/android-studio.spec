@@ -71,9 +71,9 @@ cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javad
 
 # Installing icons...
 install -d %{buildroot}%{_datadir}/pixmaps
-install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
+install -m 0644 -p bin/%{appname}.png %{buildroot}%{_datadir}/pixmaps/com.google.AndroidStudio.png
 install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
-install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/com.google.AndroidStudio.svg
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
@@ -91,8 +91,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_javadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/pixmaps/%{name}.png
-%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+%{_datadir}/pixmaps/com.google.AndroidStudio.png
+%{_datadir}/icons/hicolor/scalable/apps/com.google.AndroidStudio.svg
 
 %files jbr
 %{_javadir}/%{name}/jbr
