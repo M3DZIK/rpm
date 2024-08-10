@@ -140,7 +140,7 @@ install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scal
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
-ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
+ln -s %{_javadir}/%{name}/bin/%{appname} %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
