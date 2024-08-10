@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    datagrip
-Version: 2024.1.4
+Version: 2024.1.5
 Release: 1%{?dist}
 Summary: A powerful tool for relational and NoSQL databases
 License: Commercial
@@ -127,5 +127,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_javadir}/%{name}/jbr
 
 %changelog
+* Sat Aug 10 2024 M3DZIK <me@medzik.dev> - 2024.1.5-1
+- Update to 2024.1.5
+
 * Mon Jul 22 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
 - Initial release
