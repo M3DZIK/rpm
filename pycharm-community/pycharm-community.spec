@@ -169,12 +169,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 * Tue Aug 06 2024 M3DZIK <me@medzik.dev> - 2024.1.5-1
 - Update to 2024.1.5 (241.18968.29)
 
-* Sat Jun 27 2024 M3DZIK <me@medzik.dev> - 2024.1.4-4
-- Fix vmoptions file
-
-* Fri Jun 26 2024 M3DZIK <me@medzik.dev> - 2024.1.4-3
-- Build from sources
-
 * Tue Jun 25 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
 - Update to 2024.1.4
 
