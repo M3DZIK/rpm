@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    clion
-Version: 2024.1.5
+Version: 2024.2
 Release: 1%{?dist}
 Summary: A cross-platform IDE for C and C++
 License: Commercial
@@ -128,6 +128,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_javadir}/%{name}/jbr
 
 %changelog
+* Wed Aug 14 2024 M3DZIK <me@medzik.dev> - 2024.2-1
+- Update to 2024.2
+
 * Fri Aug 09 2024 M3DZIK <me@medzik.dev> - 2024.1.5-1
 - Update to 2024.1.5
 
