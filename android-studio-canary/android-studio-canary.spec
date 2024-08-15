@@ -36,7 +36,7 @@ BuildRequires: javapackages-filesystem
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr
+Recommends:    %{name}-jbr = %{version}-%{release}
 
 %description
 Official Integrated Development Environment (IDE) for developing
@@ -46,7 +46,7 @@ to enhance the productivity of the Android application developers
 
 %package jbr
 Summary:  JetBrains Runtime
-Requires: %{name}
+Requires: %{name} = %{version}-%{release}
 
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}

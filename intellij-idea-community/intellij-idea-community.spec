@@ -41,7 +41,7 @@ BuildRequires: java-17-openjdk-devel
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr
+Recommends:    %{name}-jbr = %{version}-%{release}
 
 %description
 IntelliJ IDEA Community is a free and open-source edition of IntelliJ IDEA, the commercial Java IDE by JetBrains.
@@ -49,7 +49,7 @@ IntelliJ IDEA Community provides all the tools you need for Java, Groovy, Kotlin
 
 %package jbr
 Summary:  JetBrains Runtime
-Requires: %{name}
+Requires: %{name} = %{version}-%{release}
 
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}

@@ -40,14 +40,14 @@ BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{_name}-jbr
+Recommends:    %{_name}-jbr = %{version}-%{release}
 
 %description
 PyCharm is designed by programmers, for programmers, to provide all the tools you need for productive Python development.
 
 %package jbr
 Summary:  JetBrains Runtime
-Requires: %{_name}
+Requires: %{_name} = %{version}-%{release}
 
 Conflicts: %{_name}-jbr
 

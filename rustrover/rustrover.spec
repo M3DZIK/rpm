@@ -36,7 +36,7 @@ BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr
+Recommends:    %{name}-jbr = %{version}-%{release}
 
 %description
 Trust RustRover to take care of the routine while you focus on the important things. Knowing your code through
@@ -45,7 +45,7 @@ reliable refactorings.
 
 %package jbr
 Summary:  JetBrains Runtime
-Requires: %{name}
+Requires: %{name} = %{version}-%{release}
 
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}

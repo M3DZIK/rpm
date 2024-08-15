@@ -36,14 +36,14 @@ BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr
+Recommends:    %{name}-jbr = %{version}-%{release}
 
 %description
 RubyMine is an IDE that helps you be more productive in every aspect of Ruby/Rails projects development.
 
 %package jbr
 Summary:  JetBrains Runtime
-Requires: %{name}
+Requires: %{name} = %{version}-%{release}
 
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}

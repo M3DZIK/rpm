@@ -40,7 +40,7 @@ BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr
+Recommends:    %{name}-jbr = %{version}-%{release}
 
 %description
 IntelliJ IDEA Ultimate is a fully-fledged commercial IDE for the JVM platform. IntelliJ IDEA provides all the
@@ -49,7 +49,7 @@ Kotlin, Scala, Android, JavaScript, SQL and lots of other languages and framewor
 
 %package jbr
 Summary:  JetBrains Runtime
-Requires: %{name}
+Requires: %{name} = %{version}-%{release}
 
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}
