@@ -21,7 +21,7 @@
 
 Name:    jetbrains-gateway
 Version: 2024.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Your single entry point to all remote development environments
 License: Commercial
 URL:     https://www.jetbrains.com/remote-development/gateway/
@@ -107,7 +107,7 @@ install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scal
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
-ln -s %{_javadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
+ln -s %{_javadir}/%{name}/bin/%{appname} %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
