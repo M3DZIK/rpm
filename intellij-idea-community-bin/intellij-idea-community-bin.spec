@@ -19,7 +19,7 @@
 # there are some python 2 and python 3 scripts so there is no way out to bytecompile them ^_^
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
-%global _exclude_from %{_javadir}/%{_name}/bin/.*|%{_javadir}/%{_name}/lib/.*|%{_javadir}/%{_name}/plugins/.*|%{_javadir}/%{_name}/jbr/.*
+%global _exclude_from %{_datadir}/%{_name}/bin/.*|%{_datadir}/%{_name}/lib/.*|%{_datadir}/%{_name}/plugins/.*|%{_datadir}/%{_name}/jbr/.*
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}
 
@@ -105,8 +105,8 @@ echo "Space freed: $size_diff bytes"
 
 %install
 # Installing application...
-install -d %{buildroot}%{_javadir}/%{_name}
-cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_javadir}/%{_name}/
+install -d %{buildroot}%{_datadir}/%{_name}
+cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_datadir}/%{_name}/
 
 # Installing icons...
 install -d %{buildroot}%{_datadir}/pixmaps
@@ -116,7 +116,7 @@ install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scal
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
-ln -s %{_javadir}/%{_name}/bin/%{appname} %{buildroot}%{_bindir}/%{_name}
+ln -s %{_datadir}/%{_name}/bin/%{appname} %{buildroot}%{_bindir}/%{_name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
@@ -127,14 +127,14 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{_name}.desktop
 
 %files
 %license license/*
-%{_javadir}/%{_name}/{bin,lib,plugins,build.txt,product-info.json}
+%{_datadir}/%{_name}/{bin,lib,plugins,build.txt,product-info.json}
 %{_bindir}/%{_name}
 %{_datadir}/applications/%{_name}.desktop
 %{_datadir}/pixmaps/%{_name}.png
 %{_datadir}/icons/hicolor/scalable/apps/%{_name}.svg
 
 %files jbr
-%{_javadir}/%{_name}/jbr
+%{_datadir}/%{_name}/jbr
 
 %changelog
 * Wed Aug 14 2024 M3DZIK <me@medzik.dev> - 2024.2.0.1-1

@@ -10,7 +10,7 @@
 # disable rpath checks
 %define __brp_check_rpaths %{nil}
 # do not automatically detect and export provides and dependencies on bundled libraries and executables
-%global _exclude_from %{_javadir}/%{name}/lib/.*
+%global _exclude_from %{_datadir}/%{name}/lib/.*
 %global __provides_exclude_from %{_exclude_from}
 %global __requires_exclude_from %{_exclude_from}
 
@@ -50,9 +50,9 @@ mv "${download_file}.out"/*/* .
 
 %install
 # Installing application...
-install -d %{buildroot}%{_javadir}/%{name}
-cp -arf ./{bin,lib} %{buildroot}%{_javadir}/%{name}/
-chmod -R 775 "%{buildroot}%{_javadir}/%{name}/lib/app/code-cache"
+install -d %{buildroot}%{_datadir}/%{name}
+cp -arf ./{bin,lib} %{buildroot}%{_datadir}/%{name}/
+chmod -R 775 "%{buildroot}%{_datadir}/%{name}/lib/app/code-cache"
 
 # Installing icons...
 install -d %{buildroot}%{_datadir}/pixmaps
@@ -60,7 +60,7 @@ install -m 0644 -p lib/Fleet.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
-ln -s %{_javadir}/%{name}/bin/Fleet %{buildroot}%{_bindir}/%{name}
+ln -s %{_datadir}/%{name}/bin/Fleet %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
@@ -71,7 +71,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
 %license license/*
-%{_javadir}/%{name}
+%{_datadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
