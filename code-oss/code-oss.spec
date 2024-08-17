@@ -1,14 +1,12 @@
 %global debug_package %{nil}
 %global _build_id_links none
 
-%global _lib %{_prefix}/lib
-
 %global __requires_exclude libffmpeg.so
-%global __provides_exclude_from %{_lib}/%{name}/.*.so
+%global __provides_exclude_from %{_datadir}/%{name}/.*.so
 
 Name:    code-oss
 Version: 1.92.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: The Open Source version of Visual Studio Code (vscode) editor
 License: MIT
 URL:     https://github.com/microsoft/vscode
@@ -79,15 +77,15 @@ yarn gulp vscode-linux-$_vscode_arch-min
 
 %install
 # Installing application...
-install -d %{buildroot}%{_lib}/%{name}
-cp -arf ../VSCode-linux-*/* %{buildroot}%{_lib}/%{name}
+install -d %{buildroot}%{_datadir}/%{name}
+cp -arf ../VSCode-linux-*/* %{buildroot}%{_datadir}/%{name}
 
 # Replace statically included binary with system copy
-ln -sf %{_bindir}/rg %{buildroot}%{_lib}/%{name}/resources/app/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
+ln -sf %{_bindir}/rg %{buildroot}%{_datadir}/%{name}/resources/app/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
-ln -s %{_lib}/%{name}/bin/%{name} %{buildroot}%{_bindir}/%{name}
+ln -s %{_datadir}/%{name}/bin/%{name} %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
@@ -100,7 +98,7 @@ install -m 0644 -p resources/linux/code.appdata.xml %{buildroot}%{_metainfodir}/
 
 # Installing icon...
 install -d %{buildroot}%{_datadir}/pixmaps
-ln -s %{_lib}/%{name}/resources/app/resources/linux/code.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
+ln -s %{_datadir}/%{name}/resources/app/resources/linux/code.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
 # Install shell completions
 install -d %{buildroot}%{_datadir}/bash-completion/completions
@@ -110,7 +108,7 @@ install -m 0644 -p resources/completions/zsh/_code %{buildroot}%{_datadir}/zsh/s
 
 %files
 %license LICENSE.txt
-%{_lib}/%{name}
+%{_datadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}-url-handler.desktop

@@ -1,14 +1,12 @@
 %global debug_package %{nil}
 %global _build_id_links none
 
-%global _lib %{_prefix}/lib
-
 %global __requires_exclude libffmpeg.so
-%global __provides_exclude_from %{_lib}/%{name}/.*.so
+%global __provides_exclude_from %{_datadir}/%{name}/.*.so
 
 Name:    codium
 Version: 1.92.2.24228
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Free/Libre Open Source Software Binaries of VS Code
 License: MIT
 URL:     https://vscodium.com
@@ -81,15 +79,15 @@ export DISABLE_UPDATE="yes"
 
 %install
 # Installing application...
-install -d %{buildroot}%{_lib}/%{name}
-cp -arf VSCode-linux-*/* %{buildroot}%{_lib}/%{name}
+install -d %{buildroot}%{_datadir}/%{name}
+cp -arf VSCode-linux-*/* %{buildroot}%{_datadir}/%{name}
 
 # Replace statically included binary with system copy
-ln -sf %{_bindir}/rg %{buildroot}%{_lib}/%{name}/resources/app/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
+ln -sf %{_bindir}/rg %{buildroot}%{_datadir}/%{name}/resources/app/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
-ln -s %{_lib}/%{name}/bin/%{name} %{buildroot}%{_bindir}/%{name}
+ln -s %{_datadir}/%{name}/bin/%{name} %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
@@ -102,17 +100,17 @@ install -m 0644 -p %{SOURCE102} %{buildroot}%{_metainfodir}/%{name}.appdata.xml
 
 # Installing icon...
 install -d %{buildroot}%{_datadir}/pixmaps
-ln -s %{_lib}/%{name}/resources/app/resources/linux/code.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
+ln -s %{_datadir}/%{name}/resources/app/resources/linux/code.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
 # Install shell completions
 install -d %{buildroot}%{_datadir}/bash-completion/completions
-ln -s %{_lib}/%{name}/resources/completions/bash/codium %{buildroot}%{_datadir}/bash-completion/completions/%{name}
+ln -s %{_datadir}/%{name}/resources/completions/bash/codium %{buildroot}%{_datadir}/bash-completion/completions/%{name}
 install -d %{buildroot}%{_datadir}/zsh/site-functions
-ln -s %{_lib}/%{name}/resources/completions/zsh/_codium %{buildroot}%{_datadir}/zsh/site-functions/%{name}
+ln -s %{_datadir}/%{name}/resources/completions/zsh/_codium %{buildroot}%{_datadir}/zsh/site-functions/%{name}
 
 %files
 %license LICENSE
-%{_lib}/%{name}
+%{_datadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}-uri-handler.desktop
