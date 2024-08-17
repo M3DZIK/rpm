@@ -21,7 +21,7 @@
 
 Name:    rubymine
 Version: 2024.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Ruby and Rails IDE with the full stack of essential developer tools
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -36,7 +36,7 @@ BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr = %{version}-%{release}
+Requires:      %{name}-jbr = %{version}-%{release}
 
 %description
 RubyMine is an IDE that helps you be more productive in every aspect of Ruby/Rails projects development.

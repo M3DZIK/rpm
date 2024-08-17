@@ -20,7 +20,7 @@
 
 Name:    datagrip
 Version: 2024.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A powerful tool for relational and NoSQL databases
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -35,7 +35,7 @@ BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr = %{version}-%{release}
+Requires:      %{name}-jbr = %{version}-%{release}
 
 %description
 Smart SQL Editor and Advanced Database Client Packed Together for Optimum Productivity.

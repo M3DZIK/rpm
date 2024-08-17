@@ -21,7 +21,7 @@
 
 Name:    clion
 Version: 2024.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A cross-platform IDE for C and C++
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -36,7 +36,7 @@ BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr = %{version}-%{release}
+Requires:      %{name}-jbr = %{version}-%{release}
 
 %description
 CLion is designed for native cross-platform development in C and C++.

@@ -21,7 +21,7 @@
 
 Name:    jetbrains-gateway
 Version: 2024.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Your single entry point to all remote development environments
 License: Commercial
 URL:     https://www.jetbrains.com/remote-development/gateway/
@@ -36,7 +36,7 @@ BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr = %{version}-%{release}
+Requires:      %{name}-jbr = %{version}-%{release}
 
 %description
 Your single entry point to all remote development environments

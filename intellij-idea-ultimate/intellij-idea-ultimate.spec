@@ -23,7 +23,7 @@
 
 Name:    intellij-idea-ultimate
 Version: 2024.2.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Capable and Ergonomic Java IDE - Ultimate Edition
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -40,7 +40,7 @@ BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr = %{version}-%{release}
+Requires:      %{name}-jbr = %{version}-%{release}
 
 %description
 IntelliJ IDEA Ultimate is a fully-fledged commercial IDE for the JVM platform. IntelliJ IDEA provides all the

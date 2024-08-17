@@ -21,7 +21,7 @@
 
 Name:    pycharm-professional
 Version: 2024.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Intelligent Python IDE - Professional
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -36,7 +36,7 @@ BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr = %{version}-%{release}
+Requires:      %{name}-jbr = %{version}-%{release}
 
 %description
 PyCharm is designed by programmers, for programmers, to provide all the tools you need for productive Python development.

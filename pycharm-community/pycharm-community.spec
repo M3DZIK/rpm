@@ -23,7 +23,7 @@
 
 Name:    pycharm-community
 Version: 2024.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Intelligent Python IDE - Community
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
@@ -41,7 +41,7 @@ BuildRequires: java-17-openjdk-devel
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr = %{version}-%{release}
+Requires:      %{name}-jbr = %{version}-%{release}
 
 %description
 PyCharm is designed by programmers, for programmers, to provide all the tools you need for productive Python development.

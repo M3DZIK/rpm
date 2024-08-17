@@ -23,7 +23,7 @@
 
 Name:    intellij-idea-community
 Version: 2024.2.0.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Capable and Ergonomic Java IDE - Community Edition
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
@@ -41,7 +41,7 @@ BuildRequires: java-17-openjdk-devel
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr = %{version}-%{release}
+Requires:      %{name}-jbr = %{version}-%{release}
 
 %description
 IntelliJ IDEA Community is a free and open-source edition of IntelliJ IDEA, the commercial Java IDE by JetBrains.

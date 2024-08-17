@@ -21,7 +21,7 @@
 
 Name:    rustrover
 Version: 2024.1.7
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A powerhouse IDE for Rust developers
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -36,7 +36,7 @@ BuildRequires: tar
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr = %{version}-%{release}
+Requires:      %{name}-jbr = %{version}-%{release}
 
 %description
 Trust RustRover to take care of the routine while you focus on the important things. Knowing your code through

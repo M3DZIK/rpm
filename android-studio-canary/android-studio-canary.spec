@@ -21,7 +21,7 @@
 
 Name:    android-studio-canary
 Version: 2024.2.1.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Integrated development environment for Google's Android platform - Canary Channel
 License: Apache-2.0
 URL:     https://developer.android.com/%{appname}/
@@ -36,7 +36,7 @@ BuildRequires: javapackages-filesystem
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
-Recommends:    %{name}-jbr = %{version}-%{release}
+Requires:      %{name}-jbr = %{version}-%{release}
 
 %description
 Official Integrated Development Environment (IDE) for developing
