@@ -9,12 +9,12 @@
 # since we *do* want our Mach-O scanner to scan that tree (and there's no way to only exclude paths for some dependency generators; it's all or nothing).
 %global __requires_exclude ^(/bin/sed|/bin/sh|/usr/bin/perl|/usr/bin/python2.7|/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7|/usr/bin/python|/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby|/usr/bin/env|/usr/bin/ruby)$
 
-%global git_commit 203af1f604727e13032df1870e3491572e7d6704
+%global git_commit 773e9874cf38fdeb9518f803e041924e255d0ebe
 
 Name:    darling
-Version: 0.0.0.4224.203af1
+Version: 0.0.0.4226.773e98
 Epoch:   1
-Release: 5%{?dist}
+Release: 1%{?dist}
 Summary: Darwin/macOS emulation layer for Linux
 Group:   Utility
 License: GPLv3
@@ -308,6 +308,9 @@ popd
 %files gui-stubs -f build/files.gui-stubs.txt
 
 %changelog
+* Mon Aug 19 2024 M3DZIK <me@medzik.dev> - 1:0.0.0.4226.773e98-1
+- Update to 0.0.0.4226.773e98
+
 * Sun Aug 04 2024 M3DZIK <me@medzik.dev> - 0.0.0.4224.203af1-5
 - Refactor package
 
