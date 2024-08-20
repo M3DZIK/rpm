@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname idea
-%global build_ver 242.20224.387
+%global build_ver 242.20224.419
 %global idea_name ideaIU
 
 # disable debuginfo subpackage
@@ -22,8 +22,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    intellij-idea-ultimate
-Version: 2024.2.0.1
-Release: 2%{?dist}
+Version: 2024.2.0.2
+Release: 1%{?dist}
 Summary: Capable and Ergonomic Java IDE - Ultimate Edition
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -140,6 +140,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Tue Aug 20 2024 M3DZIK <me@medzik.dev> - 2024.2.0.2-1
+- Update to 2024.2.0.2 (242.20224.419)
+
 * Wed Aug 14 2024 M3DZIK <me@medzik.dev> - 2024.2.0.1-1
 - Update to 2024.2.0.1 (242.20224.387)
 
