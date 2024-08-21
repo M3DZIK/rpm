@@ -20,8 +20,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    rubymine
-Version: 2024.2
-Release: 2%{?dist}
+Version: 2024.2.0.1
+Release: 1%{?dist}
 Summary: Ruby and Rails IDE with the full stack of essential developer tools
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -128,6 +128,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Wed Aug 21 2024 M3DZIK <me@medzik.dev> - 2024.2.0.1-1
+- Update to 2024.2.0.1
+
 * Mon Aug 12 2024 M3DZIK <me@medzik.dev> - 2024.2-1
 - Update to 2024.2
 
