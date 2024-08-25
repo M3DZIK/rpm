@@ -27,3 +27,4 @@ jobs:
           WEBHOOK_CLOUDFLARED: ${{ secrets.WEBHOOK_CLOUDFLARED }}
           WEBHOOK_DARLING: ${{ secrets.WEBHOOK_DARLING }}
           WEBHOOK_VSCODE: ${{ secrets.WEBHOOK_VSCODE }}
+          WEBHOOK_RUST_DEVEL: ${{ secrets.WEBHOOK_RUST_DEVEL }}

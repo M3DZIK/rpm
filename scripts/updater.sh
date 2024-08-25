@@ -125,6 +125,8 @@ update_package() {
     curl -X POST "$WEBHOOK_DARLING/$package"
   elif [ "$COPR" == "vscode" ]; then
     curl -X POST "$WEBHOOK_VSCODE/$package"
+  elif [ "$COPR" == "rust-devel" ]; then
+    curl -X POST "$WEBHOOK_RUST_DEVEL/$package"
   fi
 
   echo "Committed"
