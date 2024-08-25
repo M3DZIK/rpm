@@ -11,6 +11,9 @@ Source0: https://github.com/killercup/cargo-edit/archive/refs/tags/v%{version}.t
 
 BuildRequires: cargo
 BuildRequires: openssl-devel
+%if 0%{?fedora} >= 41
+BuildRequires: openssl-devel-engine
+%endif
 BuildRequires: libgit2-devel
 
 %description
