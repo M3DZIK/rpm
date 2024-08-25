@@ -24,11 +24,10 @@ cargo build --no-default-features --features 'add rm set-version upgrade'
 
 %install
 install -d %{buildroot}%{_bindir}
-cp -af ./target/release/cargo-{add,rm,set-version,upgrade} %{buildroot}%{_bindir}/%{name}
+cp -af ./target/release/cargo-{add,rm,set-version,upgrade} %{buildroot}%{_bindir}/
 
 %files
 %license LICENSE
-%{dartlibdir}
 %{_bindir}/cargo-{add,rm,set-version,upgrade}
 
 %changelog
