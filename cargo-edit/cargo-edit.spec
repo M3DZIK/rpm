@@ -20,7 +20,7 @@ BuildRequires: libgit2-devel
 %setup -q -n %{name}-%{version}
 
 %build
-cargo build --no-default-features --features add rm set-version upgrade
+cargo build --no-default-features --features 'add rm set-version upgrade'
 
 %install
 install -d %{buildroot}%{_bindir}
