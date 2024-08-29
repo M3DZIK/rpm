@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname idea
-%global build_ver 242.20224.419
+%global build_ver 242.21829.142
 %global idea_name ideaIC
 
 # disable debuginfo subpackage
@@ -22,7 +22,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    intellij-idea-community
-Version: 2024.2.0.2
+Version: 2024.2.1
 Release: 1%{?dist}
 Summary: Capable and Ergonomic Java IDE - Community Edition
 License: Apache-2.0
@@ -161,6 +161,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Thu Aug 29 2024 M3DZIK <me@medzik.dev> - 2024.2.1-1
+- Update to 2024.2.1 (242.21829.142)
+
 * Tue Aug 20 2024 M3DZIK <me@medzik.dev> - 2024.2.0.2-1
 - Update to 2024.2.0.2 (242.20224.419)
 
