@@ -22,7 +22,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    %{_name}-bin
-Version: 2024.2.0.1
+Version: 2024.2.1
 Release: 1%{?dist}
 Summary: Intelligent Python IDE - Community
 License: Apache-2.0
@@ -134,6 +134,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{_name}.desktop
 %{_datadir}/%{_name}/jbr
 
 %changelog
+* Thu Aug 29 2024 M3DZIK <me@medzik.dev> - 2024.2.1-1
+- Update to 2024.2.1
+
 * Fri Aug 23 2024 M3DZIK <me@medzik.dev> - 2024.2.0.1-1
 - Update to 2024.2.0.1
 
