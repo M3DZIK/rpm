@@ -22,7 +22,7 @@
 
 Name:    webstorm
 Version: 2024.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: The smartest JavaScript IDE
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -71,34 +71,10 @@ mv "${download_file}.out"/*/* .
 find . -type f -name "*.py" -exec sed -e 's@/usr/bin/env python.*@%{__python3}@g' -i "{}" \;
 %endif
 
-# Deleting unnecessary files...
-size_before=$(du -s . | awk '{print $1}')
-# First it removes directories, because it sometimes throws an error
-find . -type d -iname '*darwin*' -exec rm -rv {} +
-find . -iname '*darwin*' -exec rm -rv {} +
-find . -type d -iname '*macos*' -exec rm -rv {} +
-find . -iname '*macos*' -exec rm -rv {} +
-find . -type d -iname '*windows*' -exec rm -rv {} +
-find . -iname '*windows*' -exec rm -rv {} +
-%ifarch x86_64
-find . -type d -name '*arm64*' -exec rm -rv {} +
-find . -name '*arm64*' -exec rm -rv {} +
-find . -type d -name '*aarch64*' -exec rm -rv {} +
-find . -name '*aarch64*' -exec rm -rv {} +
-%else
-find . -type d -name '*amd64*' -exec rm -rv {} +
-find . -name '*amd64*' -exec rm -rv {} +
-find . -type d -name '*x86_64*' -exec rm -rv {} +
-find . -name '*x86_64*' -exec rm -rv {} +
-%endif
-size_after=$(du -s . | awk '{print $1}')
-size_diff=$(( size_before - size_after ))
-echo "Space freed: $size_diff bytes"
-
 %install
 # Installing application...
 install -d %{buildroot}%{_datadir}/%{name}
-cp -arf ./{bin,jbr,lib,plugins,build.txt,product-info.json} %{buildroot}%{_datadir}/%{name}/
+cp -arf ./{bin,jbr,lib,plugins,modules,build.txt,product-info.json} %{buildroot}%{_datadir}/%{name}/
 
 # Installing icons...
 install -d %{buildroot}%{_datadir}/pixmaps
@@ -119,7 +95,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
 %license license/*
-%{_datadir}/%{name}/{bin,lib,plugins,build.txt,product-info.json}
+%{_datadir}/%{name}/{bin,lib,plugins,modules,build.txt,product-info.json}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
