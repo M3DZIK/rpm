@@ -9,10 +9,10 @@
 # since we *do* want our Mach-O scanner to scan that tree (and there's no way to only exclude paths for some dependency generators; it's all or nothing).
 %global __requires_exclude ^(/bin/sed|/bin/sh|/usr/bin/perl|/usr/bin/python2.7|/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7|/usr/bin/python|/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby|/usr/bin/env|/usr/bin/ruby)$
 
-%global git_commit 1fa31dbcd852a548d1fe02c8b3413f1c40cb3e8d
+%global git_commit 5c314040224c6b478b88d31848203f56825c1190
 
 Name:    darling
-Version: 0.0.0.4229.1fa31d
+Version: 0.0.0.4235.5c3140
 Epoch:   1
 Release: 1%{?dist}
 Summary: Darwin/macOS emulation layer for Linux
@@ -308,6 +308,9 @@ popd
 %files gui-stubs -f build/files.gui-stubs.txt
 
 %changelog
+* Sun Sep 01 2024 M3DZIK <me@medzik.dev> - 1:0.0.0.4235.5c3140-1
+- Update to 0.0.0.4235.5c3140
+
 * Fri Aug 30 2024 M3DZIK <me@medzik.dev> - 1:0.0.0.4229.1fa31d-1
 - Update to 0.0.0.4229.1fa31d
 
