@@ -20,8 +20,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    clion
-Version: 2024.2.0.1
-Release: 2%{?dist}
+Version: 2024.2.1
+Release: 1%{?dist}
 Summary: A cross-platform IDE for C and C++
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -104,6 +104,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Mon Sep 02 2024 M3DZIK <me@medzik.dev> - 2024.2.1-1
+- Update to 2024.2.1
+
 * Tue Aug 20 2024 M3DZIK <me@medzik.dev> - 2024.2.0.1-1
 - Update to 2024.2.0.1
 
