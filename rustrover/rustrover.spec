@@ -21,7 +21,7 @@
 
 Name:    rustrover
 Version: 2024.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A powerhouse IDE for Rust developers
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -85,7 +85,7 @@ install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scal
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
-ln -s %{_datadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
+ln -s %{_datadir}/%{name}/bin/%{appname} %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
