@@ -5,8 +5,8 @@
 %global __provides_exclude_from %{_datadir}/%{name}/.*.so
 
 Name:    codium
-Version: 1.92.2.24228
-Release: 2%{?dist}
+Version: 1.93.0.24253
+Release: 1%{?dist}
 Summary: Free/Libre Open Source Software Binaries of VS Code
 License: MIT
 URL:     https://vscodium.com
@@ -120,6 +120,9 @@ ln -s %{_datadir}/%{name}/resources/completions/zsh/_codium %{buildroot}%{_datad
 %{_datadir}/zsh/site-functions/%{name}
 
 %changelog
+* Mon Sep 09 2024 M3DZIK <me@medzik.dev> - 1.93.0.24253-1
+- Update to 1.93.0.24253
+
 * Thu Aug 15 2024 M3DZIK <me@medzik.dev> - 1.92.2.24228-1
 - Update to 1.92.2.24228
 
