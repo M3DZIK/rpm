@@ -29,6 +29,9 @@
         <image>https://resources.jetbrains.com/help/img/idea/2024.1/new_ui_light_theme.png</image>
         </screenshot>
     </screenshots>
+    <provides>
+        <id>intellij-idea-ultimate.desktop</id>
+    </provides>
     <url type="homepage">https://www.jetbrains.com/idea/</url>
     <url type="bugtracker">https://youtrack.jetbrains.com/</url>
     <url type="help">https://www.jetbrains.com/help/idea/</url>
