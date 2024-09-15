@@ -100,7 +100,7 @@ install -m 0644 -p %{SOURCE102} %{buildroot}%{_metainfodir}/%{name}.appdata.xml
 
 # Installing icon...
 install -d %{buildroot}%{_datadir}/pixmaps
-ln -s %{_datadir}/%{name}/resources/app/resources/linux/code.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
+ln -s %{_datadir}/%{name}/resources/app/resources/linux/code.png %{buildroot}%{_datadir}/pixmaps/vs%{name}.png
 
 # Install shell completions
 install -d %{buildroot}%{_datadir}/bash-completion/completions
@@ -115,7 +115,7 @@ ln -s %{_datadir}/%{name}/resources/completions/zsh/_codium %{buildroot}%{_datad
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}-uri-handler.desktop
 %{_metainfodir}/%{name}.appdata.xml
-%{_datadir}/pixmaps/%{name}.png
+%{_datadir}/pixmaps/vs%{name}.png
 %{_datadir}/bash-completion/completions/%{name}
 %{_datadir}/zsh/site-functions/%{name}
 

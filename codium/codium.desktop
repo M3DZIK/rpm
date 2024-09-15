@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=@@NAME_LONG@@
+Name=VSCodium
 Comment=Code Editing. Redefined.
 GenericName=Text Editor
 Exec=codium %F
