@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname idea
-%global build_ver 242.21829.142
+%global build_ver 242.22855.74
 %global idea_name ideaIC
 
 %global _name intellij-idea-community
@@ -24,8 +24,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    %{_name}-bin
-Version: 2024.2.1
-Release: 2%{?dist}
+Version: 2024.2.2
+Release: 1%{?dist}
 Summary: Capable and Ergonomic Java IDE - Community Edition
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
@@ -112,6 +112,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{_name}.desktop
 %{_datadir}/%{_name}/jbr
 
 %changelog
+* Thu Sep 19 2024 M3DZIK <me@medzik.dev> - 2024.2.2-1
+- Update to 2024.2.2 (242.22855.74)
+
 * Thu Aug 29 2024 M3DZIK <me@medzik.dev> - 2024.2.1-1
 - Update to 2024.2.1 (242.21829.142)
 
