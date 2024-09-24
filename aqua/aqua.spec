@@ -22,7 +22,7 @@
 Name:    %{appname}
 Version: 2024.2
 Release: 1%{?dist}
-Summary: A powerful IDE for test automation by JetBrains.
+Summary: A powerful IDE for test automation by JetBrains
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
 

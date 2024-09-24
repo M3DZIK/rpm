@@ -54,7 +54,9 @@ The JetBrains repository offers the following development tools:
 * `android-studio`: Android development IDE
 * `android-studio-beta`: Beta version of Android Studio
 * `android-studio-canary`: Cutting-edge canary build of Android Studio (potentially unstable)
+* `aqua`: A powerful IDE for test automation by JetBrains
 * `clion`: C and C++ IDE
+* `dategrip`: Python IDE for data scientists
 * `dataspell`: Data science IDE for Python
 * `goland`: Go programming IDE
 * `intellij-idea-community`: Free and open-source Java IDE (Compiled from source code on Fedora COPR)
