@@ -20,4 +20,7 @@
   <developer_name>LibrePass Team</developer_name>
   <update_contact>contact@librepass.org</update_contact>
   <content_rating type="oars-1.1"/>
+  <releases>
+    <release timestamp="1716823808" version="1.0.0.alpha1.r111.g91745db"/>
+  </releases>
 </component>
