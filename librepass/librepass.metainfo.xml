@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <id>librepass.desktop</id>
+  <launchable type="desktop-id">librepass.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPLv3</project_license>
   <name>LibrePass</name>
@@ -21,7 +22,7 @@
   <update_contact>contact@librepass.org</update_contact>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release timestamp="1716823808" version="1.0.0"/>
+    <release version="1.0.0" date="2024-05-27"/>
   </releases>
   <screenshots>
     <screenshot type="default">
