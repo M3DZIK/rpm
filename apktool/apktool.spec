@@ -31,7 +31,7 @@ install -d %{buildroot}%{_bindir}
 cp -af ./brut.apktool/apktool-cli/build/libs/apktool-%{version}*.jar %{buildroot}%{_bindir}/%{name}
 
 %files
-%license LICENSE
+%license LICENSE.md
 %{_bindir}/%{name}
 
 %changelog
