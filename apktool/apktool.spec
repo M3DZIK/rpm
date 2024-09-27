@@ -38,7 +38,7 @@ install -m 0644 -p %{SOURCE1} %{buildroot}%{_bindir}/%{name}
 
 %files
 %license LICENSE.md
-%{buildroot}%{_datadir}/%{name}
+%{_datadir}/%{name}
 %{_bindir}/%{name}
 
 %changelog
