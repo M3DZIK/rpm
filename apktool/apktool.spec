@@ -3,7 +3,7 @@
 
 Name:          apktool
 Version:       2.10.0
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       A tool for reverse engineering Android apk files
 License:       Apache-2.0 
 BuildArch:     noarch
@@ -34,7 +34,7 @@ cp -af ./brut.apktool/apktool-cli/build/libs/apktool-%{version}*.jar %{buildroot
 sed -i "s,%apktooljar%,%{_datadir}/%{name}/apktool.jar,g" %{SOURCE1}
 
 install -d %{buildroot}%{_bindir}
-install -m 0644 -p %{SOURCE1} %{buildroot}%{_bindir}/%{name}
+install -m 0755 -p %{SOURCE1} %{buildroot}%{_bindir}/%{name}
 
 %files
 %license LICENSE.md
