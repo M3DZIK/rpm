@@ -21,7 +21,7 @@ Requires:      jre >= 1.8.0
 %{summary}.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n Apktool-%{version}
 
 %build
 ./gradlew build shadowJar proguard
