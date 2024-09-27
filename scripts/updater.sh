@@ -127,6 +127,8 @@ update_package() {
     curl -X POST "$WEBHOOK_VSCODE/$package"
   elif [ "$COPR" == "rust-devel" ]; then
     curl -X POST "$WEBHOOK_RUST_DEVEL/$package"
+  elif [ "$COPR" == "apktool" ]; then
+    curl -X POST "$WEBHOOK_APKTOOL/$package"
   fi
 
   echo "Committed"
