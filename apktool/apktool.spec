@@ -31,7 +31,7 @@ Requires:      jre >= 1.8.0
 install -d %{buildroot}%{_datadir}/%{name}
 cp -af ./brut.apktool/apktool-cli/build/libs/apktool-%{version}*.jar %{buildroot}%{_datadir}/%{name}/apktool.jar
 
-sed -i "s/%apktooljar%/%{_datadir}/%{name}/apktool.jar/g" %{SOURCE1}
+sed -i "s,%apktooljar%,%{_datadir}/%{name}/apktool.jar,g" %{SOURCE1}
 
 install -d %{buildroot}%{_bindir}
 install -m 0644 -p %{SOURCE1} %{buildroot}%{_bindir}/%{name}
