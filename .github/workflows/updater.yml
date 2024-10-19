@@ -22,7 +22,6 @@ jobs:
         run: ./scripts/updater.sh
         env:
           WEBHOOK_JETBRAINS: ${{ secrets.WEBHOOK_JETBRAINS }}
-          WEBHOOK_LIBREPASS: ${{ secrets.WEBHOOK_LIBREPASS }}
           WEBHOOK_KTLINT: ${{ secrets.WEBHOOK_KTLINT }}
           WEBHOOK_CLOUDFLARED: ${{ secrets.WEBHOOK_CLOUDFLARED }}
           WEBHOOK_DARLING: ${{ secrets.WEBHOOK_DARLING }}

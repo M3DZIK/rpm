@@ -45,7 +45,6 @@ sudo dnf install android-studio
 
 * [cloudflared](https://copr.fedorainfracloud.org/coprs/medzik/cloudflared/)
 * [ktlint](https://copr.fedorainfracloud.org/coprs/medzik/ktlint/)
-* [librepass](https://copr.fedorainfracloud.org/coprs/medzik/librepass/)
 
 ## JetBrains Repository Packages
 

@@ -115,8 +115,6 @@ update_package() {
 
   if [ "$COPR" == "jetbrains" ]; then
     curl -X POST "$WEBHOOK_JETBRAINS/$package"
-  elif [ "$COPR" == "librepass" ]; then
-    curl -X POST "$WEBHOOK_LIBREPASS/$package"
   elif [ "$COPR" == "ktlint" ]; then
     curl -X POST "$WEBHOOK_KTLINT/$package"
   elif [ "$COPR" == "cloudflared" ]; then
