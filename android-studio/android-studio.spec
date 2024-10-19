@@ -21,7 +21,7 @@
 
 Name:    android-studio
 Version: 2024.2.1.10
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Integrated development environment for Google's Android platform
 License: Apache-2.0
 URL:     https://developer.android.com/%{appname}/
@@ -77,7 +77,7 @@ install -m 0644 -p bin/%{appname}.svg %{buildroot}%{_datadir}/icons/hicolor/scal
 
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
-ln -s %{_datadir}/%{name}/bin/%{appname}.sh %{buildroot}%{_bindir}/%{name}
+ln -s %{_datadir}/%{name}/bin/%{appname} %{buildroot}%{_bindir}/%{name}
 
 # Installing desktop file...
 install -d %{buildroot}%{_datadir}/applications
