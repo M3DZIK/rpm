@@ -1,12 +1,13 @@
 %global debug_package %{nil}
 %global _build_id_links none
 
-%global __requires_exclude libffmpeg.so
-%global __provides_exclude_from %{_datadir}/%{name}/.*.so
+%global _exclude_from %{_datadir}/%{name}/.*
+%global __provides_exclude_from %{_exclude_from}
+%global __requires_exclude_from %{_exclude_from}
 
 Name:    codium
 Version: 1.94.2.24286
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Free/Libre Open Source Software Binaries of VS Code
 License: MIT
 URL:     https://vscodium.com
