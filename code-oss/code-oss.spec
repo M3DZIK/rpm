@@ -72,7 +72,7 @@ _vscode_arch="arm64"
 %endif
 
 npm install --cpu=$_vscode_arch
-npm gulp vscode-linux-$_vscode_arch-min
+npm run gulp vscode-linux-$_vscode_arch-min
 
 %install
 # Installing application...
