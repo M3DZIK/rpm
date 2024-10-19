@@ -80,9 +80,6 @@ yarn gulp vscode-linux-$_vscode_arch-min
 install -d %{buildroot}%{_datadir}/%{name}
 cp -arf ../VSCode-linux-*/* %{buildroot}%{_datadir}/%{name}
 
-# Replace statically included binary with system copy
-ln -sf %{_bindir}/rg %{buildroot}%{_datadir}/%{name}/resources/app/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg
-
 # Installing launcher...
 install -d %{buildroot}%{_bindir}
 ln -s %{_datadir}/%{name}/bin/%{name} %{buildroot}%{_bindir}/%{name}
