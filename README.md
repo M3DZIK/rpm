@@ -40,11 +40,17 @@ sudo dnf install android-studio
 ### Multiple Packages:
 
 * [JetBrains](https://copr.fedorainfracloud.org/coprs/medzik/jetbrains/)
+* [VSCode](https://copr.fedorainfracloud.org/coprs/medzik/vscode/)
 
 ### Single Packages:
 
 * [cloudflared](https://copr.fedorainfracloud.org/coprs/medzik/cloudflared/)
 * [ktlint](https://copr.fedorainfracloud.org/coprs/medzik/ktlint/)
+
+## VSCode Repository Packages
+
+* `code-oss`: The Open Source version of Visual Studio Code (vscode) editor
+* `codium`: Free/Libre Open Source Software Binaries of VS Code
 
 ## JetBrains Repository Packages
 
