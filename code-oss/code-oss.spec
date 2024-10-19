@@ -16,7 +16,6 @@ Patch0:  product_json.patch
 
 BuildRequires: python3
 BuildRequires: npm
-BuildRequires: yarnpkg
 BuildRequires: make
 BuildRequires: gcc
 BuildRequires: gcc-c++
@@ -72,8 +71,8 @@ _vscode_arch="x64"
 _vscode_arch="arm64"
 %endif
 
-yarn install --arch=$_vscode_arch
-yarn gulp vscode-linux-$_vscode_arch-min
+npm install --cpu=$_vscode_arch
+npm gulp vscode-linux-$_vscode_arch-min
 
 %install
 # Installing application...
