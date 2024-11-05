@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:          ktlint
-Version: 1.4.0
+Version: 1.4.1
 Release: 1%{?dist}
 Summary:       An anti-bikeshedding Kotlin linter with built-in formatter
 License:       MIT
@@ -33,6 +33,9 @@ cp -af ./ktlint-cli/build/run/ktlint %{buildroot}%{_bindir}/%{name}
 %{_bindir}/%{name}
 
 %changelog
+* Tue Nov 05 2024 M3DZIK <me@medzik.dev> - 1.4.1-1
+- Update to 1.4.1
+
 * Thu Oct 24 2024 M3DZIK <me@medzik.dev> - 1.4.0-1
 - Update to 1.4.0
 
