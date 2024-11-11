@@ -1,5 +1,5 @@
 %global appname writerside
-%global build_ver 242.21870.138
+%global build_ver 243.21565.432
 
 # disable debuginfo subpackage
 %global debug_package %{nil}
@@ -20,8 +20,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    writerside
-Version: 2024.2
-Release: 2%{?dist}
+Version: 2024.3
+Release: 1%{?dist}
 Summary: A new technical writing environment from JetBrains
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
@@ -104,6 +104,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Mon Nov 11 2024 M3DZIK <me@medzik.dev> - 2024.3-1
+- Update to 2024.3 (243.21565.432)
+
 * Thu Sep 19 2024 M3DZIK <me@medzik.dev> - 2024.2-1
 - Update to 2024.2 (242.21870.138)
 
