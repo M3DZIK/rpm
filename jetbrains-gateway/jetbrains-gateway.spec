@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname gateway
-%global build_ver 242.23339.42
+%global build_ver 243.21565.196
 %global idea_name JetBrainsGateway
 
 # disable debuginfo subpackage
@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    jetbrains-gateway
-Version: 2024.2.3
+Version: 2024.3
 Release: 1%{?dist}
 Summary: Your single entry point to all remote development environments
 License: Commercial
@@ -104,6 +104,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Wed Nov 13 2024 M3DZIK <me@medzik.dev> - 2024.3-1
+- Update to 2024.3 (243.21565.196)
+
 * Tue Oct 01 2024 M3DZIK <me@medzik.dev> - 2024.2.3-1
 - Update to 2024.2.3 (242.23339.42)
 
