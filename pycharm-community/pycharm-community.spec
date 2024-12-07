@@ -64,7 +64,7 @@ git clone git://git.jetbrains.org/idea/android.git android -b pycharm/%{build_ve
 %build
 # Building
 cd intellij-community
-./python/installers.cmd -Dintellij.build.target.os=linux
+./python/installers.cmd -Dintellij.build.use.compiled.classes=false -Dintellij.build.target.os=linux -Dbuild.number="%{build_ver}"
 cd ..
 
 artifact_version=$(echo "%{build_ver}" | sed -E 's|pycharm/||; s|.[0-9]+$||')
