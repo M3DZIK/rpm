@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:          cloudflared
-Version: 2024.12.0
+Version: 2024.12.1
 Release: 1%{?dist}
 Summary:       Cloudflare Tunnel client (formerly Argo Tunnel)
 License:       Apache-2.0
@@ -34,6 +34,9 @@ make install \
 %{_mandir}/%{name}.1
 
 %changelog
+* Tue Dec 10 2024 M3DZIK <me@medzik.dev> - 2024.12.1-1
+- Update to 2024.12.1
+
 * Tue Dec 10 2024 M3DZIK <me@medzik.dev> - 2024.12.0-1
 - Update to 2024.12.0
 
