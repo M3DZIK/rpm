@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    rustrover
-Version: 2024.3.2
+Version: 2024.3.3
 Release: 1%{?dist}
 Summary: A powerhouse IDE for Rust developers
 License: Commercial
@@ -106,6 +106,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Fri Jan 17 2025 M3DZIK <me@medzik.dev> - 2024.3.3-1
+- Update to 2024.3.3
+
 * Thu Dec 19 2024 M3DZIK <me@medzik.dev> - 2024.3.2-1
 - Update to 2024.3.2
 
