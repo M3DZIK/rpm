@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    %{appname}
-Version: 2024.3.1
+Version: 2024.3.2
 Release: 1%{?dist}
 Summary: A powerful IDE for test automation by JetBrains
 License: Commercial
@@ -104,6 +104,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Fri Jan 24 2025 M3DZIK <me@medzik.dev> - 2024.3.2-1
+- Update to 2024.3.2
+
 * Fri Dec 20 2024 M3DZIK <me@medzik.dev> - 2024.3.1-1
 - Update to 2024.3.1
 
