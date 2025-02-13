@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    goland
-Version: 2024.3.2.1
+Version: 2024.3.3
 Release: 1%{?dist}
 Summary: Capable and Ergonomic Go IDE
 License: Commercial
@@ -104,6 +104,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Thu Feb 13 2025 M3DZIK <me@medzik.dev> - 2024.3.3-1
+- Update to 2024.3.3
+
 * Fri Jan 24 2025 M3DZIK <me@medzik.dev> - 2024.3.2.1-1
 - Update to 2024.3.2.1
 
