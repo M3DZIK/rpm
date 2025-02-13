@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    android-studio
-Version: 2024.2.2.13
+Version: 2024.2.2.14
 Release: 1%{?dist}
 Summary: Integrated development environment for Google's Android platform
 License: Apache-2.0
@@ -98,6 +98,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Thu Feb 13 2025 M3DZIK <me@medzik.dev> - 2024.2.2.14-1
+- Update to 2024.2.2.14
+
 * Thu Jan 09 2025 M3DZIK <me@medzik.dev> - 2024.2.2.13-1
 - Update to 2024.2.2.13
 
