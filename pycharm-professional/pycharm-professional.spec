@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    pycharm-professional
-Version: 2024.3.2
+Version: 2024.3.3
 Release: 1%{?dist}
 Summary: Intelligent Python IDE - Professional
 License: Commercial
@@ -104,6 +104,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Fri Feb 14 2025 M3DZIK <me@medzik.dev> - 2024.3.3-1
+- Update to 2024.3.3
+
 * Tue Jan 28 2025 M3DZIK <me@medzik.dev> - 2024.3.2-1
 - Update to 2024.3.2
 
