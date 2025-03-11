@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:          apktool
-Version: 2.11.0
+Version: 2.11.1
 Release: 1%{?dist}
 Summary:       A tool for reverse engineering Android apk files
 License:       Apache-2.0 
@@ -42,6 +42,9 @@ install -m 0755 -p %{SOURCE1} %{buildroot}%{_bindir}/%{name}
 %{_bindir}/%{name}
 
 %changelog
+* Tue Mar 11 2025 M3DZIK <me@medzik.dev> - 2.11.1-1
+- Update to 2.11.1
+
 * Wed Jan 15 2025 M3DZIK <me@medzik.dev> - 2.11.0-1
 - Update to 2.11.0
 
