@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname pycharm
-%global build_ver 243.25659.43
+%global build_ver 243.26053.29
 %global idea_name pycharmPC
 
 # disable debuginfo subpackage
@@ -22,7 +22,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    pycharm-community
-Version: 2024.3.4
+Version: 2024.3.5
 Release: 1%{?dist}
 Summary: Intelligent Python IDE - Community
 License: Apache-2.0
@@ -136,6 +136,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Wed Mar 19 2025 M3DZIK <me@medzik.dev> - 2024.3.5-1
+- Update to 2024.3.5 (243.26053.29)
+
 * Fri Feb 28 2025 M3DZIK <me@medzik.dev> - 2024.3.4-1
 - Update to 2024.3.4 (243.25659.43)
 
