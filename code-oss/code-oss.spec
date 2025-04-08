@@ -6,7 +6,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    code-oss
-Version: 1.99.0
+Version: 1.99.1
 Release: 1%{?dist}
 Summary: The Open Source version of Visual Studio Code (vscode) editor
 License: MIT
@@ -115,6 +115,9 @@ install -m 0644 -p resources/completions/zsh/_code %{buildroot}%{_datadir}/zsh/s
 %{_datadir}/zsh/site-functions/%{name}
 
 %changelog
+* Tue Apr 08 2025 M3DZIK <me@medzik.dev> - 1.99.1-1
+- Update to 1.99.1
+
 * Fri Apr 04 2025 M3DZIK <me@medzik.dev> - 1.99.0-1
 - Update to 1.99.0
 
