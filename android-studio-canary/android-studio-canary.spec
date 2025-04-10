@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    android-studio-canary
-Version: 2025.1.1.5
+Version: 2025.1.1.6
 Release: 1%{?dist}
 Summary: Integrated development environment for Google's Android platform - Canary Channel
 License: Apache-2.0
@@ -98,6 +98,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Thu Apr 10 2025 M3DZIK <me@medzik.dev> - 2025.1.1.6-1
+- Update to 2025.1.1.6
+
 * Wed Apr 09 2025 M3DZIK <me@medzik.dev> - 2025.1.1.5-1
 - Update to 2025.1.1.5
 
