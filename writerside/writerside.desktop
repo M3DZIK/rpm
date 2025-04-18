@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Writerside
-GenericName=A new technical writing environment from JetBrains
-Exec=writerside
-Terminal=false
-Icon=writerside
-Type=Application
-Categories=Development;IDE;
-StartupWMClass=jetbrains-writerside
