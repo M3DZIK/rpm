@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:          cloudflared
-Version: 2025.4.0
+Version: 2025.4.2
 Release: 1%{?dist}
 Summary:       Cloudflare Tunnel client (formerly Argo Tunnel)
 License:       Apache-2.0
@@ -34,6 +34,9 @@ make install \
 %{_mandir}/%{name}.1
 
 %changelog
+* Wed Apr 30 2025 M3DZIK <me@medzik.dev> - 2025.4.2-1
+- Update to 2025.4.2
+
 * Wed Apr 02 2025 M3DZIK <me@medzik.dev> - 2025.4.0-1
 - Update to 2025.4.0
 
