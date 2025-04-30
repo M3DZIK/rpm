@@ -37,7 +37,7 @@ BuildRequires: wget
 BuildRequires: tar
 BuildRequires: git
 BuildRequires: p7zip
-BuildRequires: java-17-openjdk-devel
+BuildRequires: java-21-openjdk-devel
 
 Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
