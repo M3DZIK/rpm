@@ -3,7 +3,7 @@
 
 Name:          apktool
 Version: 2.11.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary:       A tool for reverse engineering Android apk files
 License:       Apache-2.0 
 BuildArch:     noarch
@@ -14,7 +14,7 @@ Source1:       apktool.sh
 
 # https://apktool.org/docs/build/
 # With R8 required JDK > 11
-BuildRequires: java-11-openjdk-devel
+BuildRequires: java-latest-openjdk-devel
 
 Requires:      jre >= 1.8.0
 
