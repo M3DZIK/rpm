@@ -6,7 +6,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    codium
-Version: 1.99.32846
+Version: 1.100.03093
 Release: 1%{?dist}
 Summary: Free/Libre Open Source Software Binaries of VS Code
 License: MIT
@@ -118,6 +118,9 @@ ln -s %{_datadir}/%{name}/resources/completions/zsh/_codium %{buildroot}%{_datad
 %{_datadir}/zsh/site-functions/%{name}
 
 %changelog
+* Fri May 09 2025 M3DZIK <me@medzik.dev> - 1.100.03093-1
+- Update to 1.100.03093
+
 * Mon Apr 28 2025 M3DZIK <me@medzik.dev> - 1.99.32846-1
 - Update to 1.99.32846
 
