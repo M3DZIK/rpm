@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    cargo-edit
-Version: 0.13.3
+Version: 0.13.4
 Release: 1%{?dist}
 Summary: Managing cargo dependencies from the command line
 License: Apache-2.0 or MIT
@@ -34,6 +34,9 @@ cp -af ./target/release/cargo-{add,rm,set-version,upgrade} %{buildroot}%{_bindir
 %{_bindir}/cargo-{add,rm,set-version,upgrade}
 
 %changelog
+* Tue May 13 2025 M3DZIK <me@medzik.dev> - 0.13.4-1
+- Update to 0.13.4
+
 * Thu May 01 2025 M3DZIK <me@medzik.dev> - 0.13.3-1
 - Update to 0.13.3
 
