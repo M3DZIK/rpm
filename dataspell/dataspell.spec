@@ -1,5 +1,5 @@
 %global appname dataspell
-%global build_ver 251.23774.439
+%global build_ver 251.25410.158
 
 # disable debuginfo subpackage
 %global debug_package %{nil}
@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    dataspell
-Version: 2025.1
+Version: 2025.1.1
 Release: 1%{?dist}
 Summary: Python IDE for data scientists
 License: Commercial
@@ -112,6 +112,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Thu May 15 2025 M3DZIK <me@medzik.dev> - 2025.1.1-1
+- Update to 2025.1.1 (251.25410.158)
+
 * Wed Apr 16 2025 M3DZIK <me@medzik.dev> - 2025.1-1
 - Update to 2025.1 (251.23774.439)
 
