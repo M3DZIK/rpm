@@ -15,7 +15,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    jetbrains-fleet
-Version: 1.48.236
+Version: 1.48.261
 Release: 1%{?dist}
 Summary: Next-generation IDE by JetBrains
 License: Commercial
@@ -77,6 +77,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 
 %changelog
+* Tue May 20 2025 M3DZIK <me@medzik.dev> - 1.48.261-1
+- Update to 1.48.261
+
 * Wed Apr 30 2025 M3DZIK <me@medzik.dev> - 1.48.236-1
 - Update to 1.48.236
 
