@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    phpstorm
-Version: 2025.1.1
+Version: 2025.1.2
 Release: 1%{?dist}
 Summary: Lightning-smart PHP IDE
 License: Commercial
@@ -104,6 +104,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Fri Jun 06 2025 M3DZIK <me@medzik.dev> - 2025.1.2-1
+- Update to 2025.1.2
+
 * Wed May 14 2025 M3DZIK <me@medzik.dev> - 2025.1.1-1
 - Update to 2025.1.1
 
