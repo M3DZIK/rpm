@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    rider
-Version: 2025.1.2
+Version: 2025.1.3
 Release: 1%{?dist}
 Summary: Fast & powerful, cross platform .NET IDE
 License: Commercial
@@ -104,6 +104,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/jbr
 
 %changelog
+* Thu Jun 12 2025 M3DZIK <me@medzik.dev> - 2025.1.3-1
+- Update to 2025.1.3
+
 * Thu May 08 2025 M3DZIK <me@medzik.dev> - 2025.1.2-1
 - Update to 2025.1.2
 
