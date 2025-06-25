@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>com.jetbrains.Fleet</id>
+    <name>JetBrains Fleet</name>
+    <summary>Next-generation IDE by JetBrains</summary>
+    <description>
+        <p>Fleet is a code editor designed for simplicity, combining a clean UI, AI capabilities, and an essential set of built-in features for most major languages.</p>
+    </description>
+    <screenshots>
+        <screenshot type="default">
+            <image>https://github.com/user-attachments/assets/c56618d4-174d-4da5-b562-3f83539e2c23</image>
+        </screenshot>
+    </screenshots>
+    <provides>
+        <id>jetbrains-fleet.desktop</id>
+    </provides>
+    <launchable type="desktop-id">jetbrains-fleet.desktop</launchable>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>LicenseRef-proprietary</project_license>
+    <developer_name>JetBrains s.r.o.</developer_name>
+    <url type="homepage">https://www.jetbrains.com/fleet/</url>
+    <url type="bugtracker">https://youtrack.jetbrains.com/</url>
+    <url type="help">https://www.jetbrains.com/help/fleet/</url>
+    <content_rating type="oars-1.1"/>
+</component>

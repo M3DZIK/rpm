@@ -29,6 +29,12 @@
         <screenshot type="default">
             <image>https://github.com/user-attachments/assets/38ae25ab-e6bf-4541-bbcd-f32498255e4e</image>
         </screenshot>
+        <screenshot>
+            <image>https://github.com/user-attachments/assets/40736cd7-ae86-4ee5-936a-404a78fbc1fe</image>
+        </screenshot>
+        <screenshot>
+            <image>https://github.com/user-attachments/assets/2bde3d7d-3806-4fac-aa6e-7a817335905f</image>
+        </screenshot>
     </screenshots>
     <provides>
         <id>clion.desktop</id>

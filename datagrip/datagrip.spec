@@ -26,8 +26,10 @@ License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
 
 Source0: %{name}.desktop
+Source1: %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
+BuildRequires: libappstream-glib
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
 BuildRequires: wget
@@ -88,7 +90,12 @@ ln -s %{_datadir}/%{name}/bin/%{appname} %{buildroot}%{_bindir}/%{name}
 install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p %{SOURCE0} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
+# Installing metainfo...
+install -d %{buildroot}%{_metainfodir}
+install -m 0644 -p %{SOURCE1} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
+
 %check
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
@@ -98,52 +105,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+%{_metainfodir}/%{name}.metainfo.xml
 
 %files jbr
 %{_datadir}/%{name}/jbr
-
-%changelog
-* Wed May 28 2025 M3DZIK <me@medzik.dev> - 2025.1.3-1
-- Update to 2025.1.3
-
-* Thu May 08 2025 M3DZIK <me@medzik.dev> - 2025.1.2-1
-- Update to 2025.1.2
-
-* Fri May 02 2025 M3DZIK <me@medzik.dev> - 2025.1.1-1
-- Update to 2025.1.1
-
-* Wed Apr 16 2025 M3DZIK <me@medzik.dev> - 2025.1-1
-- Update to 2025.1
-
-* Fri Feb 21 2025 M3DZIK <me@medzik.dev> - 2024.3.5-1
-- Update to 2024.3.5
-
-* Thu Jan 30 2025 M3DZIK <me@medzik.dev> - 2024.3.4-1
-- Update to 2024.3.4
-
-* Fri Dec 20 2024 M3DZIK <me@medzik.dev> - 2024.3.3-1
-- Update to 2024.3.3
-
-* Thu Dec 05 2024 M3DZIK <me@medzik.dev> - 2024.3.2-1
-- Update to 2024.3.2
-
-* Thu Nov 28 2024 M3DZIK <me@medzik.dev> - 2024.3.1-1
-- Update to 2024.3.1
-
-* Thu Nov 14 2024 M3DZIK <me@medzik.dev> - 2024.3-1
-- Update to 2024.3
-
-* Fri Aug 30 2024 M3DZIK <me@medzik.dev> - 2024.2.2-1
-- Update to 2024.2.2
-
-* Tue Aug 13 2024 M3DZIK <me@medzik.dev> - 2024.2.1-1
-- Update to 2024.2.1
-
-* Mon Aug 12 2024 M3DZIK <me@medzik.dev> - 2024.2-1
-- Update to 2024.2
-
-* Sat Aug 10 2024 M3DZIK <me@medzik.dev> - 2024.1.5-1
-- Update to 2024.1.5
-
-* Mon Jul 22 2024 M3DZIK <me@medzik.dev> - 2024.1.4-1
-- Initial release

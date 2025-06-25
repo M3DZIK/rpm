@@ -22,8 +22,10 @@ License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
 
 Source0: %{name}.desktop
+Source1: %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
+BuildRequires: libappstream-glib
 BuildRequires: javapackages-filesystem
 BuildRequires: wget
 BuildRequires: tar
@@ -32,7 +34,7 @@ Requires:      hicolor-icon-theme
 Requires:      javapackages-filesystem
 
 %description
-%{summary}.
+Fleet is a code editor designed for simplicity, combining a clean UI, AI capabilities, and an essential set of built-in features for most major languages.
 
 %prep
 %ifarch x86_64
@@ -66,7 +68,12 @@ ln -s %{_datadir}/%{name}/bin/Fleet %{buildroot}%{_bindir}/%{name}
 install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p %{SOURCE0} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
+# Installing metainfo...
+install -d %{buildroot}%{_metainfodir}
+install -m 0644 -p %{SOURCE1} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
+
 %check
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
@@ -75,115 +82,4 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
-
-%changelog
-* Tue May 20 2025 M3DZIK <me@medzik.dev> - 1.48.261-1
-- Update to 1.48.261
-
-* Wed Apr 30 2025 M3DZIK <me@medzik.dev> - 1.48.236-1
-- Update to 1.48.236
-
-* Fri Mar 21 2025 M3DZIK <me@medzik.dev> - 1.47.158-1
-- Update to 1.47.158
-
-* Wed Feb 19 2025 M3DZIK <me@medzik.dev> - 1.46.97-1
-- Update to 1.46.97
-
-* Fri Jan 24 2025 M3DZIK <me@medzik.dev> - 1.45.163-1
-- Update to 1.45.163
-
-* Thu Dec 26 2024 M3DZIK <me@medzik.dev> - 1.44.151-1
-- Update to 1.44.151
-
-* Thu Dec 19 2024 M3DZIK <me@medzik.dev> - 1.44.148-1
-- Update to 1.44.148
-
-* Wed Dec 18 2024 M3DZIK <me@medzik.dev> - 1.44.143-1
-- Update to 1.44.143
-
-* Mon Dec 02 2024 M3DZIK <me@medzik.dev> - 1.43.148-1
-- Update to 1.43.148
-
-* Wed Nov 27 2024 M3DZIK <me@medzik.dev> - 1.43.142-1
-- Update to 1.43.142
-
-* Wed Nov 13 2024 M3DZIK <me@medzik.dev> - 1.42.88-1
-- Update to 1.42.88
-
-* Tue Nov 12 2024 M3DZIK <me@medzik.dev> - 1.42.87-1
-- Update to 1.42.87
-
-* Thu Oct 31 2024 M3DZIK <me@medzik.dev> - 1.42.84-1
-- Update to 1.42.84
-
-* Wed Oct 09 2024 M3DZIK <me@medzik.dev> - 1.41.101-1
-- Update to 1.41.101
-
-* Thu Sep 19 2024 M3DZIK <me@medzik.dev> - 1.40.87-1
-- Update to 1.40.87
-
-* Thu Sep 12 2024 M3DZIK <me@medzik.dev> - 1.40.86-1
-- Update to 1.40.86
-
-* Fri Sep 06 2024 M3DZIK <me@medzik.dev> - 1.40.83-1
-- Update to 1.40.83
-
-* Mon Aug 26 2024 M3DZIK <me@medzik.dev> - 1.39.118-1
-- Update to 1.39.118
-
-* Tue Aug 20 2024 M3DZIK <me@medzik.dev> - 1.39.114-1
-- Update to 1.39.114
-
-* Fri Aug 02 2024 M3DZIK <me@medzik.dev> - 1.38.89-2
-- Fix run issue
-
-* Wed Jul 31 2024 M3DZIK <me@medzik.dev> - 1.38.89-1
-- Update to 1.38.89
-
-* Sun Jul 28 2024 M3DZIK <me@medzik.dev> - 1.38.82-2
-- Rebuild
-
-* Thu Jul 25 2024 M3DZIK <me@medzik.dev> - 1.38.82-1
-- Update to 1.38.82
-
-* Wed Jul 03 2024 M3DZIK <me@medzik.dev> - 1.37.84-1
-- Update to 1.37.84
-
-* Thu Jun 13 2024 M3DZIK <me@medzik.dev> - 1.36.104-1
-- Update to 1.36.104
-
-* Tue Jun 11 2024 M3DZIK <me@medzik.dev> - 1.36.103-1
-- Update to 1.36.103
-
-* Thu May 23 2024 M3DZIK <me@medzik.dev> - 1.35.115-1
-- Update to 1.35.115
-
-* Wed May 22 2024 M3DZIK <me@medzik.dev> - 1.35.110-1
-- Update to 1.35.110
-
-* Thu May 02 2024 M3DZIK <me@medzik.dev> - 1.34.94-1
-- Update to 1.34.94
-
-* Wed Apr 10 2024 M3DZIK <me@medzik.dev> - 1.33.90-1
-- Update to 1.33.90
-
-* Mon Apr 08 2024 M3DZIK <me@medzik.dev> - 1.33.88-1
-- Update to 1.33.88
-
-* Tue Mar 26 2024 M3DZIK <me@medzik.dev> - 1.32.122-1
-- Update to 1.32.122
-
-* Fri Mar 22 2024 M3DZIK <me@medzik.dev> - 1.32.118-1
-- Update to 1.32.118
-
-* Sat Mar 09 2024 M3DZIK <me@medzik.dev> - 1.31.107-1
-- Update to 1.31.107
-
-* Tue Mar 05 2024 M3DZIK <me@medzik.dev> - 1.31.102-1
-- Update to 1.31.102
-
-* Fri Mar 01 2024 M3DZIK <me@medzik.dev> - 1.31.99-1
-- Update to 1.31.99
-
-* Mon Feb 19 2024 M3DZIK <me@medzik.dev> - 1.30.83
-- Initial release
+%{_metainfodir}/%{name}.metainfo.xml

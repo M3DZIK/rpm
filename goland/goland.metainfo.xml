@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>com.jetbrains.GoLand</id>
+    <name>GoLand</name>
+    <summary>Capable and Ergonomic Go IDE</summary>
+    <description>
+        <p>GoLand is a cross-platform IDE built specially for Go developers</p>
+        <p>
+            GoLand is available for a free 30-day evaluation. Monthly and yearly subscription options are
+            available for companies and individual users.
+        </p>
+    </description>
+    <screenshots>
+        <screenshot type="default">
+            <image>https://github.com/user-attachments/assets/f0d84c22-860b-41d7-928a-68c5fb4e20af</image>
+        </screenshot>
+        <screenshot>
+            <image>https://github.com/user-attachments/assets/94350bca-5cdd-45bd-a374-9e3a675d4646</image>
+        </screenshot>
+        <screenshot>
+            <image>https://github.com/user-attachments/assets/8ad19b7e-03e0-46df-8294-622d9c945abf</image>
+        </screenshot>
+    </screenshots>
+    <provides>
+        <id>goland.desktop</id>
+    </provides>
+    <launchable type="desktop-id">goland.desktop</launchable>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>LicenseRef-proprietary</project_license>
+    <developer_name>JetBrains s.r.o.</developer_name>
+    <url type="homepage">https://www.jetbrains.com/goland/</url>
+    <url type="bugtracker">https://youtrack.jetbrains.com/</url>
+    <url type="help">https://www.jetbrains.com/help/goland/</url>
+    <content_rating type="oars-1.1"/>
+</component>

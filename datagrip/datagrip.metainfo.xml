@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>com.jetbrains.DataGrip</id>
+    <name>DataGrip</name>
+    <summary>IntelliJ-based IDE for databases and SQL</summary>
+    <description>
+        <p>
+            DataGrip is the multi-engine database environment. We support MySQL, PostgreSQL, Microsoft SQL Server, Microsoft
+            Azure, Oracle, Amazon Redshift, Sybase, DB2, SQLite, HyperSQL, Apache Derby and H2. If a DBMS has a JDBC driver
+            you can connect to it via DataGrip. For any of supported engines it provides database introspection and various
+            instruments for creating and modifying objects.
+        </p>
+        <p>
+            DataGrip is available for a free 30-day evaluation. Monthly and yearly subscription options are available for
+            companies and individual users.
+        </p>
+    </description>
+    <screenshots>
+        <screenshot type="default">
+            <image>https://github.com/user-attachments/assets/6a65f459-09ee-44c0-87b8-90d5f062ba05</image>
+        </screenshot>
+        <screenshot>
+            <image>https://github.com/user-attachments/assets/0e644f3c-d90c-4ec6-92cc-2b1444c71a6e</image>
+        </screenshot>
+    </screenshots>
+    <provides>
+        <id>datagrip.desktop</id>
+    </provides>
+    <launchable type="desktop-id">datagrip.desktop</launchable>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>LicenseRef-proprietary</project_license>
+    <developer_name>JetBrains s.r.o.</developer_name>
+    <url type="homepage">https://www.jetbrains.com/datagrip/</url>
+    <url type="bugtracker">https://youtrack.jetbrains.com/</url>
+    <url type="help">https://www.jetbrains.com/help/datagrip/</url>
+    <content_rating type="oars-1.1"/>
+</component>
