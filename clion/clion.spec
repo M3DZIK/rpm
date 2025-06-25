@@ -27,8 +27,10 @@ License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
 
 Source0: %{name}.desktop
+Source1: %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
+BuildRequires: libappstream-glib
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
 BuildRequires: wget
@@ -89,7 +91,12 @@ ln -s %{_datadir}/%{name}/bin/%{appname} %{buildroot}%{_bindir}/%{name}
 install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p %{SOURCE0} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
+# Installing metainfo...
+install -d %{buildroot}%{_metainfodir}
+install -m 0644 -p %{SOURCE1} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
+
 %check
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
@@ -99,6 +106,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+%{_metainfodir}/%{name}.metainfo.xml
 
 %files jbr
 %{_datadir}/%{name}/jbr

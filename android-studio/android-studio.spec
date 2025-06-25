@@ -97,6 +97,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/com.google.AndroidStudio.png
 %{_datadir}/icons/hicolor/scalable/apps/com.google.AndroidStudio.svg
+%{_metainfodir}/%{name}.metainfo.xml
 
 %files jbr
 %{_datadir}/%{name}/jbr
