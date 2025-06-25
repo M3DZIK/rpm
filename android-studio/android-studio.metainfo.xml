@@ -41,6 +41,5 @@
     <developer id="com.google">
         <name>Android Open Source Project</name>
     </developer>
-    <update_contact>idea@jetbrains.com</update_contact>
     <content_rating type="oars-1.1"/>
 </component>
