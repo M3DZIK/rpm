@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Aqua
-GenericName=The IDE for test automation
-Exec=aqua
-Terminal=false
-Icon=clion
-Type=Application
-Categories=Development;IDE;
-StartupWMClass=jetbrains-aqua
