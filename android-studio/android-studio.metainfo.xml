@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>com.google.AndroidStudio</id>
+    <name>Android Studio</name>
+    <summary>The official IDE for Google's Android platform</summary>
+    <description>
+        <p>Android Studio is the official Integrated Development Environment (IDE) for Android app development. Based on the powerful code editor and developer tools from IntelliJ IDEA, Android Studio offers even more features that enhance your productivity when building Android apps, such as:</p>
+        <ul>
+            <li>A flexible Gradle-based build system</li>
+            <li>A fast and feature-rich emulator</li>
+            <li>A unified environment where you can develop for all Android devices</li>
+            <li>Live Edit to update composables in emulators and physical devices in real time</li>
+            <li>Code templates and GitHub integration to help you build common app features and import sample code</li>
+            <li>Extensive testing tools and frameworks</li>
+            <li>Lint tools to catch performance, usability, version compatibility, and other problems</li>
+            <li>C++ and NDK support</li>
+            <li>Built-in support for Google Cloud Platform, making it easy to integrate Google Cloud Messaging and App Engine</li>
+        </ul>
+    </description>
+    <screenshots>
+        <screenshot type="default">
+            <image>https://github.com/user-attachments/assets/5fb4f4ec-3015-45a7-81a5-de0f942e3073</image>
+        </screenshot>
+        <screenshot>
+            <image>https://github.com/user-attachments/assets/a56f0f34-6450-4b63-adff-98b18f6ede3f</image>
+        </screenshot>
+        <screenshot>
+            <image>https://github.com/user-attachments/assets/5ed5fe95-c143-4426-816d-473674c59c2a</image>
+        </screenshot>
+    </screenshots>
+    <provides>
+        <id>android-studio.desktop</id>
+    </provides>
+    <launchable type="desktop-id">android-studio.desktop</launchable>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>Apache-2.0</project_license>
+    <url type="homepage">https://developer.android.com/studio/</url>
+    <url type="help">https://developer.android.com/</url>
+    <url type="bugtracker">https://issuetracker.google.com/components/192708</url>
+    <url type="vcs-browser">https://android.googlesource.com/platform/tools/base/+/studio-master-dev/source.md</url>
+    <developer id="com.google">
+        <name>Android Open Source Project</name>
+    </developer>
+    <update_contact>idea@jetbrains.com</update_contact>
+    <content_rating type="oars-1.1"/>
+</component>

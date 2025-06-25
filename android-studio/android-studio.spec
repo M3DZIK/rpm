@@ -21,8 +21,8 @@
 
 Name:    android-studio
 Version: 2025.1.1.13
-Release: 1%{?dist}
-Summary: Integrated development environment for Google's Android platform
+Release: 2%{?dist}
+Summary: The official IDE for Google's Android platform
 License: Apache-2.0
 URL:     https://developer.android.com/%{appname}/
 
@@ -31,6 +31,7 @@ Source0:   https://dl.google.com/android/studio/ide-zips/%{version}/android-stud
 Source101: %{name}.desktop
 
 BuildRequires: desktop-file-utils
+BuildRequires: libappstream-glib
 BuildRequires: python3-devel
 BuildRequires: javapackages-filesystem
 
@@ -39,10 +40,7 @@ Requires:      javapackages-filesystem
 Requires:      %{name}-jbr = %{version}-%{release}
 
 %description
-Official Integrated Development Environment (IDE) for developing
-applications. The IDE is based on IntelliJ IDEA, and provides
-features on top of its powerful code editor and developer tools
-to enhance the productivity of the Android application developers
+The official IDE for Android app development now accelerates your productivity with Gemini in Android Studio, your AI-powered coding companion.
 
 %package jbr
 Summary:  JetBrains Runtime
@@ -83,7 +81,12 @@ ln -s %{_datadir}/%{name}/bin/%{appname} %{buildroot}%{_bindir}/%{name}
 install -d %{buildroot}%{_datadir}/applications
 install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
+# Installing metainfo...
+install -d %{buildroot}%{_metainfodir}
+install -m 0644 -p %{SOURCE1} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
+
 %check
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
@@ -96,97 +99,3 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files jbr
 %{_datadir}/%{name}/jbr
-
-%changelog
-* Tue Jun 24 2025 M3DZIK <me@medzik.dev> - 2025.1.1.13-1
-- Update to 2025.1.1.13
-
-* Thu May 29 2025 M3DZIK <me@medzik.dev> - 2024.3.2.15-1
-- Update to 2024.3.2.15
-
-* Tue May 06 2025 M3DZIK <me@medzik.dev> - 2024.3.2.14-1
-- Update to 2024.3.2.14
-
-* Mon Apr 21 2025 M3DZIK <me@medzik.dev> - 2024.3.1.15-1
-- Update to 2024.3.1.15
-
-* Mon Mar 24 2025 M3DZIK <me@medzik.dev> - 2024.3.1.14-1
-- Update to 2024.3.1.14
-
-* Tue Mar 04 2025 M3DZIK <me@medzik.dev> - 2024.3.1.13-1
-- Update to 2024.3.1.13
-
-* Wed Feb 26 2025 M3DZIK <me@medzik.dev> - 2024.2.2.15-1
-- Update to 2024.2.2.15
-
-* Thu Feb 13 2025 M3DZIK <me@medzik.dev> - 2024.2.2.14-1
-- Update to 2024.2.2.14
-
-* Thu Jan 09 2025 M3DZIK <me@medzik.dev> - 2024.2.2.13-1
-- Update to 2024.2.2.13
-
-* Mon Dec 02 2024 M3DZIK <me@medzik.dev> - 2024.2.1.12-1
-- Update to 2024.2.1.12
-
-* Fri Nov 01 2024 M3DZIK <me@medzik.dev> - 2024.2.1.11-1
-- Update to 2024.2.1.11
-
-* Mon Oct 14 2024 M3DZIK <me@medzik.dev> - 2024.2.1.10-1
-- Update to 2024.2.1.10
-
-* Tue Oct 01 2024 M3DZIK <me@medzik.dev> - 2024.2.1.9-1
-- Update to 2024.2.1.9
-
-* Thu Sep 19 2024 M3DZIK <me@medzik.dev> - 2024.1.2.13-1
-- Update to 2024.1.2.13
-
-* Thu Aug 29 2024 M3DZIK <me@medzik.dev> - 2024.1.2.12-1
-- Update to 2024.1.2.12
-
-* Fri Aug 09 2024 M3DZIK <me@medzik.dev> - 2024.1.1.13-1
-- Update to 2024.1.1.13
-
-* Fri Jul 12 2024 M3DZIK <me@medzik.dev> - 2024.1.1.12-1
-- Update to 2024.1.1.12
-
-* Thu Jun 13 2024 M3DZIK <me@medzik.dev> - 2024.1.1.11-1
-- Update to 2024.1.1.11
-
-* Mon Jun 10 2024 M3DZIK <me@medzik.dev> - 2023.3.1.20-1
-- Update to 2023.3.1.20
-
-* Mon May 20 2024 M3DZIK <me@medzik.dev> - 2023.3.1.19-1
-- Update to 2023.3.1.19
-
-* Tue Apr 30 2024 M3DZIK <me@medzik.dev> - 2023.3.1.18-1
-- Update to 2023.3.1.18
-
-* Wed Apr 10 2024 M3DZIK <me@medzik.dev> - 2023.2.1.25-1
-- Update to 2023.2.1.25
-
-* Mon Mar 18 2024 M3DZIK <me@medzik.dev> - 2023.2.1.24-1
-- Update to 2023.2.1.24
-
-* Fri Mar 01 2024 M3DZIK <me@medzik.dev> - 2023.2.1.23-1
-- Update to 2023.2.1.23
-
-* Wed Jan 24 2024 M3DZIK <me@medzik.dev> - 2023.1.1.28-1
-- Update to 2023.1.1.28
-
-* Thu Jan 04 2024 M3DZIK <me@medzik.dev> - 2023.1.1.27-1
-- Update to 2023.1.1.27
-
-* Fri Dec 01 2023 M3DZIK <me@medzik.dev> - 2023.1.1.26-1
-- Update to 2023.1.1.26
-
-* Fri Nov 17 2023 M3DZIK <me@medzik.dev> - 2022.3.1.22-1
-- Update to 2022.3.1.22
-
-* Wed Nov 08 2023 M3DZIK <me@medzik.dev> - 2022.3.1.21
-- Update to 2022.3.1.21
-
-* Fri Sep 29 2023 M3DZIK <me@medzik.dev> - 2022.3.1.20
-- Update to 2022.3.1.20
-
-* Thu Aug 31 2023 M3DZIK <me@medzik.dev> - 2022.3.1.19
-- Initial release
