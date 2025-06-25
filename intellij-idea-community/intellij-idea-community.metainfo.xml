@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>com.jetbrains.IntelliJ-IDEA-Community</id>
+    <name>IntelliJ IDEA Community</name>
+    <summary>Leading Java and Kotlin editor</summary>
+    <description>
+        <p>
+            IntelliJ IDEA Community is a free and open-source edition of IntelliJ IDEA, the commercial Java IDE by JetBrains.
+            IntelliJ IDEA Community provides all the tools you need for Java, Groovy, Kotlin, Scala, and Android.
+        </p>
+    </description>
+    <provides>
+        <id>intellij-idea-community.desktop</id>
+    </provides>
+    <launchable type="desktop-id">intellij-idea-community.desktop</launchable>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>Apache-2.0</project_license>
+    <developer_name>JetBrains s.r.o.</developer_name>
+    <screenshots>
+        <screenshot type="default">
+            <image>https://github.com/user-attachments/assets/8b1e1cbf-5cca-4abe-bba0-a021b9564280</image>
+        </screenshot>
+        <screenshot>
+            <image>https://github.com/user-attachments/assets/ec9734c0-fb51-4c85-bb40-47378fe4a460</image>
+        </screenshot>
+        <screenshot>
+            <image>https://github.com/user-attachments/assets/6ba5cb7f-9500-41e7-a4b8-6accef1ef08d</image>
+        </screenshot>
+    </screenshots>
+    <url type="homepage">https://www.jetbrains.com/idea/</url>
+    <url type="vcs-browser">https://github.com/JetBrains/intellij-community</url>
+    <url type="bugtracker">https://youtrack.jetbrains.com/</url>
+    <url type="help">https://www.jetbrains.com/help/idea/</url>
+    <developer_name>JetBrains s.r.o.</developer_name>
+    <update_contact>idea@jetbrains.com</update_contact>
+    <content_rating type="oars-1.1"/>
+</component>

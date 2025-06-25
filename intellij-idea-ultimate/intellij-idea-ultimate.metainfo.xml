@@ -26,10 +26,13 @@
     <developer_name>JetBrains s.r.o.</developer_name>
     <screenshots>
         <screenshot type="default">
-            <image>https://resources.jetbrains.com/help/img/idea/2024.1/new_ui_dark_theme.png</image>
+            <image>https://github.com/user-attachments/assets/8b1e1cbf-5cca-4abe-bba0-a021b9564280</image>
         </screenshot>
         <screenshot>
-            <image>https://resources.jetbrains.com/help/img/idea/2024.1/new_ui_light_theme.png</image>
+            <image>https://github.com/user-attachments/assets/ec9734c0-fb51-4c85-bb40-47378fe4a460</image>
+        </screenshot>
+        <screenshot>
+            <image>https://github.com/user-attachments/assets/6ba5cb7f-9500-41e7-a4b8-6accef1ef08d</image>
         </screenshot>
     </screenshots>
     <url type="homepage">https://www.jetbrains.com/idea/</url>
