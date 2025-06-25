@@ -21,7 +21,7 @@
 
 Name:    goland
 Version: 2025.1.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Capable and Ergonomic Go IDE
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/

@@ -16,7 +16,7 @@
 
 Name:    jetbrains-fleet
 Version: 1.48.261
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Next-generation IDE by JetBrains
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/

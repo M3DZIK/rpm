@@ -20,7 +20,7 @@
 
 Name:    datagrip
 Version: 2025.1.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A powerful tool for relational and NoSQL databases
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
