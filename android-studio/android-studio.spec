@@ -29,6 +29,7 @@ URL:     https://developer.android.com/%{appname}/
 Source0:   https://dl.google.com/android/studio/ide-zips/%{version}/android-studio-%{version}-linux.tar.gz
 
 Source101: %{name}.desktop
+Source102: %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
@@ -83,7 +84,7 @@ install -m 0644 -p %{SOURCE101} %{buildroot}%{_datadir}/applications/%{name}.des
 
 # Installing metainfo...
 install -d %{buildroot}%{_metainfodir}
-install -m 0644 -p %{SOURCE1} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
+install -m 0644 -p %{SOURCE102} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml

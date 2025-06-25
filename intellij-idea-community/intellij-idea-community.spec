@@ -29,6 +29,7 @@ License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
 
 Source0: %{name}.desktop
+Source1: %{name}.metainfo.xml
 
 BuildRequires: desktop-file-utils
 BuildRequires: libappstream-glib
