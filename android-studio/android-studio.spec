@@ -20,8 +20,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    android-studio
-Version: 2025.1.1.13
-Release: 3%{?dist}
+Version: 2025.1.1.14
+Release: 1%{?dist}
 Summary: The official IDE for Google's Android platform
 License: Apache-2.0
 URL:     https://developer.android.com/%{appname}/
