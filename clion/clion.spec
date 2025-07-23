@@ -20,8 +20,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    clion
-Version: 2025.1.3
-Release: 2%{?dist}
+Version: 2025.1.4
+Release: 1%{?dist}
 Summary: A cross-platform IDE for C and C++
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
