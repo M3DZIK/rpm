@@ -20,8 +20,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    goland
-Version: 2025.1.3
-Release: 2%{?dist}
+Version: 2025.1.4
+Release: 1%{?dist}
 Summary: Capable and Ergonomic Go IDE
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
