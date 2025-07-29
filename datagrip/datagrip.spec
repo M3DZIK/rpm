@@ -19,8 +19,8 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    datagrip
-Version: 2025.1.3
-Release: 2%{?dist}
+Version: 2025.2
+Release: 1%{?dist}
 Summary: A powerful tool for relational and NoSQL databases
 License: Commercial
 URL:     https://www.jetbrains.com/%{appname}/
