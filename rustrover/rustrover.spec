@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    rustrover
-Version: 2025.1.5
+Version: 2025.2
 Release: 1%{?dist}
 Summary: A powerhouse IDE for Rust developers
 License: Commercial
