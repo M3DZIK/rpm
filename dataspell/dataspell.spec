@@ -1,5 +1,5 @@
 %global appname dataspell
-%global build_ver 251.26927.91
+%global build_ver 252.23892.514
 
 # disable debuginfo subpackage
 %global debug_package %{nil}
@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    dataspell
-Version: 2025.1.2.1
+Version: 2025.2
 Release: 1%{?dist}
 Summary: Python IDE for data scientists
 License: Commercial
