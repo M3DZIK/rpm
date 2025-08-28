@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    clion
-Version: 2025.2
+Version: 2025.2.1
 Release: 1%{?dist}
 Summary: A cross-platform IDE for C and C++
 License: Commercial
