@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname gateway
-%global build_ver 252.23892.437
+%global build_ver 252.25557.133
 %global idea_name JetBrainsGateway
 
 # disable debuginfo subpackage
@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    jetbrains-gateway
-Version: 2025.2
+Version: 2025.2.1
 Release: 1%{?dist}
 Summary: Your single entry point to all remote development environments
 License: Commercial
