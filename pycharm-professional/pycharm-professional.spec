@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    pycharm-professional
-Version: 2025.2.1
+Version: 2025.2.1.1
 Release: 1%{?dist}
 Summary: Intelligent Python IDE - Professional
 License: Commercial
