@@ -80,9 +80,11 @@ target_file_pattern="${idea_target_dir}/${target_file_name}"
 
 %ifarch x86_64
 # Exclude aarch64 from search
-target_file=$(ls ${target_file_pattern} 2>/dev/null | grep -v 'aarch64' | head -n 1)
+# Exclude musl from both searches since libjvm.so in the musl archive
+# is linked to libc.musl-x86_64.so.1, which does ot exist in Fedora.
+target_file=$(ls ${target_file_pattern} 2>/dev/null | grep -E -v 'aarch64|musl' | head -n 1)
 %else
-target_file=$(ls ${target_file_pattern} 2>/dev/null | head -n 1)
+target_file=$(ls ${target_file_pattern} 2>/dev/null | grep -E -v 'musl' head -n 1)
 %endif
 
 mkdir -p "unpacked"
