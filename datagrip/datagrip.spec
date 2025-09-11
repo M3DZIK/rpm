@@ -19,7 +19,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    datagrip
-Version: 2025.2.2
+Version: 2025.2.3
 Release: 1%{?dist}
 Summary: A powerful tool for relational and NoSQL databases
 License: Commercial
