@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    goland
-Version: 2025.2.1.1
+Version: 2025.2.1.2
 Release: 1%{?dist}
 Summary: Capable and Ergonomic Go IDE
 License: Commercial
