@@ -23,7 +23,7 @@
 
 Name:    pycharm-community
 Version: 2025.2.1.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Intelligent Python IDE - Community
 License: Apache-2.0
 URL:     https://www.jetbrains.com/%{appname}/
