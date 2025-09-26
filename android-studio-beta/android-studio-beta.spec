@@ -20,7 +20,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    android-studio-beta
-Version: 2025.1.3.6
+Version: 2025.1.4.6
 Release: 1%{?dist}
 Summary: Integrated development environment for Google's Android platform - Beta Channel
 License: Apache-2.0
