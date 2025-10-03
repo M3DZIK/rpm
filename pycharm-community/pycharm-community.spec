@@ -1,6 +1,6 @@
 # setting some global constants
 %global appname pycharm
-%global build_ver 252.26199.168
+%global build_ver 252.26830.99
 %global idea_name pycharmPC
 
 # disable debuginfo subpackage
@@ -22,7 +22,7 @@
 %global __requires_exclude_from %{_exclude_from}
 
 Name:    pycharm-community
-Version: 2025.2.2
+Version: 2025.2.3
 Release: 1%{?dist}
 Summary: Intelligent Python IDE - Community
 License: Apache-2.0
